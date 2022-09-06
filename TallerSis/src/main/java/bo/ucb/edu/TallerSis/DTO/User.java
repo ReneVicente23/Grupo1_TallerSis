@@ -17,15 +17,6 @@ public class User {
         this.type_user_typeid = type_user_typeid;
     }
 
-    public User() {
-        this.id_user = 0;
-        this.name = "";
-        this.last_name = "";
-        this.phone = "";
-        this.mail = "";
-        this.type_user_typeid = 0;
-    }
-
     public Integer getId_user() {
         return id_user;
     }
