@@ -16,7 +16,7 @@ public class AddressBL {
         this.addressDAO = addressDAO;
     }
 
-    public List<Address> findAddress(Long Id) {
+    public List<Address> findAddress(Integer Id) {
         Integer id= Math.toIntExact(Id);
         List<Address> result =addressDAO.findAddress(id);
         return result;
