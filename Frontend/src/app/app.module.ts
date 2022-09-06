@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { MapComponent } from './map/map.component';
+import { MapformComponent } from './mapform/mapform.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { RegisterComponent } from './register/register.component';
     HomeComponent,
     CartPageComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MapComponent,
+    MapformComponent
   ],
   imports: [
     BrowserModule,
