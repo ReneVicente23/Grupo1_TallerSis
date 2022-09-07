@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.sql.DataSource;
 
 @SpringBootApplication
-@MapperScan("bo.edu.ucb.TallerSis.DAO")
+@MapperScan("bo.ucb.edu.TallerSis.DAO")
 public class TallerSisApplication {
 	//Para la bd
 	@Bean
