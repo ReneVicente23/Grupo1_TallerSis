@@ -1,17 +1,22 @@
 <header>
 <div class="container">
-    <a href="#" routerLink="/" class="logo">Grupo 1</a>
-    <nav>
-        <ul>
-            <li>
-                <a href="#" routerLink="/cart">
-                    Cart
-                </a>
-                <a href="#" routerLink="/login">
-                    Login
-                </a>
-            </li>
-        </ul>
-    </nav>
+  <mat-toolbar color="primary">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <a href="/login" mat-menu-item>
+        <mat-icon>account_box</mat-icon>
+        <span>Login</span>
+      </a>
+      <a href="/cart" mat-menu-item>
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Cart</span>
+      </a>
+    </mat-menu>
+  </span>
+    <span class="fill-remaining-space">Grupo 1</span>
+  </mat-toolbar>
 </div>
 </header>
