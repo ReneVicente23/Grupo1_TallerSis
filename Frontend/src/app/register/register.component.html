@@ -1,0 +1,48 @@
+<div class="login">
+    <form class="custom-form" method="post">
+      <h1>Register</h1>
+      <input
+        type="name"
+        name="name"
+        placeholder="Name"
+        required="required"
+      />
+      <input
+        type="last_name"
+        name="last_name"
+        placeholder="Last_Name"
+        required="required"
+      />
+      <input
+        type="phone"
+        name="phone"
+        placeholder="Phone"
+        required="required"
+      />
+      
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required="required"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required="required"
+      />
+      <select class="TypeUser">
+        <option value="value1">Admin</option>
+        <option value="value2" selected>Client</option>
+        <option value="value3" >Supplier</option>
+      </select>
+      <a routerLink=""> 
+        <button type="submit">Register</button>
+      </a>
+      <br>
+      <a routerLink=""> 
+        Cancelar
+      </a>
+    </form>
+  </div>
