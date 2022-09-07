@@ -1,0 +1,14 @@
+### BUSQUEDA POR 1 ID PARA COORDENADAS
+GET http://localhost:8080/coordinate/1
+### TODOS LAS COORDENADAS REGISTRADAS
+GET http://localhost:8080/coordinate
+### ENDPOINT PARA REGISTRAR UNA NUEVA COORDENADA
+POST http://localhost:8080/coodinate
+Content-Type: application/json
+Accept: application/json
+
+{
+  "id_coordinate": 1,
+  "latitude": -68.112658,
+  "lenght": -16.522917
+}
