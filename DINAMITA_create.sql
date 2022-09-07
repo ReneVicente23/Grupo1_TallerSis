@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-09-04 21:05:15.683
+-- Last modification date: 2022-09-07 15:52:59.599
 
 -- tables
 -- Table: address
@@ -18,6 +18,14 @@ CREATE TABLE business (
     name_business varchar(50)  NOT NULL,
     address_id_address int  NOT NULL,
     CONSTRAINT business_pk PRIMARY KEY (id_business)
+);
+
+-- Table: coordinate
+CREATE TABLE coordinate (
+    id_coordinate serial  NOT NULL,
+    latitude decimal(20,30)  NOT NULL,
+    length decimal(20,30)  NOT NULL,
+    CONSTRAINT coordinate_pk PRIMARY KEY (id_coordinate)
 );
 
 -- Table: delivery
@@ -95,8 +103,9 @@ CREATE TABLE user_address (
     id_user_address serial  NOT NULL,
     user_id_user int  NOT NULL,
     address_id_address int  NOT NULL,
-    status int  NOT NULL,
+    coordinate_id_coordinate int  NOT NULL,
     nickname varchar(50)  NOT NULL,
+    status int  NOT NULL,
     CONSTRAINT user_address_pk PRIMARY KEY (id_user_address)
 );
 
@@ -185,6 +194,14 @@ ALTER TABLE "order" ADD CONSTRAINT order_type_payment
 ALTER TABLE user_address ADD CONSTRAINT user_address_address
     FOREIGN KEY (address_id_address)
     REFERENCES address (id_address)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: user_address_coordinate (table: user_address)
+ALTER TABLE user_address ADD CONSTRAINT user_address_coordinate
+    FOREIGN KEY (coordinate_id_coordinate)
+    REFERENCES coordinate (id_coordinate)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
