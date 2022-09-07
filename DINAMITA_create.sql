@@ -96,6 +96,7 @@ CREATE TABLE user_address (
     user_id_user int  NOT NULL,
     address_id_address int  NOT NULL,
     status int  NOT NULL,
+    nickname varchar(50)  NOT NULL,
     CONSTRAINT user_address_pk PRIMARY KEY (id_user_address)
 );
 
