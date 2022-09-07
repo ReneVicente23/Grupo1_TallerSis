@@ -1,28 +1,5 @@
-header{
-    background-color: white;
-    padding: 0;
-    border-bottom: 1px solid #e63c3c;
-}
-a{
-    color:#e63c3c;
-}
-a:hover{
-    background-color: #e63c3c;
-    color: white;
-}
-.container{
-    margin: 0 auto;
-    display: flex;justify-content: space-between;
-}
-a.logo{
-    font-weight: bold;
-    padding: 1em;
-}
-nav ul{
-    list-style-type: none;
-    margin: 0;
-}
-nav ul li a{
-    padding: 1em;
-    display: inline-block;
+.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
 }

@@ -13,46 +13,16 @@
 	<form class="custom-form" method="post">
 		<h1>Adiciona tu dirección</h1>
 		<br>
-	<button onclick="findMe()">Mostrar ubicación</button>
-	<div id="map"></div>
-	
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0dZtV3rwam4pbgiPZJdSndRzEo38Y"></script>
-	<script>
-		function findMe(){
-			var output = document.getElementById('map');
-
-			// Verificar si soporta geolocalizacion
-			if (navigator.geolocation) {
-				output.innerHTML = "<p>Tu navegador soporta Geolocalizacion</p>";
-			}else{
-				output.innerHTML = "<p>Tu navegador no soporta Geolocalizacion</p>";
-			}
-
-			//Obtenemos latitud y longitud
-			function localizacion(posicion){
-
-				var latitude = posicion.coords.latitude;
-				var longitude = posicion.coords.longitude;
-
-				var imgURL = "https://maps.googleapis.com/maps/api/staticmap?center="+latitude+","+longitude+"&size=600x300&markers=color:red%7C"+latitude+","+longitude+"&key=AIzaSyC0dZtV3rwam4pbgiPZJdSndRzEo38Y";
-
-				output.innerHTML ="<img src='"+imgURL+"'>";
-
-				
-
-			}
-
-			function error(){
-				output.innerHTML = "<p>No se pudo obtener tu ubicación</p>";
-
-			}
-
-			navigator.geolocation.getCurrentPosition(localizacion,error);
-
-		}
-
-
-	</script>
+		<div id="floating-panel">
+			<!-- Supply a default place ID for a place in Brooklyn, New York. -->
+			<input id="place-id" type="text" value="ChIJd8BlQ2BZwokRAFUEcm_qrcA" />
+			<input id="submit" type="button" value="Get Address for Place ID" />
+		  </div>
+		  <div id="map"></div>
+		  <script
+			src="https://maps.googleapis.com/maps/api/geocode/json?new_forward_geocoder=true&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCSXeuxE5zD_CLl8PrxaYg3mtSh37mXK4o"
+			defer
+		  ></script>
 	<a routerLink="/mapform"> 
         Registrar de forma manual
       </a>
