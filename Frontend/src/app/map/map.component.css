@@ -61,3 +61,11 @@ h1 {
     border: 0 none;
     background: #ebf5fc;
   }
+  
+  #floating-panel {
+    width: 440px;
+  }
+  
+  #place-id {
+    width: 250px;
+  }
