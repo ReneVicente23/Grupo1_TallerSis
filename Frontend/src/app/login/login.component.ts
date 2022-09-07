@@ -43,10 +43,10 @@ import { FormGroup, FormControl } from '@angular/forms';
         margin: 100px 0;
       }
 
-     /* .mat-form-field {
+      mat-form-field {
         width: 100%;
         min-width: 300px;
-      }*/
+      }
 
       mat-card-title,
       mat-card-content {
