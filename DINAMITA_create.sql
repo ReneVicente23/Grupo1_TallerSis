@@ -23,8 +23,8 @@ CREATE TABLE business (
 -- Table: coordinate
 CREATE TABLE coordinate (
     id_coordinate serial  NOT NULL,
-    latitude decimal(20,30)  NOT NULL,
-    length decimal(20,30)  NOT NULL,
+    latitude decimal(20,10)  NOT NULL,
+    length decimal(20,10)  NOT NULL,
     CONSTRAINT coordinate_pk PRIMARY KEY (id_coordinate)
 );
 
