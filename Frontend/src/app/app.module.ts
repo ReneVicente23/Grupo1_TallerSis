@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from "@angular/material/card";
 import { MatSelectModule } from "@angular/material/select";
 import { MatInputModule } from "@angular/material/input";
+import { ListdirectionComponent } from './listdirection/listdirection.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatInputModule } from "@angular/material/input";
     LoginComponent,
     RegisterComponent,
     MapComponent,
-    MapformComponent
+    MapformComponent,
+    ListdirectionComponent
   ],
   imports: [
     BrowserModule,
