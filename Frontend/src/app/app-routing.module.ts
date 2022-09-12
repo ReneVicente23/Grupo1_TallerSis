@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { MapComponent } from './map/map.component';
 import { MapformComponent } from './mapform/mapform.component';
+import { ListdirectionComponent } from './listdirection/listdirection.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'map', component:MapComponent},
-  {path:'mapform', component:MapformComponent}
+  {path:'mapform', component:MapformComponent},
+  {path:'listdirection',component:ListdirectionComponent}
 ];
 
 @NgModule({
