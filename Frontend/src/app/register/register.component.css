@@ -54,3 +54,16 @@ h1 {
     border: 0 none;
     background: #ebf5fc;
   }
+  .container a {
+    color: #FF0000;
+    text-decoration: none;
+  }
+  a.button {
+    text-decoration: none; 
+    color: black;
+  }
+  a:link, a:visited,  a:hover, a:active
+{
+    color: #000000;
+    text-decoration: none;
+}

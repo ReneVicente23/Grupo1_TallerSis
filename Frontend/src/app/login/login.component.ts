@@ -6,28 +6,31 @@ import { FormGroup, FormControl } from '@angular/forms';
   selector: 'my-login-form',
   template: `
       <mat-card>
-            <mat-card-title>Login</mat-card-title>
+            
       <mat-card-content>
-        <form [formGroup]="form" (ngSubmit)="submit()">
-          <p>
+        <form [formGroup]="form" (ngSubmit)="submit()" class="custom-form">
+        <mat-card-title>Login</mat-card-title> 
+            <p>
             <mat-form-field>
-              <input type="text" matInput placeholder="Username" formControlName="username">
+              <input type="text" matInput placeholder="Username" formControlName="username" class="custom-input">
             </mat-form-field>
-          </p>
-
-          <p>
+            </p>
+            
+            <p>
             <mat-form-field>
-              <input type="password" matInput placeholder="Password" formControlName="password">
+              <input type="password" matInput placeholder="Password" formControlName="password" class="custom-input">
             </mat-form-field>
-          </p>
+            </p>
 
           <p *ngIf="error" class="error">
             {{ error }}
           </p>
+          
 
           <div class="button">
-            <button type="submit" mat-button>Login</button>
+            <button type="submit" mat-button class="B1">Login</button>
             <a href="/register"  mat-button>Register</a>
+            
           </div>
 
 
@@ -37,10 +40,25 @@ import { FormGroup, FormControl } from '@angular/forms';
   `,
   styles: [
     `
+      .custom-form {
+        min-width: 300px;
+        max-width: 60%;
+        margin: 0px auto;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 2rem 3rem;
+        margin: auto;
+        border-radius: 2.5rem;
+        background-color: #ecf0f3;
+        box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+        color: black;
+        margin-top: 10rem;
+      }
+
       :host {
+        border: none;
         display: flex;
         justify-content: center;
-        margin: 100px 0;
+        margin: 50px 0;
       }
 
       mat-form-field {
@@ -61,9 +79,22 @@ import { FormGroup, FormControl } from '@angular/forms';
         background-color: red;
       }
 
-      .button {
-        display: flex;
-        justify-content: flex-end;
+      .mat-button {
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        border: none;
+        font-size: 0.875rem;
+        background-color: #fc4141;
+        padding: 0.875rem 1rem;
+        border-radius: 1.5rem;
+        box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+        cursor: pointer;
+        font-size: 0.875rem;
+        color: #ffffff;
+      }
+      .B1{
+        margin-right: 7px;
+        height: auto;
       }
     `,
   ],
