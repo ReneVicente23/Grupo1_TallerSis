@@ -13,7 +13,7 @@ interface users {
 
       <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="submit()" class="custom-form">
-        <mat-card-title>Login</mat-card-title>
+        <mat-card-title>Register</mat-card-title>
             <p>
             <mat-form-field>
               <input type="text" matInput placeholder="Name" formControlName="name" class="custom-input">
@@ -57,18 +57,27 @@ interface users {
             {{ error }}
           </p>
 
-
+          <a routerLink="/map"> 
           <div class="button">
             <button type="submit" mat-button class="B1">Register</button>
           </div>
-
-
+          </a>
+          <br>
+          <a routerLink="/login"> 
+               Cancelar
+          </a>
         </form>
       </mat-card-content>
     </mat-card>
   `,
   styles: [
     `
+      a:link, a:visited,  a:hover, a:active
+      {
+          color: #000000;
+          text-decoration: none;
+      }
+      
       .custom-form {
         min-width: 300px;
         max-width: 60%;
