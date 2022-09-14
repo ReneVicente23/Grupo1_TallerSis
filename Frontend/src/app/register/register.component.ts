@@ -59,9 +59,7 @@ interface users {
 
 
           <div class="button">
-            <button type="submit" mat-button class="B1">Login</button>
-            <a href="/register"  mat-button>Register</a>
-
+            <button type="submit" mat-button class="B1">Register</button>
           </div>
 
 
