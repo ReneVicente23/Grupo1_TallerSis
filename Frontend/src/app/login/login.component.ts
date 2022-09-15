@@ -6,16 +6,16 @@ import { FormGroup, FormControl } from '@angular/forms';
   selector: 'my-login-form',
   template: `
       <mat-card>
-            
+
       <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="submit()" class="custom-form">
-        <mat-card-title>Login</mat-card-title> 
+        <mat-card-title>Login</mat-card-title>
             <p>
             <mat-form-field>
               <input type="text" matInput placeholder="Username" formControlName="username" class="custom-input">
             </mat-form-field>
             </p>
-            
+
             <p>
             <mat-form-field>
               <input type="password" matInput placeholder="Password" formControlName="password" class="custom-input">
@@ -25,12 +25,12 @@ import { FormGroup, FormControl } from '@angular/forms';
           <p *ngIf="error" class="error">
             {{ error }}
           </p>
-          
+
 
           <div class="button">
             <button type="submit" mat-button class="B1">Login</button>
             <a href="/register"  mat-button>Register</a>
-            
+
           </div>
 
 

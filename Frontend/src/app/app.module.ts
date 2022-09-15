@@ -21,6 +21,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatSelectModule } from "@angular/material/select";
 import { MatInputModule } from "@angular/material/input";
 import { ListdirectionComponent } from './listdirection/listdirection.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { ListdirectionComponent } from './listdirection/listdirection.component'
     MatCardModule,
     MatSelectModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatRadioModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

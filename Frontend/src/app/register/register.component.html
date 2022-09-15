@@ -1,48 +1,46 @@
-<div class="register">
-    <form class="custom-form" method="post">
-      <h1>Register</h1>
-      <input
-        type="name"
-        name="name"
-        placeholder="Name"
-        required="required"
-      />
-      <input
-        type="last_name"
-        name="last_name"
-        placeholder="Last_Name"
-        required="required"
-      />
-      <input
-        type="phone"
-        name="phone"
-        placeholder="Phone"
-        required="required"
-      />
-      
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <select class="TypeUser">
-        <option value="value1">Admin</option>
-        <option value="value2" selected>Client</option>
-        <option value="value3" >Supplier</option>
-      </select>
-      <a routerLink=""> 
-        <button type="submit" >Register</button>
-      </a>
-      <br>
-      <a routerLink="/login"> 
-        Cancelar
-      </a>
-    </form>
-  </div>
+<form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title>
+        Register a New Profile <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
+                                  [ngClass]="{'invalid': ngForm.submitted }">* required</span>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="firstName" matInput placeholder="First name">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="lastName" matInput placeholder="Last name">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="phoneNumber" matInput placeholder="Phone Number">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="mail" matInput placeholder="eMail">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="standard" class="full-width">
+            <mat-label>Select User Type</mat-label>
+            <mat-select formControlName="userType">
+              <mat-option value="one">First option</mat-option>
+              <mat-option value="two">Second option</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="saveForm()" mat-raised-button color="primary">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
