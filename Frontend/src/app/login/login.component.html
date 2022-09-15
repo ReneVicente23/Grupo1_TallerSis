@@ -24,7 +24,7 @@
           </span>
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Password</mat-label>
-          <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+          <input formControlName="password" matInput [type]=" hide ? 'text' : 'password'" required />
           <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
                    [attr.aria-pressed]="hide">
             <mat-icon>
@@ -36,7 +36,7 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <button mat-flat-button color="primary">Login</button>
+      <button mat-flat-button color="primary" >Login</button>
     </form>
 
     <div class="button-row">

@@ -1,46 +1,100 @@
 <form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
   <mat-card class="register-card">
-    <mat-card-header>
-      <mat-card-title>
-        Register a New Profile <span *ngIf="ngForm.submitted && !profileForm.valid" class="small-font"
-                                  [ngClass]="{'invalid': ngForm.submitted }">* required</span>
-      </mat-card-title>
-    </mat-card-header>
     <mat-card-content>
+      <div class="header">
+        <P>Create a New Account </P>
+      </div>
       <div class="row">
         <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="firstName" matInput placeholder="First name">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input
+              formControlName="firstName"
+              matInput placeholder="Enter Your First name">
+            <mat-error *ngIf="!profileForm.controls['firstName'].valid">
+              First Name is required
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="lastName" matInput placeholder="Last name">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input
+              formControlName="lastName"
+              matInput placeholder="Enter Your Last name">
+            <mat-error *ngIf="!profileForm.controls['lastName'].valid">
+              Last Name is required
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="phoneNumber" matInput placeholder="Phone Number">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password (At least 6 characters)</mat-label>
+            <input formControlName="password" matInput [type]=" hide ? 'text' : 'password'" required />
+            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+                     [attr.aria-pressed]="hide">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!profileForm.controls['password'].valid">
+              Password is required
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
-          <mat-form-field class="full-width">
-            <input formControlName="mail" matInput placeholder="eMail">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Confirm Password</mat-label>
+            <input formControlName="confirm_password" matInput [type]=" hide ? 'text' : 'password'" required />
+            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+                     [attr.aria-pressed]="hide">
+              <mat-icon>
+                {{hide ? 'visibility_off' : 'visibility'}}
+              </mat-icon>
+            </button>
+            <mat-error *ngIf="!profileForm.controls['password'].valid">
+              Password and confirm password must be match.
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="col-md-6">
-          <mat-form-field appearance="standard" class="full-width">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input
+              formControlName="phoneNumber"
+              matInput placeholder="Enter Your Phone Number">
+            <mat-error *ngIf="!profileForm.controls['phoneNumber'].valid">
+              Phone Number is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input
+              formControlName="mail"
+              matInput placeholder="Enter Your E-mail">
+            <mat-error *ngIf="!profileForm.controls['mail'].valid">
+              E-mail is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field appearance="outline" class="full-width">
             <mat-label>Select User Type</mat-label>
             <mat-select formControlName="userType">
               <mat-option value="one">First option</mat-option>
               <mat-option value="two">Second option</mat-option>
             </mat-select>
+            <mat-error *ngIf="!profileForm.controls['userType'].valid">
+              You need to select one option.
+            </mat-error>
           </mat-form-field>
         </div>
       </div>
     </mat-card-content>
-    <mat-card-actions>
-      <button (click)="saveForm()" mat-raised-button color="primary">Save</button>
+    <mat-card-actions align="end">
+      <button (click)="saveForm()" mat-flat-button color="primary">Save</button>
     </mat-card-actions>
   </mat-card>
 </form>

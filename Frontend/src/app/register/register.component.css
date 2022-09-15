@@ -9,7 +9,10 @@
 .margin-left mat-radio-button:not(:first-child){
   margin-left:10px;
 }
+.header{
+  text-align: center;
 
+}
 .form-container{
   margin: 100px;
 }
@@ -24,3 +27,9 @@
   max-width: 290px;
   margin: auto auto;
 }
+button{
+  position: center;
+}
+
+
+
