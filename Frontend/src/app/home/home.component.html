@@ -1,21 +1,20 @@
 <ul>
-    <li *ngFor="let food of foods">
-        <a>
-            <img src="{{food.imageUrl}}" alt="food images">
-            <div class="content">
-                <div class="name">
-                    {{food.name}}
-                </div>
-            </div>
-            <div class="product-item-footer">
-                <div class="price">
-                    {{food.price|currency}}
-                </div>
-            </div>
-            <br>
-            <button>Add to cart</button>
-            <br>
-        </a>
-        
-    </li>
+  <li *ngFor="let food of foods">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{food.name}}</mat-card-title>
+        <mat-card-subtitle>{{food.cookTime}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{food.imageUrl}}" alt="Food Image">
+      <mat-card-content>
+        <p>{{food.description}}</p>
+      </mat-card-content>
+      <mat-card-title>{{food.price|currency}}</mat-card-title>
+      <mat-card-actions>
+        <button mat-button>Add to Cart</button>
+      </mat-card-actions>
+    </mat-card>
+  </li>
 </ul>
+
