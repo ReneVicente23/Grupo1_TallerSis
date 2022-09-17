@@ -1,7 +1,9 @@
 <mat-card class="login-card">
   <mat-card-content>
     <div class="header">
-      <P>Sign Into Your Account </P>
+      <P style="font-weight: bolder;" class="title">
+        Sign Into Your Account
+      </P>
     </div>
     <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
       <div class="emailInput">
@@ -17,7 +19,6 @@
           </mat-error>
         </mat-form-field>
       </div>
-
       <div>
           <span>
             <a class="aLink" routerLink="/auth/forgot-password">Forgot Password?</a>
@@ -36,9 +37,9 @@
           </mat-error>
         </mat-form-field>
       </div>
-      <button mat-flat-button color="primary" >Login</button>
+      <br>
+      <button mat-flat-button class="buttonlogin">Login</button>
     </form>
-
     <div class="button-row">
       <a href="/register">Create New Account</a>
     </div>
