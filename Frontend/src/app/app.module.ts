@@ -23,6 +23,7 @@ import { MatInputModule } from "@angular/material/input";
 import { ListdirectionComponent } from './listdirection/listdirection.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRadioModule} from "@angular/material/radio";
+import { FoodpageComponent } from './foodpage/foodpage.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {MatRadioModule} from "@angular/material/radio";
     RegisterComponent,
     MapComponent,
     MapformComponent,
-    ListdirectionComponent
+    ListdirectionComponent,
+    FoodpageComponent
   ],
   imports: [
     BrowserModule,

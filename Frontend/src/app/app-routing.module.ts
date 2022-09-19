@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { MapComponent } from './map/map.component';
 import { MapformComponent } from './mapform/mapform.component';
 import { ListdirectionComponent } from './listdirection/listdirection.component';
+import { FoodpageComponent } from './foodpage/foodpage.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'map', component:MapComponent},
   {path:'mapform', component:MapformComponent},
-  {path:'listdirection',component:ListdirectionComponent}
+  {path:'listdirection',component:ListdirectionComponent},
+  {path: 'food/:id', component:FoodpageComponent}
 ];
 
 @NgModule({
