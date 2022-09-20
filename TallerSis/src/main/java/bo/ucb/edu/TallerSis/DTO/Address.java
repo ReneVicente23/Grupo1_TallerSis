@@ -54,4 +54,15 @@ public class Address {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id_address=" + id_address +
+                ", street='" + street + '\'' +
+                ", zone='" + zone + '\'' +
+                ", h_number='" + h_number + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }

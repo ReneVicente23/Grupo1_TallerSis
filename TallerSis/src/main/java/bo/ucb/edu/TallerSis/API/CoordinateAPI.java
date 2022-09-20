@@ -1,14 +1,39 @@
 package bo.ucb.edu.TallerSis.API;
 
 import bo.ucb.edu.TallerSis.BL.AddressBL;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import bo.ucb.edu.TallerSis.BL.CoordinateBL;
+import bo.ucb.edu.TallerSis.DTO.Address;
+import bo.ucb.edu.TallerSis.DTO.Coordinate;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@RestController
+@RequestMapping("/api/coordinate")
 public class CoordinateAPI
 {
-    @RestController
-    @RequestMapping("/api/coordinate")
-    public class AddressAPI {
-        private AddressBL addressBL;
+    private CoordinateBL coordinateBL;
+
+    public CoordinateAPI(CoordinateBL coordinateBL) {
+        this.coordinateBL = coordinateBL;
+    }
+
+    @PostMapping(path="/", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Coordinate insertcoordinate(@RequestBody Coordinate coordinate) {
+        coordinateBL.saveCoordinate(coordinate);
+        return coordinate;
+    }
+
+    @PostMapping(path="/search", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Coordinate searchcoordinate(@RequestBody Coordinate coordinate) {
+        Coordinate result= coordinateBL.findcoordianteparams(coordinate);
+        return result;
+    }
+
+    @GetMapping(path="/{id}", produces = APPLICATION_JSON_VALUE)
+    public Coordinate findcoordinateid(@PathVariable("id") Integer id) {
+        return coordinateBL.findcoordianteid(id);
     }
 }

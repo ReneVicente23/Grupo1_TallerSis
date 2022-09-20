@@ -23,7 +23,9 @@ public class AddressAPI {
     }
 
     @GetMapping(path="/{userid}/address/", produces = APPLICATION_JSON_VALUE)
-    public List<Address> findPetsbyUserid(@PathVariable("userid") Integer userid) {
+    public List<Address> findaddressapi(@PathVariable("userid") Integer userid) {
         return addressBL.findAddress(userid);
     }
+
+
 }
