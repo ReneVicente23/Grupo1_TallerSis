@@ -6,18 +6,7 @@ ul{
     list-style-type: none;
     padding: 0;
 }
-ul li a{
-    height: 22rem;
-    width: 20rem;
-    border: 1px solid whitesmoke;
-    border-radius: 1rem;
-    margin: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    color: #e72929;
-    font-weight:  bolder;
-}
+
 li a:hover{
     opacity: 0.9;
     cursor: pointer;
