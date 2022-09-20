@@ -8,6 +8,7 @@ import { MapComponent } from './map/map.component';
 import { MapformComponent } from './mapform/mapform.component';
 import { ListdirectionComponent } from './listdirection/listdirection.component';
 import { FoodpageComponent } from './foodpage/foodpage.component';
+import {AddressComponent} from "./address/address.component";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'map', component:MapComponent},
   {path:'mapform', component:MapformComponent},
   {path:'listdirection',component:ListdirectionComponent},
-  {path: 'food/:id', component:FoodpageComponent}
+  {path: 'food/:id', component:FoodpageComponent},
+  {path: 'address', component: AddressComponent}
 ];
 
 @NgModule({
