@@ -2,12 +2,8 @@ package bo.ucb.edu.TallerSis.API;
 
 
 import bo.ucb.edu.TallerSis.BL.AddressBL;
-import bo.ucb.edu.TallerSis.DAO.AddressDAO;
 import bo.ucb.edu.TallerSis.DTO.Address;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +23,20 @@ public class AddressAPI {
         return addressBL.findAddress(userid);
     }
 
+    @GetMapping(path="/address/{addressid}", produces = APPLICATION_JSON_VALUE)
+    public Address findaddressapiid(@PathVariable("addressid") Integer addressid) {
+        return addressBL.findAddressid(addressid);
+    }
+    @PostMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Address insertaddress(@RequestBody Address address) {
+        addressBL.saveAddress(address);
+        return address;
+    }
+
+    @PutMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Address updateaddress(@RequestBody Address address) {
+        addressBL.updateAddress(address);
+        return address;
+    }
 
 }
