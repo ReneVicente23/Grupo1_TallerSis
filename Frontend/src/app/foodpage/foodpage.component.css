@@ -44,9 +44,8 @@ button{
     border-radius: 10rem;
 }
 .food-card {
-  max-width: 1000px;
-  margin-bottom: 15px;
-  margin-right: 15px;
+  margin: 0 auto;
+  max-width: 700px;
 }
 
 .example-header-image {
