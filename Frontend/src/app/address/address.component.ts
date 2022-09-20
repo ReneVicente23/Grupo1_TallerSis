@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import {FormBuilder, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-address',
@@ -10,7 +11,7 @@ export class AddressComponent{
 
   hide: boolean = false;
 
-  constructor(private formBuilder:FormBuilder){}
+  constructor(private formBuilder:FormBuilder, private router:Router){}
   addressForm = this.formBuilder.group({
     street:['',[Validators.required]],
     zone:['',[Validators.required]],
@@ -22,6 +23,7 @@ export class AddressComponent{
   saveForm(){
     if(this.addressForm.valid){
       console.log('Profile form data :: ', this.addressForm.value);
+      this.router.navigateByUrl('/map');
     }
   }
 
