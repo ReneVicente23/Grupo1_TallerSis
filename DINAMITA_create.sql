@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-09-07 15:52:59.599
+-- Last modification date: 2022-09-20 22:04:35.877
 
 -- tables
 -- Table: address
@@ -23,8 +23,8 @@ CREATE TABLE business (
 -- Table: coordinate
 CREATE TABLE coordinate (
     id_coordinate serial  NOT NULL,
-    latitude decimal(20,10)  NOT NULL,
-    length decimal(20,10)  NOT NULL,
+    latitude decimal(20,30)  NOT NULL,
+    length decimal(20,30)  NOT NULL,
     CONSTRAINT coordinate_pk PRIMARY KEY (id_coordinate)
 );
 
@@ -32,8 +32,8 @@ CREATE TABLE coordinate (
 CREATE TABLE delivery (
     id_delivery serial  NOT NULL,
     user_address_id_user_address int  NOT NULL,
-    user_id_user int  NOT NULL,
     business_id_business int  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
     CONSTRAINT delivery_pk PRIMARY KEY (id_delivery)
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE dish (
     id_dish serial  NOT NULL,
     name varchar(50)  NOT NULL,
     description varchar(200)  NOT NULL,
-    cost money  NOT NULL,
+    cost decimal(10,2)  NOT NULL,
     business_id_business int  NOT NULL,
     CONSTRAINT dish_pk PRIMARY KEY (id_dish)
 );
@@ -50,7 +50,7 @@ CREATE TABLE dish (
 -- Table: order
 CREATE TABLE "order" (
     id_order serial  NOT NULL,
-    total_payment money  NOT NULL,
+    total_payment decimal(10,2)  NOT NULL,
     order_status_id_order_status int  NOT NULL,
     type_payment_id_typepay int  NOT NULL,
     delivery_id_delivery int  NOT NULL,
@@ -87,26 +87,26 @@ CREATE TABLE type_user (
     CONSTRAINT type_user_pk PRIMARY KEY (typeid)
 );
 
--- Table: user
-CREATE TABLE "user" (
-    id_user serial  NOT NULL,
+-- Table: user_address
+CREATE TABLE user_address (
+    id_user_address serial  NOT NULL,
+    address_id_address int  NOT NULL,
+    coordinate_id_coordinate int  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    nickname varchar(50)  NOT NULL,
+    status int  NOT NULL,
+    CONSTRAINT user_address_pk PRIMARY KEY (id_user_address)
+);
+
+-- Table: userapp
+CREATE TABLE userapp (
+    id_userapp serial  NOT NULL,
     name varchar(50)  NOT NULL,
     last_name varchar(50)  NOT NULL,
     phone varchar(50)  NOT NULL,
     mail varchar(50)  NOT NULL,
     type_user_typeid int  NOT NULL,
-    CONSTRAINT user_pk PRIMARY KEY (id_user)
-);
-
--- Table: user_address
-CREATE TABLE user_address (
-    id_user_address serial  NOT NULL,
-    user_id_user int  NOT NULL,
-    address_id_address int  NOT NULL,
-    coordinate_id_coordinate int  NOT NULL,
-    nickname varchar(50)  NOT NULL,
-    status int  NOT NULL,
-    CONSTRAINT user_address_pk PRIMARY KEY (id_user_address)
+    CONSTRAINT userapp_pk PRIMARY KEY (id_userapp)
 );
 
 -- foreign keys
@@ -126,18 +126,18 @@ ALTER TABLE delivery ADD CONSTRAINT delivery_business
     INITIALLY IMMEDIATE
 ;
 
--- Reference: delivery_user (table: delivery)
-ALTER TABLE delivery ADD CONSTRAINT delivery_user
-    FOREIGN KEY (user_id_user)
-    REFERENCES "user" (id_user)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
 -- Reference: delivery_user_address (table: delivery)
 ALTER TABLE delivery ADD CONSTRAINT delivery_user_address
     FOREIGN KEY (user_address_id_user_address)
     REFERENCES user_address (id_user_address)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: delivery_userapp (table: delivery)
+ALTER TABLE delivery ADD CONSTRAINT delivery_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -206,16 +206,16 @@ ALTER TABLE user_address ADD CONSTRAINT user_address_coordinate
     INITIALLY IMMEDIATE
 ;
 
--- Reference: user_address_user (table: user_address)
-ALTER TABLE user_address ADD CONSTRAINT user_address_user
-    FOREIGN KEY (user_id_user)
-    REFERENCES "user" (id_user)  
+-- Reference: user_address_userapp (table: user_address)
+ALTER TABLE user_address ADD CONSTRAINT user_address_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: user_type_user (table: user)
-ALTER TABLE "user" ADD CONSTRAINT user_type_user
+-- Reference: user_type_user (table: userapp)
+ALTER TABLE userapp ADD CONSTRAINT user_type_user
     FOREIGN KEY (type_user_typeid)
     REFERENCES type_user (typeid)  
     NOT DEFERRABLE 
