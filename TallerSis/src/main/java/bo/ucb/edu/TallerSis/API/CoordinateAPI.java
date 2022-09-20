@@ -24,16 +24,16 @@ public class CoordinateAPI
     public Coordinate insertcoordinate(@RequestBody Coordinate coordinate) {
         coordinateBL.saveCoordinate(coordinate);
         return coordinate;
-    }
+    }//tested
 
     @PostMapping(path="/search", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Coordinate searchcoordinate(@RequestBody Coordinate coordinate) {
         Coordinate result= coordinateBL.findcoordianteparams(coordinate);
         return result;
-    }
+    }//tested
 
     @GetMapping(path="/{id}", produces = APPLICATION_JSON_VALUE)
     public Coordinate findcoordinateid(@PathVariable("id") Integer id) {
         return coordinateBL.findcoordianteid(id);
-    }
+    }//tested
 }

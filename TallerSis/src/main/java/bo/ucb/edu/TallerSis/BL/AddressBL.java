@@ -22,14 +22,26 @@ public class AddressBL {
         return result;
     }
 
-
-    public void saveAddress(Address address, Long Id){
+    public Address findAddressid(Integer Id) {
         Integer id= Math.toIntExact(Id);
+        Address result =addressDAO.findAddressid(id);
+        return result;
+    }
+
+    public void saveAddress(Address address){
         String street=address.getStreet();
         String zone=address.getZone();
         String h_number=address.getH_number();
         String city=address.getCity();
-
         addressDAO.saveAddress(street,zone,h_number,city);
+    }
+
+    public void updateAddress(Address address){
+        Integer id=address.getId_address();
+        String street=address.getStreet();
+        String zone=address.getZone();
+        String h_number=address.getH_number();
+        String city=address.getCity();
+        addressDAO.updateAddress(id, street,zone,h_number,city);
     }
 }
