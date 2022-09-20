@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { FoodService } from '../services/food/food.service';
 import { Cart } from '../shared/models/Cart';
 import { CartItem } from '../shared/models/cartItem';
 
@@ -10,7 +11,11 @@ import { CartItem } from '../shared/models/cartItem';
 })
 export class CartPageComponent implements OnInit {
   cart!: Cart;
-  constructor(private cartService:CartService) {
+  constructor(private cartService:CartService, private foodService:FoodService) {
+    let foods = foodService.getAll();
+    cartService.addToCart(foods[1]);
+    cartService.addToCart(foods[3]);
+    cartService.addToCart(foods[5]);
     this.setCart();
   }
 
