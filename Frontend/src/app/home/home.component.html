@@ -1,6 +1,5 @@
 <ul>
   <li *ngFor="let food of foods">
-    <a routerLink="/food/{{food.id}}">
       <mat-card class="food-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
@@ -13,10 +12,9 @@
         </mat-card-content>
         <mat-card-title>{{food.price|currency}}</mat-card-title>
         <mat-card-actions align="end">
-          <button mat-button>Add to Cart</button>
+          <button mat-button routerLink="/food/{{food.id}}">See More Details</button>
         </mat-card-actions>
       </mat-card>
-    </a>
   </li>
 </ul>
 
