@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public interface AddressDAO {
     @Select("SELECT p.id_address, p.street, p.zone, p.h_number, p.city " +
-            "FROM address p JOIN user_address u  ON p.id_address = u.address_id_address WHERE u.userapp_id_userapp = #{userid}")
+            "FROM address p JOIN user_address u  ON p.id_address = u.address_id_address WHERE u.userapp_id_userapp = #{userid} AND u.status = 1")
     public List<Address> findAddress(@Param("userid") Integer id);
 
     @Select("SELECT id_address, street, zone, h_number, city " +
