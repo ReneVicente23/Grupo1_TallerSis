@@ -26,22 +26,12 @@ export class MapComponent implements OnInit {
       // @ts-ignore
       this.map = new google.maps.Map(document.getElementById("map"), {
         center: location,
-        zoom: 6,
+        zoom: 15,
         styles: styles
       })
-      const marker = new google.maps.Marker({
-        position: location,
-        map: this.map,
-        draggable: true
-      });
-      google.maps.event.addListener(marker, 'dragend', function(evt: { latLng: { lat: () => number; lng: () => number; }; }){
-        // @ts-ignore
-        document.getElementById('current').innerHTML = '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>';
-      });
-
-      google.maps.event.addListener(marker, 'dragstart', function(evt: { latLng: { lat: () => number; lng: () => number; }; }){
-        // @ts-ignore
-        document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+      google.maps.event.addListener(this.map, 'click', function(event: { latLng: any; }) {
+        const evt = event.latLng;
+        console.log('latitude:'+evt.lat()+'; longitude:'+evt.lng()+';');
       });
     })
   }
