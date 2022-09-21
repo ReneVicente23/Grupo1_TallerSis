@@ -30,16 +30,37 @@ export class MapComponent implements OnInit {
         styles: styles
       })
       google.maps.event.addListener(map, 'click', function(event: { latLng: any; }) {
+        var c = 0;
+        c++;
         const evt = event.latLng;
-        console.log('latitude:'+evt.lat()+'; longitude:'+evt.lng()+';');
+        console.log('latitude:'+evt.lat()+'; longitude:'+evt.lng()+';'+c);
+        
       });
+      var i = 1;
       google.maps.event.addListener(map, 'click', function(e: { [x: string]: any; }) {
-        const marker = new google.maps.Marker({
-          position: e["latLng"],
-          title:"Hello World!"
-        });
-        marker.setMap(map);
+        var marker;
+        var iMax=1;
+        if(i<=iMax){
+          marker = new google.maps.Marker({
+            position: e["latLng"],
+            title:"Hello World!"
+          });
+          marker.setMap(map);
+          i++;
+          
+        }else{
+          
+          console.log('you can only post',i-1,'markers');
+          
+        }
+        
+
+        
+        
       });
+
+
+      
 
     })
   }
