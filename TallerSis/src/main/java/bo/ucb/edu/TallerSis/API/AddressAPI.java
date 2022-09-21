@@ -21,22 +21,22 @@ public class AddressAPI {
     @GetMapping(path="/{userid}/address/", produces = APPLICATION_JSON_VALUE)
     public List<Address> findaddressapi(@PathVariable("userid") Integer userid) {
         return addressBL.findAddress(userid);
-    }
+    }//tested
 
     @GetMapping(path="/address/{addressid}", produces = APPLICATION_JSON_VALUE)
     public Address findaddressapiid(@PathVariable("addressid") Integer addressid) {
         return addressBL.findAddressid(addressid);
-    }
+    }//tested
     @PostMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Address insertaddress(@RequestBody Address address) {
         addressBL.saveAddress(address);
         return address;
-    }
+    }//tested
 
     @PutMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Address updateaddress(@RequestBody Address address) {
         addressBL.updateAddress(address);
         return address;
-    }
+    }//tested
 
 }
