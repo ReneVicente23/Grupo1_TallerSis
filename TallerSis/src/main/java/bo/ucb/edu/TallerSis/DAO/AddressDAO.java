@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public interface AddressDAO {
     @Select("SELECT p.id_address, p.street, p.zone, p.h_number, p.city " +
-            "FROM address p JOIN User_addres u  ON p.id_address = u.id_user_address WHERE u.user_id_user = #{userid}")
+            "FROM address p JOIN user_address u  ON p.id_address = u.address_id_address WHERE u.userapp_id_userapp = #{userid}")
     public List<Address> findAddress(@Param("userid") Integer id);
 
     @Select("SELECT id_address, street, zone, h_number, city " +
@@ -20,10 +20,10 @@ public interface AddressDAO {
     public Address findAddressid(@Param("addressid") Integer id);
 
     @Insert("INSERT INTO address(street, zone, h_number, city) " +
-            " VALUES ( #{street}, #{zone}, #{ h_number}, #{city}) ")
-    void saveAddress(@Param("street") String street,@Param("zone") String zone,@Param(" h_number") String  h_number,@Param("city") String city);
+            " VALUES ( #{street}, #{zone}, #{h_number}, #{city}) ")
+    void saveAddress(@Param("street") String street,@Param("zone") String zone,@Param("h_number") String  h_number,@Param("city") String city);
 
-    @Update("UPDATE address SET street= #{street}, zone= #{zone}, h_number= #{ h_number}, city=#{city} " +
+    @Update("UPDATE address SET street= #{street}, zone= #{zone}, h_number= #{h_number}, city=#{city} " +
             " WHERE id_address = #{id}")
-    void updateAddress(@Param("id") Integer id ,@Param("street") String street,@Param("zone") String zone,@Param(" h_number") String  h_number,@Param("city") String city);
+    void updateAddress(@Param("id") Integer id ,@Param("street") String street,@Param("zone") String zone,@Param("h_number") String  h_number,@Param("city") String city);
 }

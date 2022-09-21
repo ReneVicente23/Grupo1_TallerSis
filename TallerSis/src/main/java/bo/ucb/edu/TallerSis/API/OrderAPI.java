@@ -21,18 +21,18 @@ public class OrderAPI {
     @GetMapping(path="/bussines/{bussinesid}/", produces = APPLICATION_JSON_VALUE)
     public List<Order> findbybussines(@PathVariable("bussinesid") Integer id) {
         return orderBL.findOrdersbyBussines(id);
-    }
+    }//tested
 
     @PostMapping(path="/", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Order insertorder(@RequestBody Order order) {
         orderBL.saveOrder(order);
         return order;
-    }
+    }//tested
 
     @PutMapping(path="/cash", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Order updatestatuspay(@RequestBody Order order) {
-        orderBL.updateOrderStatus(order,2);
+        orderBL.updateOrderStatus(order,3);
         return order;
-    }
+    }//tested
 
 }
