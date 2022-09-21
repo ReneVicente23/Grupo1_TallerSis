@@ -1,7 +1,7 @@
 import { Loader } from '@googlemaps/js-api-loader';
 
 const loader = new Loader({
-  apiKey: "",
+  apiKey: "AIzaSyBpFai8SWsOdBRDNrhxVEG85RZhDABzLmQ",
   version: "weekly",
   libraries: ["places"]
 });
@@ -35,17 +35,18 @@ loader.loadCallback(e => {
 
 function initMap() {
     // The location of Uluru
-    const uluru = { lat: -25.344, lng: 131.031 };
+    const lapaz = { lat: -16.499721379876274, lng: -68.1378289887451 };
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 4,
-      center: uluru,
+      center: lapaz,
     });
     // The marker, positioned at Uluru
     const marker = new google.maps.Marker({
-      position: uluru,
+      position: lapaz,
       map: map,
     });
   }
-  
+
   window.initMap = initMap;
+
