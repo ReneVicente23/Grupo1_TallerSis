@@ -1,5 +1,5 @@
 <form [formGroup]="profileForm" #ngForm="ngForm" class="form-container">
-    <mat-card class="register-card">
+    <mat-card class="edit-card">
       <mat-card-content>
         <div class="header">
           <P  class="title">EDIT PROFILE </P>
@@ -63,6 +63,7 @@
         </div>
       </mat-card-content>
       <mat-card-actions align="end">
+        <button (click)="saveForm()" mat-flat-button class="buttonCancel">Cancel</button>
         <button (click)="saveForm()" mat-flat-button class="buttonSave">Save</button>
       </mat-card-actions>
       </mat-card>

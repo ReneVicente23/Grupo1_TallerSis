@@ -23,7 +23,7 @@
   .small-font{
     font-size: 12px;
   }
-  .register-card{
+  .edit-card{
     max-width: 2000px;
     margin: 2em auto;
     text-align: center;
@@ -56,5 +56,34 @@
     font-size: 3em;
     color: rgb(28, 28, 28);
     font-weight: bolder;
+  }
+  .buttonSave{
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #1f1f1f;
+    width: 10%;
+    display: block;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
+  .buttonCancel{
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #fc4141;
+    width: 10%;
+    padding: 0.875rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
   }
   
