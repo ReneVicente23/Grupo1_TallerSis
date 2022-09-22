@@ -9,6 +9,7 @@ import { MapformComponent } from './mapform/mapform.component';
 import { ListdirectionComponent } from './listdirection/listdirection.component';
 import { FoodpageComponent } from './foodpage/foodpage.component';
 import {AddressComponent} from "./address/address.component";
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path:'mapform', component:MapformComponent},
   {path:'listdirection',component:ListdirectionComponent},
   {path: 'food/:id', component:FoodpageComponent},
-  {path: 'address', component: AddressComponent}
+  {path: 'address', component: AddressComponent},
+  {path: 'user-profile', component: UserProfileComponent}
 ];
 
 @NgModule({

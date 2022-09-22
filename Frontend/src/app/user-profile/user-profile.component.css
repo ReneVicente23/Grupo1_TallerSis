@@ -1,0 +1,67 @@
+.full-width{
+    width: 100%;
+  }
+  
+  .top-padding{
+    padding-top: 3px;
+  }
+  
+  .margin-left mat-radio-button:not(:first-child){
+    margin-left:10px;
+  }
+  .header{
+    text-align: center;
+  
+  }
+  .form-container{
+    margin: 100px;
+  }
+  
+  .invalid{
+    color:#f44336;
+  }
+  .small-font{
+    font-size: 12px;
+  }
+  .register-card{
+    max-width: 10000px;
+    margin: 2em auto;
+    text-align: center;
+    max-height: 1500px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 2rem 3rem;
+    margin: auto;
+    background-color: #ecf0f3;
+    color: black;
+    margin-top: 10rem;
+  }
+  button{
+    text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border: none;
+      font-size: 0.875rem;
+      color: #ffffff;
+      font-weight: bold;
+      background-color: #e45151;
+      width: 20%;
+      padding: 0.8rem 0.5rem;
+      border-radius: 1.5rem;
+      box-shadow: 3px 2px 8px #b1b1b1, -3px -3px 8px #ffffff;
+      cursor: pointer;
+  }
+  .title {
+    font-size: 3em;
+    color: rgb(28, 28, 28);
+    font-weight: bolder;
+  }
+  .btn-warning{
+    border: none;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #41fc4a;
+    width: 30%;
+    padding: 0.5rem 0.01rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 4px #b1b1b1, -3px -3px 4px #ffffff;
+    cursor: pointer;
+  }
