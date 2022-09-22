@@ -23,17 +23,13 @@
   .small-font{
     font-size: 12px;
   }
-  .register-card{
+  .profile-card{
     max-width: 10000px;
     margin: 2em auto;
     text-align: center;
     max-height: 1500px;
-    background: rgba(255, 255, 255, 0.15);
     padding: 2rem 3rem;
     margin: auto;
-    background-color: #ecf0f3;
-    color: black;
-    margin-top: 10rem;
   }
   button{
     text-transform: uppercase;
