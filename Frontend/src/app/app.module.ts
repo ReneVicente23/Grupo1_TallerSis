@@ -26,6 +26,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import { FoodpageComponent } from './foodpage/foodpage.component';
 import { AddressComponent } from './address/address.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ListdirectionComponent,
     FoodpageComponent,
     AddressComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

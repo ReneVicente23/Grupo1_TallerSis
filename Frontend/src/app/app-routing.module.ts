@@ -10,6 +10,7 @@ import { ListdirectionComponent } from './listdirection/listdirection.component'
 import { FoodpageComponent } from './foodpage/foodpage.component';
 import {AddressComponent} from "./address/address.component";
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'listdirection',component:ListdirectionComponent},
   {path: 'food/:id', component:FoodpageComponent},
   {path: 'address', component: AddressComponent},
-  {path: 'user-profile', component: UserProfileComponent}
+  {path: 'user-profile', component: UserProfileComponent},
+  {path: 'edit-user', component: EditUserComponent}
 ];
 
 @NgModule({
