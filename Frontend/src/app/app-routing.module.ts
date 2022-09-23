@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'food/:id', component:FoodpageComponent},
   {path: 'address', component: AddressComponent},
   {path: 'user-profile', component: UserProfileComponent},
-  {path: 'edit-user', component: EditUserComponent}
+  {path: 'edit-user', component: EditUserComponent},
 ];
 
 @NgModule({

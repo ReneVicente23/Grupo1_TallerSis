@@ -27,6 +27,7 @@ import { FoodpageComponent } from './foodpage/foodpage.component';
 import { AddressComponent } from './address/address.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     FoodpageComponent,
     AddressComponent,
     UserProfileComponent,
-    EditUserComponent
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +60,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     MatInputModule,
     MatDatepickerModule,
     MatRadioModule,
+
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

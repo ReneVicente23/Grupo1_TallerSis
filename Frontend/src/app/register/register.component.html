@@ -10,6 +10,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>First Name</mat-label>
             <input
+             [(ngModel)]="user.firstName"
               formControlName="firstName"
               matInput placeholder="Enter Your First name">
             <mat-error *ngIf="!profileForm.controls['firstName'].valid">
@@ -21,6 +22,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Last Name</mat-label>
             <input
+              name="lastName"[(ngModel)]="user.lastName"
               formControlName="lastName"
               matInput placeholder="Enter Your Last name">
             <mat-error *ngIf="!profileForm.controls['lastName'].valid">
@@ -62,6 +64,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Phone Number</mat-label>
             <input
+              [(ngModel)]="user.phoneNumber"
               formControlName="phoneNumber"
               matInput placeholder="Enter Your Phone Number">
             <mat-error *ngIf="!profileForm.controls['phoneNumber'].valid">
@@ -73,6 +76,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>E-mail</mat-label>
             <input
+              name="mail"[(ngModel)]="user.mail"
               formControlName="mail"
               matInput placeholder="Enter Your E-mail">
             <mat-error *ngIf="!profileForm.controls['mail'].valid">
@@ -96,7 +100,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button (click)="saveForm()" mat-flat-button class="buttonSave">Test</button>
+      <button (click)="saveUser()" mat-flat-button class="buttonSave">Test</button>
     </mat-card-actions>
     </mat-card>
   </form>
