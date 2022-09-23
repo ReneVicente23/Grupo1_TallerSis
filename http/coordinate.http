@@ -1,0 +1,10 @@
+POST http://localhost:8080/api/coordinate/
+Content-Type: application/json
+Accept: application/json
+
+{
+        "id_coordinate": 1,
+        "latitude": -1234.1234,
+        "length": 987.1234
+
+}
