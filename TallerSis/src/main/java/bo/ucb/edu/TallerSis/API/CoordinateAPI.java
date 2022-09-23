@@ -23,7 +23,8 @@ public class CoordinateAPI
     @PostMapping(path="/", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Coordinate insertcoordinate(@RequestBody Coordinate coordinate) {
         coordinateBL.saveCoordinate(coordinate);
-        return coordinate;
+        Coordinate coordinate2=coordinateBL.findcoordianteparams(coordinate);
+        return coordinate2;
     }//tested
 
     @PostMapping(path="/search", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
