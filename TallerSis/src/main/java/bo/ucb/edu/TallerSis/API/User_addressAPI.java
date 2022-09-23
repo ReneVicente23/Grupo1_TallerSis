@@ -20,17 +20,17 @@ public class User_addressAPI {
     public User_address inseruseraddress(@RequestBody User_address user_address) {
        user_addressBL.saveuseraddress(user_address);
         return user_address;
-    }
+    }//tested
 
     @PutMapping(path="/address/nick", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public User_address updatenick(@RequestBody User_address user_address) {
         user_addressBL.updatenick(user_address.getId_user_address(),user_address.getNickname());
         return user_address;
-    }
+    }//tested
 
     @PutMapping(path="/address/status", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public User_address updatestatus(@RequestBody User_address user_address) {
         user_addressBL.updatestatus(user_address.getId_user_address(),user_address.getStatus());
         return user_address;
-    }
+    }//tested
 }

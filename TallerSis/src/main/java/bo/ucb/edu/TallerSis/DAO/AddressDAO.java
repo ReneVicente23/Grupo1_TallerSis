@@ -19,6 +19,10 @@ public interface AddressDAO {
             "FROM address  WHERE id_address = #{addressid}")
     public Address findAddressid(@Param("addressid") Integer id);
 
+    @Select("SELECT id_address, street, zone, h_number, city " +
+            "FROM address  WHERE street = #{street} AND zone = #{zone} AND h_number = #{h_number} AND city = #{city}")
+    public Integer findIDAddress(@Param("street") String street, @Param("zone") String zone, @Param("h_number") String h_number, @Param("city") String city);
+
     @Insert("INSERT INTO address(street, zone, h_number, city) " +
             " VALUES ( #{street}, #{zone}, #{h_number}, #{city}) ")
     void saveAddress(@Param("street") String street,@Param("zone") String zone,@Param("h_number") String  h_number,@Param("city") String city);

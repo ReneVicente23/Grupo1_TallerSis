@@ -30,6 +30,7 @@ public class AddressAPI {
     @PostMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Address insertaddress(@RequestBody Address address) {
         addressBL.saveAddress(address);
+        address.setId_address(addressBL.findidaddress(address));
         return address;
     }//tested
 

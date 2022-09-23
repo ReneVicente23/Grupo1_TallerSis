@@ -22,6 +22,14 @@ public class AddressBL {
         return result;
     }
 
+    public Integer findidaddress(Address address){
+        String street=address.getStreet();
+        String zone=address.getZone();
+        String h_number=address.getH_number();
+        String city=address.getCity();
+        return addressDAO.findIDAddress(street,zone,h_number,city);
+    }
+
     public Address findAddressid(Integer Id) {
         Integer id= Math.toIntExact(Id);
         Address result =addressDAO.findAddressid(id);

@@ -20,7 +20,7 @@ public class DishAPI {
         this.dishBL = dishBL;
     }
 
-    @GetMapping(path="/detail/{id}/", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(path="/detail/{id}", produces = APPLICATION_JSON_VALUE)
     public List<Dish> finddetailorder(@PathVariable("id") Integer id) {
         return dishBL.findOrderDetails(id);
     }
