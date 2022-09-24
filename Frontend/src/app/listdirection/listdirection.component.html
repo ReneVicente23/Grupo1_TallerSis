@@ -1,54 +1,66 @@
 <!DOCTYPE html>
-<BR>
-<h1 >
-    LIST OF ADDRESSES
-</h1>
-<br>
-<div class="container">
-    <a href="/map">
-        <button class="addbtn">New address</button>
-    </a>
-    
-</div>
-<br>
-<br>
-<div class="card-body">
-    <table class="table table-hover">
-        <thead>
-            <tr class="text-center">
-                <th>ID</th>
-                <th>NICK</th>
-                <th>STREET</th>
-                <th>ZONE</th>
-                <th>NUMBER</th>
-                <th>CITY</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="text-center">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="/editaddress">
-                        <button class="btn-warning">
+<body>
+    <BR>
+        <h1 >
+            LIST OF ADDRESSES
+        </h1>
+        <br>
+        <div class="container">
+            <a href="/map">
+                <button class="addbtn">New address</button>
+            </a>
+            
+        </div>
+        <br>
+        <br>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>NICK</th>
+                        <th>STREET</th>
+                        <th>ZONE</th>
+                        <th>NUMBER</th>
+                        <th>CITY</th>
+                        <th>FAVORITE</th>
+                        <th>OPCIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="favorite" >
                             <span class="material-icons">
-                                edit
+                                <input type="checkbox" id="cbox1" value="first_checkbox" class="check">
+                                favorite
                             </span>
-                        </button>
-                    </a>
-                    
-                    <button class="btn-danger" style="margin-left:10px ;">
-                        <span class="material-icons">
-                            delete_outline
-                        </span>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    
-</div>
+                            </button>
+                        </td>
+                        <td>
+                            <a href="/editaddress">
+                                <button class="btn-warning">
+                                    <span class="material-icons">
+                                        edit
+                                    </span>
+                                </button>
+                            </a>
+                            
+                            <button class="btn-danger" style="margin-left:10px ;">
+                                <span class="material-icons">
+                                    delete_outline
+                                </span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+</body>
