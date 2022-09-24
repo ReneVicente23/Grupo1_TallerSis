@@ -28,6 +28,7 @@ import { AddressComponent } from './address/address.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import {HttpClientModule} from "@angular/common/http";
+import { EditaddressComponent } from './editaddress/editaddress.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {HttpClientModule} from "@angular/common/http";
     AddressComponent,
     UserProfileComponent,
     EditUserComponent,
+    EditaddressComponent,
   ],
   imports: [
     BrowserModule,
