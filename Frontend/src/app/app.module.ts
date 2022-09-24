@@ -29,6 +29,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EditaddressComponent } from './editaddress/editaddress.component';
+import { PaymentMethodComponent } from './payment-method/payment-method.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { EditaddressComponent } from './editaddress/editaddress.component';
     UserProfileComponent,
     EditUserComponent,
     EditaddressComponent,
+    PaymentMethodComponent,
   ],
   imports: [
     BrowserModule,

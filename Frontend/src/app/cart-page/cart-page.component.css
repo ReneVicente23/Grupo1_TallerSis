@@ -1,22 +1,25 @@
 .container{
+    margin: 4rem;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    margin: 1.5rem;
+    justify-content: center;
+    position: relative;
+    
 }
 ul{
+    
     display: flex;
     flex-direction: column;
     flex: 3 0;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 1rem;
     padding: 0.5rem;
-    padding: 0;
     list-style-type: none;
-    justify-content: space-evenly;
+    justify-content:center;
     
 }
 ul li{
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -63,6 +66,9 @@ ul .remove-button:hover{
     ;
 }
 .checkout{
+    position: absolute;
+    top: 40%;
+    left: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,6 +83,7 @@ ul .remove-button:hover{
     color: aliceblue;
 }
 .checkout>div{
+    
     display: flex;
     flex-direction: column;
     flex: 3;
@@ -97,6 +104,7 @@ ul .remove-button:hover{
     color: gray;
 }
 li{
+    
     background-color: rgba(249, 65, 65, 0.8);
     color:black;
     display:inline-block;
@@ -105,3 +113,36 @@ li{
 li:hover {
     opacity: 0.9;
 }
+.next-button{
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #191919;
+    width: 10%;
+    padding: 0.8rem 0.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 2px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
+  .cancel-button{
+    display: inline-block;
+    margin: 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #fc4141;
+    width: 10%;
+    padding: 0.8rem 0.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 2px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
+  button:hover {
+    opacity: 0.7;
+  }
