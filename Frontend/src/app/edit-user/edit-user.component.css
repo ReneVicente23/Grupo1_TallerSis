@@ -46,7 +46,7 @@
       color: #ffffff;
       font-weight: bold;
       background-color: #fc4141;
-      width: 80%;
+      width: 90%;
       padding: 0.8rem 0.5rem;
       border-radius: 1.5rem;
       box-shadow: 3px 2px 8px #b1b1b1, -3px -3px 8px #ffffff;
@@ -80,10 +80,13 @@
     color: #ffffff;
     font-weight: bold;
     background-color: #fc4141;
-    width: 10%;
+    width: 100%;
     padding: 0.875rem 1rem;
     border-radius: 1.5rem;
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
+  }
+  button:hover {
+    opacity: 0.7;
   }
   

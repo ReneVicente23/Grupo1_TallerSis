@@ -61,3 +61,10 @@
     box-shadow: 3px 3px 4px #b1b1b1, -3px -3px 4px #ffffff;
     cursor: pointer;
   }
+  h1{
+    font-weight: bolder;
+    font-size: 3em;
+  }
+  button:hover {
+    opacity: 0.7;
+  }

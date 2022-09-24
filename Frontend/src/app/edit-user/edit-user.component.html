@@ -63,9 +63,11 @@
         </div>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button (click)="saveForm()" mat-flat-button class="buttonCancel">Cancel</button>
+        <a routerLink="/user-profile">
+          <button mat-flat-button class="buttonCancel">Cancel</button>
+        </a>
         <button (click)="saveForm()" mat-flat-button class="buttonSave">Save</button>
       </mat-card-actions>
-      </mat-card>
+      </mat-card> 
 </form>
   
