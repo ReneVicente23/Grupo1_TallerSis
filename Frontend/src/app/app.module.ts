@@ -31,6 +31,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { EditaddressComponent } from './editaddress/editaddress.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
 import { ReportSupplierComponent } from './report-supplier/report-supplier.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ReportSupplierComponent } from './report-supplier/report-supplier.compo
     EditaddressComponent,
     PaymentMethodComponent,
     ReportSupplierComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

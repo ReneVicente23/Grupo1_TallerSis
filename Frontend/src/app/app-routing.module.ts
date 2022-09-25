@@ -14,6 +14,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditaddressComponent } from './editaddress/editaddress.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
 import { ReportSupplierComponent } from './report-supplier/report-supplier.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path: 'edit-user', component: EditUserComponent},
   {path: 'editaddress', component: EditaddressComponent},
   {path: 'payment-method', component: PaymentMethodComponent},
-  {path: 'report-supplier', component: ReportSupplierComponent}
+  {path: 'report-supplier', component: ReportSupplierComponent},
+  {path: 'confirm-dialog', component: ConfirmDialogComponent}
 ];
 
 @NgModule({
