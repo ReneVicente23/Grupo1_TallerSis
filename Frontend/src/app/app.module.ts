@@ -30,6 +30,7 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import {HttpClientModule} from "@angular/common/http";
 import { EditaddressComponent } from './editaddress/editaddress.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
+import { ReportSupplierComponent } from './report-supplier/report-supplier.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { PaymentMethodComponent } from './payment-method/payment-method.componen
     EditUserComponent,
     EditaddressComponent,
     PaymentMethodComponent,
+    ReportSupplierComponent,
   ],
   imports: [
     BrowserModule,

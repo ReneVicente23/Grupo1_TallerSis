@@ -13,6 +13,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { EditaddressComponent } from './editaddress/editaddress.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
+import { ReportSupplierComponent } from './report-supplier/report-supplier.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'edit-user', component: EditUserComponent},
   {path: 'editaddress', component: EditaddressComponent},
-  {path: 'payment-method', component: PaymentMethodComponent}
+  {path: 'payment-method', component: PaymentMethodComponent},
+  {path: 'report-supplier', component: ReportSupplierComponent}
 ];
 
 @NgModule({
