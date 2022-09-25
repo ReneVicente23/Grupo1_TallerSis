@@ -143,6 +143,22 @@ li:hover {
     box-shadow: 3px 2px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
+  .add-button{
+    display: inline-block;
+    margin: 0 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #161616;
+    width: 10%;
+    padding: 0.8rem 0.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 3px 2px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
   button:hover {
     opacity: 0.7;
   }
