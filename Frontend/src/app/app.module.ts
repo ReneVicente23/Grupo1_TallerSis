@@ -32,6 +32,8 @@ import { EditaddressComponent } from './editaddress/editaddress.component';
 import { PaymentMethodComponent } from './payment-method/payment-method.component';
 import { ReportSupplierComponent } from './report-supplier/report-supplier.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ListDeliveryComponent } from './list-delivery/list-delivery.component';
+import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     PaymentMethodComponent,
     ReportSupplierComponent,
     ConfirmDialogComponent,
+    ListDeliveryComponent,
+    PaymentConfirmationComponent,
   ],
   imports: [
     BrowserModule,
