@@ -16,10 +16,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                <tr *ngFor="let deli of deliverys; let i = index" class="text-center">
+                  <td>{{deli.id_order}}</td>
+                  <td>{{deli.total_payment}}</td>
+                  <td>{{deli.order_status_id_order_status}}</td>
+                  <td>{{deli.type_payment_id_typepay}}</td>
                         <td>
                             <a href="/payment-confirmation">
                                 <button class="btn-done">
@@ -33,5 +34,5 @@
                 </tbody>
             </table>
         </div>
-        
+
 </body>

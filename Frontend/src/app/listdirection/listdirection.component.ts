@@ -48,7 +48,10 @@ export class ListdirectionComponent implements OnInit
         error => {
           console.log(error);
         });
+    this.refresh();
   }
 
 
+
+  refresh(): void { window.location.reload(); }
 }
