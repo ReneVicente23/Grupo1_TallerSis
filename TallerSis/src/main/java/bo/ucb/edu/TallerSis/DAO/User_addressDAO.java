@@ -2,6 +2,7 @@ package bo.ucb.edu.TallerSis.DAO;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Service;
 
@@ -19,4 +20,12 @@ public interface User_addressDAO {
     @Update("UPDATE user_address SET status= #{status} " +
             " WHERE id_user_address = #{id}")
     void borraraddress(@Param("id") Integer id ,@Param("status") Integer status);
+
+    @Update("UPDATE user_address SET status= 1 " +
+            " WHERE id_user_address = #{id} AND status <> 3")
+    void nofav(@Param("id") Integer id );
+
+    @Select("SELECT address_id_address " +
+            "FROM user_address WHERE userapp_id_userapp= #{id} AND status = 2 ")
+    public Integer getidfav(@Param("id") Integer id);
 }

@@ -41,7 +41,8 @@ public class AddressBL {
         String zone=address.getZone();
         String h_number=address.getH_number();
         String city=address.getCity();
-        addressDAO.saveAddress(street,zone,h_number,city);
+        String ref=address.getRef();
+        addressDAO.saveAddress(street,zone,h_number,city,ref);
     }
 
     public void updateAddress(Address address){
@@ -50,6 +51,7 @@ public class AddressBL {
         String zone=address.getZone();
         String h_number=address.getH_number();
         String city=address.getCity();
-        addressDAO.updateAddress(id, street,zone,h_number,city);
+        String ref=address.getRef();
+        addressDAO.updateAddress(id, street,zone,h_number,city,ref);
     }
 }

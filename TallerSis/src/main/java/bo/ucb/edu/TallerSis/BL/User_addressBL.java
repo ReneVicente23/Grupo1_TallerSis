@@ -31,4 +31,14 @@ public class User_addressBL {
     public void updatestatus(Integer id, Integer status){
         user_addressDAO.borraraddress(id,status);
     }
+
+    public void updatefav(Integer id){
+        user_addressDAO.nofav(id);
+        user_addressDAO.borraraddress(id,2);
+    }
+
+    public Integer findidfav(Integer id) {
+        Integer result = user_addressDAO.getidfav(id);
+        return result;
+    }
 }

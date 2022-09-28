@@ -5,6 +5,8 @@ import bo.ucb.edu.TallerSis.DTO.Order;
 import bo.ucb.edu.TallerSis.DTO.User_address;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
@@ -33,4 +35,15 @@ public class User_addressAPI {
         user_addressBL.updatestatus(user_address.getId_user_address(),user_address.getStatus());
         return user_address;
     }//tested
+
+    @PutMapping(path="/address/fav", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public User_address updatefav(@RequestBody User_address user_address) {
+        user_addressBL.updatefav(user_address.getId_user_address());
+        return user_address;
+    }
+
+    @GetMapping(path="/address/fav/{userid}", produces = APPLICATION_JSON_VALUE)
+    public Integer findbybussinesday(@PathVariable("userid") Integer id) {
+        return user_addressBL.findidfav(id);
+    }
 }

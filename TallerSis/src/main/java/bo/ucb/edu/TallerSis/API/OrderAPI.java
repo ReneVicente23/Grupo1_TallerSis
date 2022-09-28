@@ -31,8 +31,35 @@ public class OrderAPI {
 
     @PutMapping(path="/cash", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Order updatestatuspay(@RequestBody Order order) {
+        orderBL.updateOrderStatus(order,2);
+        orderBL.updateOrderPayStatus(order,1);
+        return order;
+    }//tested
+
+    @PutMapping(path="/cash/pay", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Order updatestatus(@RequestBody Order order) {
         orderBL.updateOrderStatus(order,3);
         return order;
     }//tested
+
+    @GetMapping(path="/bussines/day/{bussinesid}", produces = APPLICATION_JSON_VALUE)
+    public List<Order> findbybussinesday(@PathVariable("bussinesid") Integer id) {
+        return orderBL.findOrdersbyBussinesday(id);
+    }//tested
+
+    @GetMapping(path="/bussines/day/pay/{bussinesid}", produces = APPLICATION_JSON_VALUE)
+    public Double findbybussinespayday(@PathVariable("bussinesid") Integer id) {
+        return orderBL.findpayday(id);
+    }
+
+    @GetMapping(path="/bussines/count/{state}/{bussinesid}", produces = APPLICATION_JSON_VALUE)
+    public Integer findbycountday(@PathVariable("state") Integer st,@PathVariable("bussinesid") Integer id) {
+        return orderBL.findcountday(id,st);
+    }
+
+    @GetMapping(path="/delivery/cash/pending/{bussinesid}", produces = APPLICATION_JSON_VALUE)
+    public List<Order> findforpay(@PathVariable("bussinesid") Integer id) {
+        return orderBL.findOrdersforpay(id);
+    }
 
 }

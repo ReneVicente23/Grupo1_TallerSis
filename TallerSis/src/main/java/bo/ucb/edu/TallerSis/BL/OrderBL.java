@@ -33,4 +33,30 @@ public class OrderBL {
         Integer id_order=order.getId_order();
         orderDAO.updateOrderStatus(id_order,status);
     }
+
+    public void updateOrderPayStatus(Order order, Integer payid){
+        Integer id_order=order.getId_order();
+        orderDAO.updateOrderPayStatus(id_order,payid);
+    }
+
+    public List<Order> findOrdersbyBussinesday(Integer id) {
+        List<Order> result =orderDAO.getorderbybussinesday(id);
+        return result;
+    }
+
+    public Double findpayday(Integer id) {
+        Double result =orderDAO.getpayday(id);
+        return result;
+    }
+
+    public Integer findcountday(Integer id, Integer state) {
+        Integer result =orderDAO.getcountday(id, state);
+        return result;
+    }
+
+    public List<Order> findOrdersforpay(Integer id) {
+        List<Order> result =orderDAO.getorderforpay(id);
+        return result;
+    }
+
 }
