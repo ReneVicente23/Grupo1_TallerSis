@@ -17,6 +17,7 @@ import { ReportSupplierComponent } from './report-supplier/report-supplier.compo
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ListDeliveryComponent } from './list-delivery/list-delivery.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
+import { AddNickComponent } from './add-nick/add-nick.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -36,7 +37,8 @@ const routes: Routes = [
   {path: 'report-supplier', component: ReportSupplierComponent},
   {path: 'confirm-dialog', component: ConfirmDialogComponent},
   {path: 'list-delivery', component: ListDeliveryComponent},
-  {path: 'payment-confirmation', component: PaymentConfirmationComponent}
+  {path: 'payment-confirmation', component: PaymentConfirmationComponent},
+  {path: 'add-nick', component: AddNickComponent}
 ];
 
 @NgModule({

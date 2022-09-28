@@ -34,6 +34,7 @@ import { ReportSupplierComponent } from './report-supplier/report-supplier.compo
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ListDeliveryComponent } from './list-delivery/list-delivery.component';
 import { PaymentConfirmationComponent } from './payment-confirmation/payment-confirmation.component';
+import { AddNickComponent } from './add-nick/add-nick.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { PaymentConfirmationComponent } from './payment-confirmation/payment-con
     ConfirmDialogComponent,
     ListDeliveryComponent,
     PaymentConfirmationComponent,
+    AddNickComponent,
   ],
   imports: [
     BrowserModule,
