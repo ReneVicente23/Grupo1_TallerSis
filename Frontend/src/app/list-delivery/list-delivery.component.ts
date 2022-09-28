@@ -12,7 +12,7 @@ export class ListDeliveryComponent implements OnInit {
   constructor(private appService: AppService) { }
   deliverys: any[]=[];
   deliveri = {
-    id_order:'',
+    id_order: '',
     total_payment: '',
     order_status_id_order_status: '',
     type_payment_id_typepay: '',
@@ -32,5 +32,10 @@ export class ListDeliveryComponent implements OnInit {
         error => {
           console.log(error);
         });
+  }
+
+  localsafe(data: any): void{
+     console.log(data);
+     localStorage.setItem('order', JSON.stringify(data));
   }
 }

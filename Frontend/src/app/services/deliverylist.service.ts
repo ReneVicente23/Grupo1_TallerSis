@@ -15,4 +15,8 @@ export class AppService {
     return this.http.get<any>(baseUrl);
   }
 
+  updatestate(data: any): Observable<any> {
+      return this.http.put('http://localhost:8080/api/order/cash/pay', data);
+    }
+
 }

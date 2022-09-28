@@ -1,14 +1,14 @@
 <form class="custom-form" method="post">
-    <h1 mat-dialog-title> 
-        WAS THE CASH PAYMENT CANCELED?  
+    <h1 mat-dialog-title>
+        WAS THE CASH PAYMENT CANCELED?
     </h1>
-        
+
     <div mat-dialog-content>
         <p></p>
     </div>
-        
+
     <div mat-dialog-actions>
-          <button mat-button routerLink="/list-delivery">No</button>
-          <button mat-raised-button routerLink="/list-delivery" class="bsave">Yes</button>
+          <button mat-button routerLink="/list-delivery" (click)="eliminalocal()">No</button>
+          <button mat-raised-button routerLink="/list-delivery" class="bsave" (click)="updatepay()">Yes</button>
     </div>
 </form>
