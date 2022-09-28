@@ -11,22 +11,23 @@
                 <thead>
                     <tr class="text-center">
                         <th>ID</th>
-                        <th>CLIENT</th>
-                        <th>DISH</th>
-                        <th>PAYMENT</th>
-                        <th>DATE</th>
+                        <th>NANE</th>
+                        <th>DESCRIPTION</th>
+                        <th>COST</th>
+                        <th>ID_BUSSINES</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let ad of dishs; let i = index" class="text-center">
+                        <td>{{ad.id_dish}}</td>
+                        <td>{{ad.name}}</td>
+                        <td>{{ad.description}}</td>
+                        <td>{{ad.cost}}</td>
+                        <td>{{ad.business_id_business}}</td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        
+
 </body>

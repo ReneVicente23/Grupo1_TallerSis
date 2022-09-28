@@ -30,4 +30,9 @@ public class DishBL {
         List<Dish> result =dishDAO.dishreportperday(id);
         return result;
     }
+
+    public Double findDishReporttcost(Integer id) {
+        Double result =dishDAO.dishreporttcost(id);
+        return result;
+    }
 }
