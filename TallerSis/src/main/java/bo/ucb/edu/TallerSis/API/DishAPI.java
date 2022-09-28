@@ -1,6 +1,7 @@
 package bo.ucb.edu.TallerSis.API;
 
 import bo.ucb.edu.TallerSis.BL.DishBL;
+import bo.ucb.edu.TallerSis.DTO.Cost;
 import bo.ucb.edu.TallerSis.DTO.Dish;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +35,7 @@ public class DishAPI {
     }
 
     @GetMapping(path="/report/cost/{id}", produces = APPLICATION_JSON_VALUE)
-    public Double findtcost(@PathVariable("id") Integer id) {
+    public Cost findtcost(@PathVariable("id") Integer id) {
         return dishBL.findDishReporttcost(id);
     }
 }

@@ -1,6 +1,7 @@
 package bo.ucb.edu.TallerSis.BL;
 
 import bo.ucb.edu.TallerSis.DAO.DishDAO;
+import bo.ucb.edu.TallerSis.DTO.Cost;
 import bo.ucb.edu.TallerSis.DTO.Dish;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,8 @@ public class DishBL {
         return result;
     }
 
-    public Double findDishReporttcost(Integer id) {
-        Double result =dishDAO.dishreporttcost(id);
+    public Cost findDishReporttcost(Integer id) {
+        Cost result =dishDAO.dishreporttcost(id);
         return result;
     }
 }

@@ -2,6 +2,7 @@ package bo.ucb.edu.TallerSis.API;
 
 import bo.ucb.edu.TallerSis.BL.OrderBL;
 import bo.ucb.edu.TallerSis.DTO.Address;
+import bo.ucb.edu.TallerSis.DTO.Count;
 import bo.ucb.edu.TallerSis.DTO.Order;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,7 +55,7 @@ public class OrderAPI {
     }
 
     @GetMapping(path="/bussines/count/{state}/{bussinesid}", produces = APPLICATION_JSON_VALUE)
-    public Integer findbycountday(@PathVariable("state") Integer st,@PathVariable("bussinesid") Integer id) {
+    public Count findbycountday(@PathVariable("state") Integer st, @PathVariable("bussinesid") Integer id) {
         return orderBL.findcountday(id,st);
     }
 

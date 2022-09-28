@@ -18,9 +18,19 @@ export class ReportSupplierComponent implements OnInit {
         cost: '',
         business_id_business: '',
       };
+  costs: any [] = [];
+      cost ={
+        cost: '',
+      };
+  orders: any [] = [];
+       order ={
+         count: '',
+       };
 
   ngOnInit(): void {
     this.retrieveDish();
+    this.retrieveCost();
+    this.retrieveOrder();
   }
 
   retrieveDish(): void {
@@ -36,4 +46,34 @@ export class ReportSupplierComponent implements OnInit {
             console.log(error);
           });
     }
+
+    retrieveCost(): void {
+          console.log('la logramo');
+          this.appService.getCost()
+            .subscribe(
+              data => {
+                this.cost = data;
+                console.log(this.cost)
+                console.log(this.costs)
+                console.log('la logramo');
+              },
+              error => {
+                console.log(error);
+              });
+        }
+
+    retrieveOrder(): void {
+              console.log('la logramo');
+              this.appService.getOrder()
+                .subscribe(
+                  data => {
+                    this.order = data;
+                    console.log(this.order)
+                    console.log(this.orders)
+                    console.log('la logramo');
+                  },
+                  error => {
+                    console.log(error);
+                  });
+            }
 }

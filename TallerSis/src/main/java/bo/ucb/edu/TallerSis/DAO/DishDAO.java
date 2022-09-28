@@ -1,5 +1,6 @@
 package bo.ucb.edu.TallerSis.DAO;
 
+import bo.ucb.edu.TallerSis.DTO.Cost;
 import bo.ucb.edu.TallerSis.DTO.Dish;
 import bo.ucb.edu.TallerSis.DTO.Order;
 import org.apache.ibatis.annotations.Param;
@@ -24,5 +25,5 @@ public interface DishDAO {
 
     @Select("SELECT SUM(p.cost) " +
             "FROM dish p JOIN order_details j ON p.id_dish=j.dish_id_dish JOIN \"order\" q ON q.id_order = j.order_id_order WHERE p.business_id_business= #{idbussines} ")
-    public Double dishreporttcost(@Param("idbussines") Integer id);
+    public Cost dishreporttcost(@Param("idbussines") Integer id);
 }

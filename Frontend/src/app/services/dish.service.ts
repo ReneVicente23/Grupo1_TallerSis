@@ -19,4 +19,12 @@ export class AppService {
   getAll(): Observable<any> {
     return this.http.get<any>('http://localhost:8080/api/order/report/1');
   }
+
+  getCost(): Observable<any> {
+      return this.http.get<any>('http://localhost:8080/api/order/report/cost/1');
+    }
+
+  getOrder(): Observable<any> {
+        return this.http.get<any>('http://localhost:8080/api/order/bussines/count/2/1');
+      }
 }

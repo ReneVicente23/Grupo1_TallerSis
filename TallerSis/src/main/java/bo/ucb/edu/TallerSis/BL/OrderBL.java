@@ -2,6 +2,7 @@ package bo.ucb.edu.TallerSis.BL;
 
 import bo.ucb.edu.TallerSis.DAO.OrderDAO;
 import bo.ucb.edu.TallerSis.DTO.Address;
+import bo.ucb.edu.TallerSis.DTO.Count;
 import bo.ucb.edu.TallerSis.DTO.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,8 +50,8 @@ public class OrderBL {
         return result;
     }
 
-    public Integer findcountday(Integer id, Integer state) {
-        Integer result =orderDAO.getcountday(id, state);
+    public Count findcountday(Integer id, Integer state) {
+        Count result =orderDAO.getcountday(id, state);
         return result;
     }
 

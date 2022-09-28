@@ -1,5 +1,6 @@
 package bo.ucb.edu.TallerSis.DAO;
 
+import bo.ucb.edu.TallerSis.DTO.Count;
 import bo.ucb.edu.TallerSis.DTO.Order;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -36,8 +37,8 @@ public interface OrderDAO {
     public Double getpayday(@Param("idbussines") Integer id);
 
     @Select("SELECT count(DISTINCT id_order) " +
-            "FROM \"order\" p JOIN order_details j ON p.id_order = j.order_id_order JOIN dish q ON q.id_dish=j.dish_id_dish WHERE q.business_id_business= #{idbussines} AND p.orderdate = CURRENT_DATE AND p.orderdate = CURRENT_DATE AND p.order_status_id_order_status=#{state}")
-    public Integer getcountday(@Param("idbussines") Integer id, @Param("state") Integer state);
+            "FROM \"order\" p JOIN order_details j ON p.id_order = j.order_id_order JOIN dish q ON q.id_dish=j.dish_id_dish WHERE q.business_id_business= #{idbussines} "+ /*AND p.orderdate = CURRENT_DATE*/ " AND p.order_status_id_order_status=#{state}")
+    public Count getcountday(@Param("idbussines") Integer id, @Param("state") Integer state);
 
     @Select("SELECT DISTINCT p.id_order, p.total_payment, p.order_status_id_order_status, p.type_payment_id_typepay, p.delivery_id_delivery, p.orderdate " +
             "FROM \"order\" p JOIN order_details j ON p.id_order = j.order_id_order JOIN dish q ON q.id_dish=j.dish_id_dish WHERE q.business_id_business= #{idbussines} AND p.order_status_id_order_status = 2")
