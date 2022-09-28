@@ -20,4 +20,14 @@ public class DishBL {
         List<Dish> result =dishDAO.findorderdetails(id);
         return result;
     }
+
+    public List<Dish> findDishReport(Integer id) {
+        List<Dish> result =dishDAO.dishreport(id);
+        return result;
+    }
+
+    public List<Dish> findDishReportDay(Integer id) {
+        List<Dish> result =dishDAO.dishreportperday(id);
+        return result;
+    }
 }

@@ -24,4 +24,14 @@ public class DishAPI {
     public List<Dish> finddetailorder(@PathVariable("id") Integer id) {
         return dishBL.findOrderDetails(id);
     }
+
+    @GetMapping(path="/report/{id}", produces = APPLICATION_JSON_VALUE)
+    public List<Dish> finddishreport(@PathVariable("id") Integer id) {
+        return dishBL.findDishReport(id);
+    }
+
+    @GetMapping(path="/report/day/{id}", produces = APPLICATION_JSON_VALUE)
+    public List<Dish> finddishrepday(@PathVariable("id") Integer id) {
+        return dishBL.findDishReportDay(id);
+    }
 }
