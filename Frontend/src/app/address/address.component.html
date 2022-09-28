@@ -10,6 +10,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Street</mat-label>
             <input
+              name="street"[(ngModel)]="address.street"
               formControlName="street"
               matInput placeholder="Enter Your Street Name">
             <mat-error *ngIf="!addressForm.controls['street'].valid">
@@ -21,6 +22,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Local Area/Zone</mat-label>
             <input
+              name="zone"[(ngModel)]="address.zone"
               formControlName="zone"
               matInput placeholder="Enter Your Local Area/Zone">
             <mat-error *ngIf="!addressForm.controls['zone'].valid">
@@ -32,6 +34,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>House Number</mat-label>
             <input
+              name="h_number"[(ngModel)]="address.h_number"
               formControlName="h_number"
               matInput placeholder="Enter Your House Number">
             <mat-error *ngIf="!addressForm.controls['h_number'].valid">
@@ -43,6 +46,7 @@
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>City</mat-label>
             <input
+              name="city"[(ngModel)]="address.city"
               formControlName="city"
               matInput placeholder="Enter Your Actual City">
             <mat-error *ngIf="!addressForm.controls['city'].valid">
@@ -53,7 +57,7 @@
       </div>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-flat-button class="buttonsave">Next Step</button>
+      <button m (click)="saveAddress()" at-flat-button class="buttonsave">Next Step</button>
     </mat-card-actions>
   </mat-card>
 </form>

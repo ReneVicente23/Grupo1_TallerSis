@@ -10,6 +10,7 @@ import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/user")
 public class AddressAPI {
     private AddressBL addressBL;
@@ -27,6 +28,7 @@ public class AddressAPI {
     public Address findaddressapiid(@PathVariable("addressid") Integer addressid) {
         return addressBL.findAddressid(addressid);
     }//tested
+
     @PostMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Address insertaddress(@RequestBody Address address) {
         addressBL.saveAddress(address);

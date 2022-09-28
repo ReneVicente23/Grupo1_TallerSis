@@ -10,25 +10,32 @@
       />
       -->
       <input
+        name="street"[(ngModel)]="address.street"
         type="street"
         name="street"
         placeholder="Street"
         required="required"
       />
       <input
+
+        name="zone"[(ngModel)]="address.zone"
         type="zone"
         name="zone"
         placeholder="Zone"
         required="required"
       />
       <input
+
+        name="h_number"[(ngModel)]="address.h_number"
         type="number"
-        name="h_number"
+
         placeholder="House number"
         required="required"
       />
 
       <input
+
+        name="city"[(ngModel)]="address.city"
         type="city"
         name="city"
         placeholder="City"

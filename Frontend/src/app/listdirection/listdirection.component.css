@@ -73,4 +73,13 @@ table{
   input[type="checkbox"]:checked {
     box-shadow: 0 0 0 3px rgb(255, 255, 255);
   }
-  
+p {
+  font-family: Lato;
+}
+
+.btn-primary {
+  color: blue;
+}
+.btn-danger {
+  color: red;
+}

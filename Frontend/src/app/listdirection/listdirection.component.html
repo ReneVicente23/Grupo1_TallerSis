@@ -9,7 +9,7 @@
             <a href="/map">
                 <button class="addbtn">New address</button>
             </a>
-            
+
         </div>
         <br>
         <br>
@@ -17,31 +17,31 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="text-center">
-                        <th>ID</th>
-                        <th>NICK</th>
+
+
                         <th>STREET</th>
                         <th>ZONE</th>
                         <th>NUMBER</th>
                         <th>CITY</th>
-                        <th>FAVORITE</th>
-                        <th>OPCIONS</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+
+
+                    <tr *ngFor="let ad of addresss; let i = index" class="text-center">
+                        <td>{{ad.street}}</td>
+                        <td>{{ad.zone}}</td>
+                        <td>{{ad.h_number}}</td>
+                        <td>{{ad.city}}</td>
                         <td></td>
                         <td></td>
                         <td>
-                            <button class="favorite" >
-                            <span class="material-icons">
-                                <input type="checkbox" id="cbox1" value="first_checkbox" class="check">
-                                favorite
+                          <button (click)="onClick()" [ngClass]="action =='Add' ? 'btn-primary': 'btn-danger'"> {{action}}</button>
+                            <!--<button class="favorite"
+
                             </span>
-                            </button>
+                            </button>-->
                         </td>
                         <td>
                             <a href="/editaddress">
@@ -51,7 +51,7 @@
                                     </span>
                                 </button>
                             </a>
-                            
+
                             <button class="btn-danger" style="margin-left:10px ;">
                                 <span class="material-icons">
                                     delete_outline
@@ -62,5 +62,5 @@
                 </tbody>
             </table>
         </div>
-        
+
 </body>

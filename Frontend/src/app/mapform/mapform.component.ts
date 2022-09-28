@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MapformService } from '../services/mapform.service';
+import { AppService } from '../services/address.service';
+import {FormBuilder} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-mapform',
@@ -7,21 +9,28 @@ import { MapformService } from '../services/mapform.service';
   styleUrls: ['./mapform.component.css']
 })
 export class MapformComponent implements OnInit {
-  address: any;
+  address = {
+    street: '',
+    zone: '',
+    h_number: '',
+    city: '',
+  };
 
   title:string='REGISTRO DE DIRECCIONES';
-  constructor(private mapformService: MapformService) { }
+  constructor(private formBuilder:FormBuilder,private router:Router,private appService: AppService) { }
 
   ngOnInit(): void {
     this.retrieveAddress();
   }
 
   retrieveAddress(): void {
-    this.mapformService.getAll()
+    console.log('la logramo');
+    this.appService.getAll()
       .subscribe(
         data => {
           this.address = data;
           console.log(data);
+          console.log('la logramo');
         },
         error => {
           console.log(error);
@@ -39,7 +48,7 @@ export class MapformComponent implements OnInit {
       city: this.address.city
     };
 
-    this.mapformService.create(data)
+    this.appService.create(data)
       .subscribe(
         response => {
           console.log(response);

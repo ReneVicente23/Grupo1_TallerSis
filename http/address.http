@@ -5,8 +5,8 @@ Accept: application/json
 {
 
         "id_address": 0,
-        "street": "sergio",
-        "zone": "testz2",
-        "h_number": "testh12342",
-        "city": "testc2"
+        "street": "prueba",
+        "zone": "pruab1",
+        "h_number": "prueba2",
+        "city": "prueba3"
  }
