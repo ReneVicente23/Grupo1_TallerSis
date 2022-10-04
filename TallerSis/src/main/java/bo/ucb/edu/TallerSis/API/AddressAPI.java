@@ -22,24 +22,24 @@ public class AddressAPI {
     @GetMapping(path="/{userid}/address/", produces = APPLICATION_JSON_VALUE)
     public List<Address> findaddressapi(@PathVariable("userid") Integer userid) {
         return addressBL.findAddress(userid);
-    }//tested
+    }//tested: OBTIENE TODAS LAS DIRECCIONES DE UN USUARIO
 
     @GetMapping(path="/address/{addressid}", produces = APPLICATION_JSON_VALUE)
     public Address findaddressapiid(@PathVariable("addressid") Integer addressid) {
         return addressBL.findAddressid(addressid);
-    }//tested
+    }//tested: OBTIENE UNA DIRECCION POR ID
 
     @PostMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Address insertaddress(@RequestBody Address address) {
         addressBL.saveAddress(address);
         address.setId_address(addressBL.findidaddress(address));
         return address;
-    }//tested
+    }//tested: INGRESA UNA NUEVA DIRECCION (NO SE CONECTA CON NINGUN USUARIO, REQUIERE USER_ADDRESS)
 
     @PutMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Address updateaddress(@RequestBody Address address) {
         addressBL.updateAddress(address);
         return address;
-    }//tested
+    }//tested: MODIFICA UNA DIRECCION REQUIERE EL ID DE LA DIRECCION EN EL BODY Y EL RESTO DE DATOS SON LOS QUE SE SOBREESCRIBEN
 
 }

@@ -26,16 +26,16 @@ public class CoordinateAPI
         coordinateBL.saveCoordinate(coordinate);
         Coordinate coordinate2=coordinateBL.findcoordianteparams(coordinate);
         return coordinate2;
-    }//tested
+    }//tested: CREA LAS COORDENADAS EN BD (NO SE CONECCTA AL USARIO REQUIERE USER_ADDRESS)
 
     @PostMapping(path="/search", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Coordinate searchcoordinate(@RequestBody Coordinate coordinate) {
         Coordinate result= coordinateBL.findcoordianteparams(coordinate);
         return result;
-    }//tested
+    }//tested: BUSCA EL ID DE LAS COORDENADAS INGRESADAS
 
     @GetMapping(path="/{id}", produces = APPLICATION_JSON_VALUE)
     public Coordinate findcoordinateid(@PathVariable("id") Integer id) {
         return coordinateBL.findcoordianteid(id);
-    }//tested
+    }//tested: OBTIENE LAS COORDENADAS POR ID
 }

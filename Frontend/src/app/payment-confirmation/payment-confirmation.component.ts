@@ -24,6 +24,7 @@ export class PaymentConfirmationComponent implements OnInit {
           order_status_id_order_status: '',
           type_payment_id_typepay: '',
           delivery_id_delivery:'',
+          orderdate: '',
         };
 
   ngOnInit(): void {
