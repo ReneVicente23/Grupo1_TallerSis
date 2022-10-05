@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-09-20 22:04:35.877
+-- Last modification date: 2022-10-05 18:51:57.992
 
 -- tables
 -- Table: address
@@ -9,6 +9,7 @@ CREATE TABLE address (
     zone varchar(50)  NOT NULL,
     h_number varchar(50)  NOT NULL,
     city varchar(50)  NOT NULL,
+    ref varchar(200)  NOT NULL,
     CONSTRAINT address_pk PRIMARY KEY (id_address)
 );
 
@@ -23,8 +24,8 @@ CREATE TABLE business (
 -- Table: coordinate
 CREATE TABLE coordinate (
     id_coordinate serial  NOT NULL,
-    latitude decimal(20,30)  NOT NULL,
-    length decimal(20,30)  NOT NULL,
+    latitude decimal(20,15)  NOT NULL,
+    length decimal(20,15)  NOT NULL,
     CONSTRAINT coordinate_pk PRIMARY KEY (id_coordinate)
 );
 
@@ -54,6 +55,7 @@ CREATE TABLE "order" (
     order_status_id_order_status int  NOT NULL,
     type_payment_id_typepay int  NOT NULL,
     delivery_id_delivery int  NOT NULL,
+    orderdate date  NOT NULL,
     CONSTRAINT order_pk PRIMARY KEY (id_order)
 );
 
@@ -70,6 +72,14 @@ CREATE TABLE order_status (
     id_order_status serial  NOT NULL,
     order_status varchar(50)  NOT NULL,
     CONSTRAINT order_status_pk PRIMARY KEY (id_order_status)
+);
+
+-- Table: saldoapp
+CREATE TABLE saldoapp (
+    id_saldo int  NOT NULL,
+    saldo decimal(10,2)  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    CONSTRAINT saldoapp_pk PRIMARY KEY (id_saldo)
 );
 
 -- Table: type_payment
@@ -186,6 +196,14 @@ ALTER TABLE "order" ADD CONSTRAINT order_order_status
 ALTER TABLE "order" ADD CONSTRAINT order_type_payment
     FOREIGN KEY (type_payment_id_typepay)
     REFERENCES type_payment (id_typepay)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: saldoapp_userapp (table: saldoapp)
+ALTER TABLE saldoapp ADD CONSTRAINT saldoapp_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
