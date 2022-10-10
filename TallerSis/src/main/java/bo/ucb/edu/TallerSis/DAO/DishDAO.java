@@ -26,4 +26,13 @@ public interface DishDAO {
     @Select("SELECT SUM(p.cost) " +
             "FROM dish p JOIN order_details j ON p.id_dish=j.dish_id_dish JOIN \"order\" q ON q.id_order = j.order_id_order WHERE p.business_id_business= #{idbussines} ")
     public Cost dishreporttcost(@Param("idbussines") Integer id);
+
+    @Select("SELECT id_dish, name, description, cost, business_id_business " +
+            "FROM dish ")
+    public List<Dish> getFOOD();
+
+    @Select("SELECT id_dish, name, description, cost, business_id_business " +
+            "FROM dish  WHERE id_dish = #{id}")
+    public Dish findishbyid(@Param("id") Integer id);
+
 }

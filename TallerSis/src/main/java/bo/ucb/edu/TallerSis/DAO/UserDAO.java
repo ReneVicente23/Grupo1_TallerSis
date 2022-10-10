@@ -16,7 +16,7 @@ public interface UserDAO {
     void nuevousuario(@Param("name") String name,@Param("last_name") String last_name,@Param("phone") String phone,@Param("mail") String mail,@Param("type_user_typeid") Integer type_user_typeid );
 
     @Select("SELECT id_userapp, name, last_name, phone, mail, type_user_typeid " +
-            "FROM userapp  WHERE name= #{name} AND last_name = #{last}")
+            "FROM userapp  WHERE mail= #{name} AND last_name = #{last}")
     public User auth(@Param("name") String name, @Param("last") String last);
 
 }

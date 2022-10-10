@@ -19,9 +19,13 @@ public class UserBL {
     }
 
     public User2 autht(String name, String pass){
-        User us= userDAO.auth(name,pass);
-        User2 user2=new User2(us.getId_user(), us.getMail(), us.getName(),"test","token");
-        return user2;
+        try{
+            User us= userDAO.auth(name,pass);
+            User2 user2=new User2(us.getId_user(), us.getMail(), us.getName(),"address test",us.getId_user()+"");
+            return user2;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
 
