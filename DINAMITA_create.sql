@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-10-05 18:51:57.992
+-- Last modification date: 2022-10-10 21:30:14.359
 
 -- tables
 -- Table: address
@@ -76,7 +76,7 @@ CREATE TABLE order_status (
 
 -- Table: saldoapp
 CREATE TABLE saldoapp (
-    id_saldo int  NOT NULL,
+    id_saldo serial  NOT NULL,
     saldo decimal(10,2)  NOT NULL,
     userapp_id_userapp int  NOT NULL,
     CONSTRAINT saldoapp_pk PRIMARY KEY (id_saldo)
