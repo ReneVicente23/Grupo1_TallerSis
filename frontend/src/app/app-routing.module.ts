@@ -6,6 +6,7 @@ import { CartPageComponent } from "./components/pages/cart-page/cart-page.compon
 import { SalesReportComponent } from './components/pages/sales-report/sales-report.component';
 import { OrdersHistoryComponent } from './components/pages/orders-history/orders-history.component';
 import { ReportDeliveriesComponent } from './components/pages/report-deliveries/report-deliveries.component';
+import { ListAddressComponent } from './components/pages/list-address/list-address.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'cart-page',component:CartPageComponent},
   {path:'sales-report',component:SalesReportComponent},
   {path: 'orders-history', component:OrdersHistoryComponent},
-  {path: 'report-deliveries', component:ReportDeliveriesComponent}
+  {path: 'report-deliveries', component:ReportDeliveriesComponent},
+  {path: 'list-address', component:ListAddressComponent}
 ];
 
 @NgModule({

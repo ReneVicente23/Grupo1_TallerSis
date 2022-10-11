@@ -12,6 +12,7 @@ import { CartPageComponent } from './components/pages/cart-page/cart-page.compon
 import { OrdersHistoryComponent } from './components/pages/orders-history/orders-history.component';
 import { SalesReportComponent } from './components/pages/sales-report/sales-report.component';
 import { ReportDeliveriesComponent } from './components/pages/report-deliveries/report-deliveries.component';
+import { ListAddressComponent } from './components/pages/list-address/list-address.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ReportDeliveriesComponent } from './components/pages/report-deliveries/
     CartPageComponent,
     OrdersHistoryComponent,
     SalesReportComponent,
-    ReportDeliveriesComponent
+    ReportDeliveriesComponent,
+    ListAddressComponent
   ],
   imports: [
     BrowserModule,
