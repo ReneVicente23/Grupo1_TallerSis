@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Food} from "../../../shared/models/Food";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FoodService} from "../../../services/food.service";
+import {Food} from "../../../shared/models/Food";
 import {CartService} from "../../../services/cart.service";
 
 @Component({
@@ -10,11 +10,13 @@ import {CartService} from "../../../services/cart.service";
   styleUrls: ['./food-page.component.css']
 })
 export class FoodPageComponent implements OnInit {
+
   food!: Food;
-  constructor(activatedRoute:ActivatedRoute, foodService:FoodService, private cartService:CartService, private router:Router) {
-    activatedRoute.params.subscribe((params) =>{
-      if(params.id)
-        this.food = foodService.getFoodById(params.id);
+  constructor(activatedRoute:ActivatedRoute,foodService:FoodService,private cartService:CartService,private router:Router) {
+    activatedRoute.params.subscribe((params) => {
+      foodService.getFoodById(params['id']).subscribe(serverFood => {
+        this.food = serverFood;
+      });
     })
   }
 
@@ -23,7 +25,7 @@ export class FoodPageComponent implements OnInit {
 
   addToCart(){
     this.cartService.addToCart(this.food);
-    this.router.navigateByUrl('/cart-page').then();
+    this.router.navigateByUrl('/cart-page');
   }
 
 }

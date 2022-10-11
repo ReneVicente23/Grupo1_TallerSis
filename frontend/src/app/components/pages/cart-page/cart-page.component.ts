@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CartService } from 'src/app/services/cart.service';
-import { Cart } from 'src/app/shared/models/Cart';
-import { CartItem } from 'src/app/shared/models/CartItem';
+import {Cart} from "../../../shared/models/Cart";
+import {CartService} from "../../../services/cart.service";
+import {CartItem} from "../../../shared/models/CartItem";
 
 @Component({
   selector: 'app-cart-page',
@@ -9,11 +9,12 @@ import { CartItem } from 'src/app/shared/models/CartItem';
   styleUrls: ['./cart-page.component.css']
 })
 export class CartPageComponent implements OnInit {
+
   cart!: Cart;
   constructor(private cartService: CartService) {
     this.cartService.getCartObservable().subscribe((cart) => {
       this.cart = cart;
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class CartPageComponent implements OnInit {
 
   changeQuantity(cartItem:CartItem,quantityInString:string){
     const quantity = parseInt(quantityInString);
-    this.cartService.changeQuantity(cartItem.food.id, quantity);
+    this.cartService.changeQuantity(cartItem.food.id,quantity);
   }
 
 }

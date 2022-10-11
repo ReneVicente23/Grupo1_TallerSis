@@ -48,7 +48,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
@@ -124,6 +126,6 @@
     }
   },
   "cli": {
-    "analytics": "13bdc860-48d2-4b65-abe3-9e3a522820b0"
+    "analytics": "c763962f-081c-4501-8dc3-7756730d8561"
   }
 }
