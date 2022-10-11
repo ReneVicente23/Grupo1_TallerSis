@@ -41,4 +41,9 @@ public class User_addressBL {
         Integer result = user_addressDAO.getidfav(id);
         return result;
     }
+
+    public Integer findiddres(Integer id) {
+        Integer result = user_addressDAO.getidaddres(id);
+        return result;
+    }
 }

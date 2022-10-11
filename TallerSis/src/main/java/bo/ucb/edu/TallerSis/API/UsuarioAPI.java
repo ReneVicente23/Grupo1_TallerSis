@@ -24,11 +24,13 @@ public class UsuarioAPI {
     private UserBL UserBL;
     private DishBL DishBL;
     private OrderBL OrderBL;
+    private User_addressBL User_addressBL;
 
-    public UsuarioAPI(UserBL userBL,DishBL dishBL,OrderBL orderBL) {
+    public UsuarioAPI(UserBL userBL,DishBL dishBL,OrderBL orderBL,User_addressBL user_addressBL) {
         this.UserBL = userBL;
         this.DishBL = dishBL;
         this.OrderBL = orderBL;
+        this.User_addressBL= user_addressBL;
     }
 
     @PostMapping(path="/user/new", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
@@ -72,8 +74,8 @@ public class UsuarioAPI {
         System.out.println(orders.getStatus()+" ** "+ orders.getPaymentId());
         //System.out.println(orders.getAddress()+"  "+orders.getName()+" "+orders.getItems().length+" - "+orders.getPaymentId());
         //System.out.println(cart[0].toString());
-        OrderBL.savedelivery(4,1,Integer.parseInt(token));
-        Delivery del=OrderBL.getdeliveryid(4,1,Integer.parseInt(token));
+        OrderBL.savedelivery(User_addressBL.findiddres(Integer.parseInt(token)),1,Integer.parseInt(token));
+        Delivery del=OrderBL.getdeliveryid(User_addressBL.findiddres(Integer.parseInt(token)),1,Integer.parseInt(token));
         Date dt= new Date(2022,12,10);//no importa
         Order or= new Order(0, orders.getTotalPrice(), 2,1,del.getId_delivery(),dt);
         OrderBL.saveOrder(or);
@@ -84,6 +86,7 @@ public class UsuarioAPI {
     @GetMapping(path="/orders/newOrderForCurrentUser", produces = APPLICATION_JSON_VALUE)
     public Orders getlastorder(@RequestHeader("access_token") String token) {
         //lat: -16.5139586, lng: -68.1307689
+        System.out.println(token);
         Order order = OrderBL.findlastorder(Integer.parseInt(token));
         LatLng latLng= new LatLng("-16.5139586","-68.1307689");
         List<Dish> dishes= DishBL.findOrderDetails(order.getId_order());

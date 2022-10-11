@@ -32,7 +32,7 @@ public interface DishDAO {
     public List<Dish> getFOOD();
 
     @Select("SELECT id_dish, name, description, cost, business_id_business " +
-            "FROM dish  WHERE id_dish = #{id}")
+            "FROM dish  WHERE id_dish = #{id} LIMIT 20")
     public Dish findishbyid(@Param("id") Integer id);
 
 }

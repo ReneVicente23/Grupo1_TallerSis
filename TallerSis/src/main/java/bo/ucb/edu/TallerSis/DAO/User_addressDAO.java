@@ -28,4 +28,8 @@ public interface User_addressDAO {
     @Select("SELECT address_id_address " +
             "FROM user_address WHERE userapp_id_userapp= #{id} AND status = 2 ")
     public Integer getidfav(@Param("id") Integer id);
+
+    @Select("SELECT DISTINCT address_id_address " +
+            "FROM user_address WHERE userapp_id_userapp= #{id}")
+    public Integer getidaddres(@Param("id") Integer id);
 }
