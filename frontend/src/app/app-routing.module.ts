@@ -8,6 +8,12 @@ import {RegisterPageComponent} from "./components/pages/register-page/register-p
 import {CheckoutPageComponent} from "./components/pages/checkout-page/checkout-page.component";
 import {AuthGuard} from "./auth/guards/auth.guard";
 import {PaymentPageComponent} from "./components/pages/payment-page/payment-page.component";
+import {OrdersHistoryComponent } from './components/pages/orders-history/orders-history.component';
+import {SalesReportComponent } from './components/pages/sales-report/sales-report.component';
+import {ReportDeliveriesComponent } from './components/pages/report-deliveries/report-deliveries.component';
+import { ListAddressComponent } from './components/pages/list-address/list-address.component';
+import { EditAddressComponent } from './components/pages/edit-address/edit-address.component';
+
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -18,7 +24,12 @@ const routes: Routes = [
   {path:'login',component:LoginPageComponent},
   {path:'register',component:RegisterPageComponent},
   {path:'checkout',component:CheckoutPageComponent, canActivate:[AuthGuard]},
-  {path:'payment',component:PaymentPageComponent, canActivate:[AuthGuard]}
+  {path:'payment',component:PaymentPageComponent, canActivate:[AuthGuard]},
+  {path:'sales-report',component:SalesReportComponent},
+  {path: 'orders-history', component:OrdersHistoryComponent},
+  {path: 'report-deliveries', component:ReportDeliveriesComponent},
+  {path: 'list-address', component:ListAddressComponent},
+  {path: 'edit-address', component:EditAddressComponent}
 ];
 
 @NgModule({

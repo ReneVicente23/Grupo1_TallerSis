@@ -1,7 +1,10 @@
 table{
-    border-radius: 10em;
-    border-collapse: separate;
-  border-spacing: 140px 5px;
+  border-radius: 10em;
+  border-collapse: separate;
+  border-spacing: 100px 4px;
+  justify-content: center;
+  text-align:center;
+  margin: 0 auto;
 }
 .btn-warning{
     text-transform: uppercase;

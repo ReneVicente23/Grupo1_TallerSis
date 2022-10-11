@@ -10,7 +10,15 @@
           <a routerLink="/dashboard">{{user.name}}</a>
           <div class="menu">
             <a routerLink="/profile">Profile</a>
-            <a routerLink="/orders">Orders</a>
+            <a routerLink="/list-address">My Address</a>
+            <li class="menu-container">
+              <a routerLink="/dashboard">Reports</a>
+              <div class="menu">
+                <a routerLink="/orders-history">Orders</a>
+                <a routerLink="/sales-report">Sales</a>
+                <a routerLink="/report-deliveries">Delivery</a>
+              </div>
+            </li>
             <a (click)="logout()">Logout</a>
           </div>
         </li>
@@ -19,6 +27,7 @@
             Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span>
           </a>
         </li>
+        
       </ul>
     </nav>
   </div>

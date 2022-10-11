@@ -1,8 +1,15 @@
 
+.container{
+  display: flex;
+  justify-content: center;
+}
 table{
-    border-radius: 10em;
-    border-collapse: separate;
-  border-spacing: 140px 5px;
+  border-radius: 10em;
+  border-collapse: separate;
+  border-spacing: 100px 4px;
+  justify-content: center;
+  text-align:center;
+  margin: 0 auto;
 }
 .btn-warning{
     text-transform: uppercase;
@@ -16,10 +23,10 @@ table{
     display: inline-block;
     padding: 0.875rem 1rem;
     border-radius: 1.5rem;
-    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
   .addbtn{
+    
     text-transform: uppercase;
     letter-spacing: 0.15em;
     border: none;
@@ -27,11 +34,9 @@ table{
     color: #ffffff;
     font-weight: bold;
     background-color: #ff8000;
-    width: 30%;
+    width: 100%;
     padding: 0.875rem 1rem;
-    display: inline-block;
     border-radius: 1.5rem;
-    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
 .btn-danger{
@@ -46,7 +51,6 @@ table{
     display: inline-block;
     padding: 0.875rem 1rem;
     border-radius: 1.5rem;
-    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
   h1{
@@ -68,7 +72,6 @@ table{
     width: 100%;
     padding: 0.875rem 1rem;
     border-radius: 1.5rem;
-    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
   }
   input[type="checkbox"]:checked {
@@ -76,12 +79,5 @@ table{
   }
 p {
   font-family: Lato;
-}
-
-.btn-primary {
-  color: blue;
-}
-.btn-danger {
-  color: rgb(255, 255, 255);
   
 }
