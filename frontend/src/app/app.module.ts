@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/partials/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { OrdersHistoryComponent } from './components/pages/orders-history/orders-history.component';
 import { ReportDeliveriesComponent } from './components/pages/report-deliveries/report-deliveries.component';
+import { ListAddressComponent } from './components/pages/list-address/list-address.component';
+import { EditAddressComponent } from './components/pages/edit-address/edit-address.component';
 import { RatingModule } from "ng-starrating";
 import { SearchComponent } from './components/partials/search/search.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
@@ -40,8 +42,10 @@ import { PaymentConfirmationComponent } from './components/pages/payment-confirm
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    EditAddressComponent,
     OrdersHistoryComponent,
     ReportDeliveriesComponent,
+    ListAddressComponent,
     SearchComponent,
     TagsComponent,
     FoodPageComponent,

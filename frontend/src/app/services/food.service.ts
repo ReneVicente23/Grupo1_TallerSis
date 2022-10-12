@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Food } from "../shared/models/Food";
 import { Order2 } from "../shared/models/Order2";
 import { Count } from "../shared/models/Count";
+import { Address } from "../shared/models/Address";
 import {sample_tags} from "../../data";
 import {Tag} from "../shared/models/Tag";
 import {HttpClient} from "@angular/common/http";
@@ -53,4 +54,12 @@ export class FoodService {
    getrepdeli(page:string, size:string):Observable<Order2[]>{
         return this.http.get<Order2[]>('http://localhost:8080/api/delivery/report?page='+page+'&size='+size);
       }
+
+   getaddress():Observable<Address[]>{
+          return this.http.get<Address[]>('http://localhost:8080/api/user/address');
+        }
+
+   updateaddress(address:Address){
+       return this.http.put<Address>('http://localhost:8080/api/user/address', address);
+     }
 }

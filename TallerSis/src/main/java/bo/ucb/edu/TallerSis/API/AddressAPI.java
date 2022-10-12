@@ -19,9 +19,9 @@ public class AddressAPI {
         this.addressBL = addressBL;
     }
 
-    @GetMapping(path="/{userid}/address/", produces = APPLICATION_JSON_VALUE)
-    public List<Address> findaddressapi(@PathVariable("userid") Integer userid) {
-        return addressBL.findAddress(userid);
+    @GetMapping(path="/address", produces = APPLICATION_JSON_VALUE)
+    public List<Address> findaddressapi(@RequestHeader("access_token") String token) {
+        return addressBL.findAddress(Integer.parseInt(token));
     }//tested: OBTIENE TODAS LAS DIRECCIONES DE UN USUARIO
 
     @GetMapping(path="/address/{addressid}", produces = APPLICATION_JSON_VALUE)

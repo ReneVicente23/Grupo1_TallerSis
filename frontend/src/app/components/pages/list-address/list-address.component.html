@@ -17,7 +17,7 @@
             <table class="table table-hover">
                 <thead>
                     <tr class="text-center">
-                        <th>NICK</th>
+                        <th>ID</th>
                         <th>STREET</th>
                         <th>ZONE</th>
                         <th>NUMBER</th>
@@ -26,15 +26,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let or of addresss;let i= index" class="text-center">
+                        <td>{{or.id_address}}</td>
+                        <td>{{or.street}}</td>
+                        <td>{{or.zone}}</td>
+                        <td>{{or.city}}</td>
+                        <td>{{or.ref}}</td>
                         <td>
                             <a href="/edit-address">
-                                <button class="btn-warning">
+                                <button (click)="modificar(or)" class="btn-warning">
                                     <span class="material-icons">
                                         edit
                                     </span>
