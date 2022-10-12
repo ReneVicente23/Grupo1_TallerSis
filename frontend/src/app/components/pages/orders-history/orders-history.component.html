@@ -11,21 +11,26 @@
                 <thead>
                     <tr class="text-center">
                         <th>ID</th>
-                        <th>RESTAURANT</th>
-                        <th>DATE</th>
                         <th>TOTAL PAYMENT</th>
-                        <th>TYPE PAY</th>
                         <th>STATUS</th>
+                        <th>TYPE PAYMENT</th>
+                        <th>DELIVERY</th>
+                        <th>DATE</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr *ngFor="let or of order2s;let i= index" class="text-center" >
+                        <td>{{or.id_order}}</td>
+                        <td>{{or.total_payment}}</td>
+                        <td>{{or.order_status_id_order_status}}</td>
+                        <td>{{or.type_payment_id_typepay}}</td>
+                        <td>{{or.delivery_id_delivery}}</td>
+                        <td>{{or.orderdate}}</td>
+                    </tr>
+
                     <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>TOTAL DE PEDIDOS</td>
+                        <td>{{counts}}</td>
                     </tr>
 
                 </tbody>

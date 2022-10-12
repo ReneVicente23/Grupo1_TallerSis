@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/partials/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { OrdersHistoryComponent } from './components/pages/orders-history/orders-history.component';
+import { ReportDeliveriesComponent } from './components/pages/report-deliveries/report-deliveries.component';
 import { RatingModule } from "ng-starrating";
 import { SearchComponent } from './components/partials/search/search.component';
 import { TagsComponent } from './components/partials/tags/tags.component';
@@ -35,6 +37,8 @@ import { PaypalButtonComponent } from './components/partials/paypal-button/paypa
     AppComponent,
     HeaderComponent,
     HomeComponent,
+    OrdersHistoryComponent,
+    ReportDeliveriesComponent,
     SearchComponent,
     TagsComponent,
     FoodPageComponent,

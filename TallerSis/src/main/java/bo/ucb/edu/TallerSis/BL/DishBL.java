@@ -38,8 +38,8 @@ public class DishBL {
         return result;
     }
 
-    public List<Food> findFood(){
-        List<Dish> result = dishDAO.getFOOD();
+    public List<Food> findFood(int pag){
+        List<Dish> result = dishDAO.getFOOD((pag*20));
         List<Food> refood= new ArrayList<Food>();
         for(Dish s: result){
             String[] tag={"comida", "rapida"};
@@ -58,4 +58,11 @@ public class DishBL {
         Food f = new Food(result.getId_dish(),result.getName(), result.getCost(), tag ,false,3.0,"assets/food-1.jpg",origins,"1 test");
         return f;
     }
+
+    public List<Dish> userReport(Integer id, String row, String ord, Integer limit, Integer pag){
+        Integer page=limit*pag;
+
+        List<Dish> result = dishDAO.dishUserReport(id, Integer.parseInt(row),ord,limit,page);
+        return result;
+   }
 }

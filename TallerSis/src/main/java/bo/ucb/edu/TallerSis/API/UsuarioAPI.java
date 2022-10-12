@@ -52,20 +52,22 @@ public class UsuarioAPI {
     }//intento de auth
 
     @GetMapping(path="/foods", produces = APPLICATION_JSON_VALUE)
-    public List<Food> findFOODs() {
-        return DishBL.findFood();
+    public List<Food> findFOODs( @RequestParam(value = "page", defaultValue = "0", required = false) int pageNo) {
+        return DishBL.findFood(pageNo);
     }//OBTIENE TODOS LOS PLATAOS DE LA BD
+
     @GetMapping(path="/foods/{foodid}", produces = APPLICATION_JSON_VALUE)
     public Food findFOODId(@PathVariable("foodid") Integer id) {
         return DishBL.findFoodId(id);
     }//OBTIENE UN PLATO DE LA BD
+
     @GetMapping(path="/foods/tags", produces = APPLICATION_JSON_VALUE)
     public List<String> tags() {
         List<String> result = new ArrayList<String>();
         result.add("comida");
         result.add("rapida");
         return result;
-    }//OBTIENE TODOS LOS PLATAOS DE LA BD
+    }//OBTIENE TAGS PARA LOS PLATOS
 
     @PostMapping(path="/orders/create", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Orders inseruseraddress(@RequestHeader("access_token") String token, @RequestBody Orders orders) {
@@ -83,6 +85,7 @@ public class UsuarioAPI {
         OrderBL.savedetail(cart,or.getId_order());
         return orders;
     }//Crea un delivery, luego crea un order y por ultimo un orderdetails
+
     @GetMapping(path="/orders/newOrderForCurrentUser", produces = APPLICATION_JSON_VALUE)
     public Orders getlastorder(@RequestHeader("access_token") String token) {
         //lat: -16.5139586, lng: -68.1307689
@@ -108,6 +111,28 @@ public class UsuarioAPI {
         Orders orders=new Orders(order.getId_order(),cart,aux,"test","addresstest",latLng,null,order.getOrderdate()+"","in progress");
 
         return orders;
-    }//OBTIENE TODOS LOS PLATAOS DE LA BD
+    }//OBTIENE LA ORDEN CREADA, RETORNA UN ORDERS
 
+    @GetMapping(path="/users/report", produces = APPLICATION_JSON_VALUE)
+    public List<Order> userReport(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                 @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "2", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        List<Order> result= OrderBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        return result;
+    }//OBTIENE EL REPORTE DEL USUARIO
+
+    @GetMapping(path="/users/report/total", produces = APPLICATION_JSON_VALUE)
+    public Count userReporttotal(@RequestHeader("access_token") String token) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        Count result= OrderBL.gettotaluser(Integer.parseInt(token));
+        return result;
+    }//OBTIENE EL total de pedidos DEL USUARIO
+
+    @GetMapping(path="/delivery/report", produces = APPLICATION_JSON_VALUE)
+    public List<Order> deliReport(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                  @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "2", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        List<Order> result= OrderBL.delireport(Integer.parseInt(token),sort,ord,size,page);
+        return result;
+    }//OBTIENE EL REPORTE DEL delivery
 }

@@ -87,4 +87,23 @@ public class OrderBL {
         }
     }
 
+    public List<Order> userReport(Integer id, String row, String ord, Integer limit, Integer pag){
+        Integer page=limit*pag;
+
+        List<Order> result = orderDAO.getorderuser(id, Integer.parseInt(row),ord,limit,page);
+        return result;
+    }
+
+    public Count gettotaluser(Integer id){
+        Count res= orderDAO.gettotaluser(id);
+        return res;
+    }
+
+    public List<Order> delireport(Integer id, String row, String ord, Integer limit, Integer pag){
+        Integer page=limit*pag;
+
+        List<Order> result = orderDAO.getdeliveryrep(id, Integer.parseInt(row),ord,limit,page);
+        return result;
+    }
+
 }
