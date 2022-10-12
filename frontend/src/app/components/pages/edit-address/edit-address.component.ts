@@ -12,16 +12,18 @@ import {BehaviorSubject} from "rxjs";
 })
 export class EditAddressComponent implements OnInit {
 
-  addresss: Address[] = [];
+  addresss!: Address;
   constructor() { }
 
   ngOnInit(): void {
-
-
+      this.get();
+      console.log(this.addresss);
   }
 
   get() {
-
+    var direct = localStorage.getItem('direccion a modificar');
+    var direccion = JSON.parse(direct!);
+    this.addresss = direccion;
   }
 
 }
