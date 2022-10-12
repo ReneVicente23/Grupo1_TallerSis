@@ -48,6 +48,13 @@ export class FoodService {
   getDishUser(page:string, size:string):Observable<Order2[]>{
       return this.http.get<Order2[]>('http://localhost:8080/api/users/report?page='+page+'&size='+size);
     }
+
+
+  getDishUser2(page:string, size:string, sort:string, filt:string):Observable<Order2[]>{
+        return this.http.get<Order2[]>('http://localhost:8080/api/users/reporte?page='+page+'&size='+size+'&sort='+sort+'&filt='+filt);
+      }
+
+
   getTotalUser():Observable<Count>{
         return this.http.get<Count>('http://localhost:8080/api/users/report/total');
       }
@@ -55,6 +62,7 @@ export class FoodService {
    getrepdeli(page:string, size:string):Observable<Order2[]>{
         return this.http.get<Order2[]>('http://localhost:8080/api/delivery/report?page='+page+'&size='+size);
       }
+
 
    getaddress():Observable<Address[]>{
           return this.http.get<Address[]>('http://localhost:8080/api/user/address');

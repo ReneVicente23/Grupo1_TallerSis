@@ -104,6 +104,13 @@ public class OrderBL {
         return result;
     }
 
+    public List<Order> userReport2(Integer id, String row, String ord, Integer limit, Integer pag, Double fil){
+        Integer page=limit*pag;
+
+        List<Order> result = orderDAO.getorderuser2(id, Integer.parseInt(row),Integer.parseInt(ord),limit,page,fil);
+        return result;
+    }
+
     public Count gettotaluser(Integer id){
         Count res= orderDAO.gettotaluser(id);
         return res;

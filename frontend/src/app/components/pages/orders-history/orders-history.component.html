@@ -27,10 +27,53 @@
                         <td>{{or.delivery_id_delivery}}</td>
                         <td>{{or.orderdate}}</td>
                     </tr>
-
+                    <tr>
+                      <td></td>
+                    </tr>
                     <tr class="text-center">
                         <td>TOTAL DE PEDIDOS</td>
                         <td>{{count.count}}</td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <button (click)="prevpage()" class="btn-danger"> <<< </button>
+                      </td>
+                      <td>
+                        <button (click)="nextpage()" class="btn-danger"> >>> </button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <button (click)="limitador(100)" class="btn-danger"> Limite 100 Bs </button>
+                      </td>
+                      <td>
+                        <button (click)="limitador(200)" class="btn-danger"> Limite 200 Bs </button>
+                      </td>
+                      <td>
+                        <button (click)="limitador(300)" class="btn-danger"> Limite 300 Bs </button>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <button (click)="ordenar(1)" class="bcancel"> OrderBY: id </button>
+                      </td>
+                      <td>
+                        <button (click)="ordenar(2)" class="bcancel"> OrderBY: total payment </button>
+                      </td>
+                      <td>
+                        <button (click)="ordenar(3)" class="bcancel"> OrderBY: status </button>
+                      </td>
+                      <td>
+                        <button (click)="ordenar(4)" class="bcancel"> OrderBY:  type payment </button>
+                      </td>
+                      <td>
+                        <button (click)="ordenar(5)" class="bcancel"> OrderBY: delivery </button>
+                      </td>
+                      <td>
+                        <button (click)="ordenar(6)" class="bcancel"> OrderBY: date </button>
+                      </td>
                     </tr>
 
                 </tbody>

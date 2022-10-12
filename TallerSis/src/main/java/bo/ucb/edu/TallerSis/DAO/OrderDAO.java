@@ -74,9 +74,16 @@ public interface OrderDAO {
             "ORDER BY 6 DESC LIMIT #{limit} OFFSET #{pag}")
     public List<Order> getorderuser(@Param("iduser") Integer id,@Param("row") Integer row , @Param("ord") String ord, @Param("limit") Integer limit, @Param("pag") Integer pag);
 
+    @Select("SELECT p.id_order, p.total_payment, p.order_status_id_order_status, p.type_payment_id_typepay, p.delivery_id_delivery, p.orderdate  " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery JOIN user_address q ON q.id_user_address=j.user_address_id_user_address WHERE q.userapp_id_userapp= #{iduser} AND p.total_payment < #{fil} "+
+            "ORDER BY ${ord} DESC LIMIT #{limit} OFFSET #{pag}")
+    public List<Order> getorderuser2(@Param("iduser") Integer id,@Param("row") Integer row , @Param("ord") Integer ord, @Param("limit") Integer limit, @Param("pag") Integer pag, @Param("fil") Double fil);
+
     @Select("SELECT count(DISTINCT id_order)  " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery JOIN user_address q ON q.id_user_address=j.user_address_id_user_address WHERE q.userapp_id_userapp= #{iduser} ")
     public Count gettotaluser(@Param("iduser") Integer id);
+
+
 
     @Select("SELECT p.id_order, p.total_payment, p.order_status_id_order_status, p.type_payment_id_typepay, p.delivery_id_delivery, p.orderdate  " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} "+

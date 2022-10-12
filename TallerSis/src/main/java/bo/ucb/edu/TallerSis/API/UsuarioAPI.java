@@ -121,6 +121,14 @@ public class UsuarioAPI {
         return result;
     }//OBTIENE EL REPORTE DEL USUARIO
 
+    @GetMapping(path="/users/reporte", produces = APPLICATION_JSON_VALUE)
+    public List<Order> userReport2(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                  @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "6", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord, @RequestParam(value = "filt", defaultValue = "300.00", required = false) double filtro) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        List<Order> result= OrderBL.userReport2(Integer.parseInt(token),sort,sort,size,page,filtro);
+        return result;
+    }//OBTIENE EL REPORTE DEL USUARIO
+
     @GetMapping(path="/users/report/total", produces = APPLICATION_JSON_VALUE)
     public Count userReporttotal(@RequestHeader("access_token") String token) {
         //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
