@@ -37,3 +37,21 @@
   margin: 2rem;
   width: 35rem;
 }
+
+.btn-cash{
+  text-decoration: none;
+  padding: 10px;
+  width:559px;
+  height:60px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #1883ba;
+  border: 1px;
+}
+
+.btn-cash:hover{
+  cursor: pointer;
+  color: #1883ba;
+  background-color: #ffffff;
+}

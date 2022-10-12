@@ -13,6 +13,9 @@ import {SalesReportComponent } from './components/pages/sales-report/sales-repor
 import {ReportDeliveriesComponent } from './components/pages/report-deliveries/report-deliveries.component';
 import { ListAddressComponent } from './components/pages/list-address/list-address.component';
 import { EditAddressComponent } from './components/pages/edit-address/edit-address.component';
+import { MessageConfirmComponent } from './components/pages/message-confirm/message-confirm.component'; 
+import { PendingPaymentsComponent } from './components/pages/pending-payments/pending-payments.component';
+import { PaymentConfirmationComponent } from './components/pages/payment-confirmation/payment-confirmation.component';
 
 
 const routes: Routes = [
@@ -29,7 +32,10 @@ const routes: Routes = [
   {path: 'orders-history', component:OrdersHistoryComponent},
   {path: 'report-deliveries', component:ReportDeliveriesComponent},
   {path: 'list-address', component:ListAddressComponent},
-  {path: 'edit-address', component:EditAddressComponent}
+  {path: 'edit-address', component:EditAddressComponent},
+  {path: 'message-confirm',component:MessageConfirmComponent},
+  {path: 'pending-payments', component:PendingPaymentsComponent},
+  {path: 'payment-confirmation', component:PaymentConfirmationComponent}
 ];
 
 @NgModule({
