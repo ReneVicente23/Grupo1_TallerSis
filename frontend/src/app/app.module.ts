@@ -29,6 +29,9 @@ import { MapComponent } from './components/partials/map/map.component';
 import {AuthInterceptor} from "./auth/auth.interceptor";
 import { PaymentPageComponent } from './components/pages/payment-page/payment-page.component';
 import { PaypalButtonComponent } from './components/partials/paypal-button/paypal-button.component';
+import { MessageConfirmComponent } from './components/pages/message-confirm/message-confirm.component';
+import { PendingPaymentsComponent } from './components/pages/pending-payments/pending-payments.component';
+import { PaymentConfirmationComponent } from './components/pages/payment-confirmation/payment-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { PaypalButtonComponent } from './components/partials/paypal-button/paypa
     OrderItemsListComponent,
     MapComponent,
     PaymentPageComponent,
-    PaypalButtonComponent
+    PaypalButtonComponent,
+    MessageConfirmComponent,
+    PendingPaymentsComponent,
+    PaymentConfirmationComponent
   ],
   imports: [
     BrowserModule,
