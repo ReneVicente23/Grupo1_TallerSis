@@ -45,6 +45,10 @@ public interface OrderDAO {
             "FROM \"order\" p JOIN order_details j ON p.id_order = j.order_id_order JOIN dish q ON q.id_dish=j.dish_id_dish WHERE q.business_id_business= #{idbussines} AND p.order_status_id_order_status = 2")
     public List<Order> getorderforpay(@Param("idbussines") Integer id);
 
+    @Select("SELECT p.id_order, p.total_payment, p.order_status_id_order_status, p.type_payment_id_typepay, p.delivery_id_delivery, p.orderdate " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE p.type_payment_id_typepay= 1 AND p.order_status_id_order_status = 2 AND j.userapp_id_userapp= #{id}")
+    public List<Order> getorderforpayclient(@Param("id") Integer id);
+
     @Insert("INSERT INTO delivery (user_address_id_user_address, business_id_business, userapp_id_userapp) " +
             " VALUES ( #{address}, #{idbuss}, #{userid}) ")
     void saveDelivery(@Param("address") Integer idaddress,@Param("idbuss") Integer idbuss,@Param("userid") Integer userid);

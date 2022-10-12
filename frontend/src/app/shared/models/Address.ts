@@ -1,5 +1,5 @@
 export class Address{
-  id_address!:string;
+  id_address!:number;
   street!:string;
   zone!:string;
   h_number!:string;

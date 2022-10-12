@@ -13,7 +13,7 @@ import {BehaviorSubject} from "rxjs";
 export class EditAddressComponent implements OnInit {
 
   addresss!: Address;
-  constructor() { }
+  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
       this.get();
@@ -24,6 +24,27 @@ export class EditAddressComponent implements OnInit {
     var direct = localStorage.getItem('direccion a modificar');
     var direccion = JSON.parse(direct!);
     this.addresss = direccion;
+  }
+
+  getInputValue(street:string, zone:string, h_number:string, city:string){
+    this.addresss.street=street;
+    this.addresss.zone=zone;
+    this.addresss.h_number=h_number;
+    this.addresss.city=city;
+    console.log(this.addresss.street);
+    console.log(this.addresss);
+
+    this.foodService.updateaddress(this.addresss).subscribe({
+                                                      next:() => {
+                                                        this.router.navigateByUrl('/list-address');
+                                                        console.log('paso');
+                                                      },
+                                                      error:(errorResponse) => {
+                                                        console.log('error');
+                                                        //this.toastrService.error(errorResponse.error, 'Cart');
+                                                      }
+                                                    });
+     console.log('update exitoso');
   }
 
 }

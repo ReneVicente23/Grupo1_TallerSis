@@ -16,13 +16,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let or of order2s;let i= index" class="text-center">
+                        <td>{{or.id_order}}</td>
+                        <td>{{or.total_payment}}</td>
+                        <td>{{or.order_status_id_order_status}}</td>
                         <td>
                             <a href="/payment-confirmation">
-                                <button class="btn-done">
+                                <button class="btn-done" (click)="pagoefectivocom(or)">
                                     <span class="material-icons">
                                         done
                                     </span>
@@ -33,5 +33,5 @@
                 </tbody>
             </table>
         </div>
-        
+
 </body>

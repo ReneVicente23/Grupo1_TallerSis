@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/services/cart.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Order } from 'src/app/shared/models/Order';
+import {FoodService} from "src/app/services/food.service";
 
 //window.paypal
 declare var paypal: any;
@@ -23,7 +24,8 @@ export class PaypalButtonComponent implements OnInit {
   constructor(private orderService: OrderService,
               private cartService: CartService,
               private router:Router,
-              private toastrService: ToastrService) { }
+              private toastrService: ToastrService,
+              private foodService: FoodService) { }
 
   ngOnInit(): void {
     const self = this;
@@ -53,6 +55,18 @@ export class PaypalButtonComponent implements OnInit {
                   'Payment Saved Successfully',
                   'Success'
                 );
+
+                this.foodService.updateordertoCard(this.order).subscribe({
+                     next:() => {
+                            //this.router.navigateByUrl('/list-address');
+                              console.log('se completo');
+                              },
+                              error:(errorResponse) => {
+                               console.log('error en endpoint');
+                                                                                                //this.toastrService.error(errorResponse.error, 'Cart');
+                              }
+                              });
+
               },
               error: (error) => {
                 this.toastrService.error('Payment Save Failed', 'Error');

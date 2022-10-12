@@ -4,6 +4,7 @@ import bo.ucb.edu.TallerSis.BL.OrderBL;
 import bo.ucb.edu.TallerSis.DTO.Address;
 import bo.ucb.edu.TallerSis.DTO.Count;
 import bo.ucb.edu.TallerSis.DTO.Order;
+import bo.ucb.edu.TallerSis.DTO.Orders;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,15 +33,22 @@ public class OrderAPI {
     }//tested: INGRESA UNA ORDER
 
     @PutMapping(path="/cash", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
-    public Order updatestatuspay(@RequestBody Order order) {
-        orderBL.updateOrderStatus(order,2);
-        orderBL.updateOrderPayStatus(order,1);
-        return order;
+    public Orders updatestatuspay(@RequestHeader("access_token") String token, @RequestBody Orders orders) {
+        orderBL.updateOrderStatus(orders.getId(),2);
+        orderBL.updateOrderPayStatus(orders.getId(),1);
+        return orders;
     }//tested: MODIFICA UNA ORDER PARA QUE SU TIPO DE PAGO SEA EN EFECTIVO
 
+    @PutMapping(path="/card", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Orders updatestatuspaycard(@RequestHeader("access_token") String token, @RequestBody Orders orders) {
+        orderBL.updateOrderStatus(orders.getId(),3);
+        orderBL.updateOrderPayStatus(orders.getId(),3);
+        return orders;
+    }//tested: MODIFICA UNA ORDER PARA QUE SU TIPO DE PAGO SEA EN TARJETA/PAYPAL y este pagado
+
     @PutMapping(path="/cash/pay", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
-    public Order updatestatus(@RequestBody Order order) {
-        orderBL.updateOrderStatus(order,3);
+    public Order updatestatus(@RequestHeader("access_token") String token, @RequestBody Order order) {
+        orderBL.updateOrderStatus(order.getId_order(),3);
         return order;
     }//tested: MODIFICA UNA ORDER PARA QUE SU ESTADO SEA PAGADO
 
@@ -62,6 +70,11 @@ public class OrderAPI {
     @GetMapping(path="/delivery/cash/pending/{bussinesid}", produces = APPLICATION_JSON_VALUE)
     public List<Order> findforpay(@PathVariable("bussinesid") Integer id) {
         return orderBL.findOrdersforpay(id);
+    }//OBTIENE TODOS LAS ORDENES PENDIENTES DE PAGO EN EFECTIVO DE UN NEGOCIO
+
+    @GetMapping(path="/delivery/cash/pending", produces = APPLICATION_JSON_VALUE)
+    public List<Order> findforpayc(@RequestHeader("access_token") String token) {
+        return orderBL.findorderstopay(Integer.parseInt(token));
     }//OBTIENE TODOS LAS ORDENES PENDIENTES DE PAGO EN EFECTIVO DE UN NEGOCIO
 
 }

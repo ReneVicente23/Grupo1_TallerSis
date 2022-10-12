@@ -30,6 +30,6 @@ public interface User_addressDAO {
     public Integer getidfav(@Param("id") Integer id);
 
     @Select("SELECT DISTINCT address_id_address " +
-            "FROM user_address WHERE userapp_id_userapp= #{id}")
+            "FROM user_address WHERE userapp_id_userapp= #{id} LIMIT 1")
     public Integer getidaddres(@Param("id") Integer id);
 }

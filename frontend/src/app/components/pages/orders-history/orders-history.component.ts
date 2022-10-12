@@ -15,7 +15,7 @@ import { Observable } from 'rxjs';
 export class OrdersHistoryComponent implements OnInit {
 
   order2s: Order2[] = [];
-  counts: Count[] = [];
+  count!: Count;
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
 
    }
@@ -43,8 +43,8 @@ export class OrdersHistoryComponent implements OnInit {
       this.foodService.getTotalUser()
                 .subscribe(
                   data => {
-                    this.counts = data;
-                    console.log(this.counts);
+                    this.count = data;
+                    console.log(this.count);
                     console.log('la logramo');
                   },
                   error => {

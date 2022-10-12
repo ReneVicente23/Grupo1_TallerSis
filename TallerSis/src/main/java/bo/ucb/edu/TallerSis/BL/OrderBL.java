@@ -28,18 +28,28 @@ public class OrderBL {
         Integer deli=order.getDelivery_id_delivery();
         orderDAO.saveOrder(pay,status,tpay,deli);
     }
-    public void updateOrderStatus(Order order, Integer status){
-        Integer id_order=order.getId_order();
+    public void updateOrderStatus(Integer  id_order, Integer status){
+        //Integer id_order=order.getId_order();
         orderDAO.updateOrderStatus(id_order,status);
     }
 
-    public void updateOrderPayStatus(Order order, Integer payid){
-        Integer id_order=order.getId_order();
+    public void updateOrderStatuspay(Integer  id_order, Integer status,Integer payid){
+        orderDAO.updateOrderStatus(id_order,status);
+        orderDAO.updateOrderPayStatus(id_order,payid);
+    }
+
+    public void updateOrderPayStatus(Integer id_order, Integer payid){
+        //Integer id_order=order.getId_order();
         orderDAO.updateOrderPayStatus(id_order,payid);
     }
 
     public List<Order> findOrdersbyBussinesday(Integer id) {
         List<Order> result =orderDAO.getorderbybussinesday(id);
+        return result;
+    }
+
+    public List<Order> findorderstopay(Integer id) {
+        List<Order> result =orderDAO.getorderforpayclient(id);
         return result;
     }
 

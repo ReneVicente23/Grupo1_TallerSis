@@ -3,6 +3,7 @@ package bo.ucb.edu.TallerSis.API;
 
 import bo.ucb.edu.TallerSis.BL.AddressBL;
 import bo.ucb.edu.TallerSis.DTO.Address;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,9 +37,10 @@ public class AddressAPI {
         return address;
     }//tested: INGRESA UNA NUEVA DIRECCION (NO SE CONECTA CON NINGUN USUARIO, REQUIERE USER_ADDRESS)
 
-    @PutMapping(path="/address", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
-    public Address updateaddress(@RequestBody Address address) {
+    @PostMapping(path="/address/up", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Address updateaddress( @RequestBody Address address ) {
         addressBL.updateAddress(address);
+        System.out.print(address.toString());
         return address;
     }//tested: MODIFICA UNA DIRECCION REQUIERE EL ID DE LA DIRECCION EN EL BODY Y EL RESTO DE DATOS SON LOS QUE SE SOBREESCRIBEN
 
