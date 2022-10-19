@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-10-10 21:30:14.359
+-- Last modification date: 2022-10-19 21:43:40.469
 
 -- tables
 -- Table: address
@@ -72,6 +72,14 @@ CREATE TABLE order_status (
     id_order_status serial  NOT NULL,
     order_status varchar(50)  NOT NULL,
     CONSTRAINT order_status_pk PRIMARY KEY (id_order_status)
+);
+
+-- Table: pagofav
+CREATE TABLE pagofav (
+    idpagofav serial  NOT NULL,
+    type_payment_id_typepay int  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    CONSTRAINT pagofav_pk PRIMARY KEY (idpagofav)
 );
 
 -- Table: saldoapp
@@ -196,6 +204,22 @@ ALTER TABLE "order" ADD CONSTRAINT order_order_status
 ALTER TABLE "order" ADD CONSTRAINT order_type_payment
     FOREIGN KEY (type_payment_id_typepay)
     REFERENCES type_payment (id_typepay)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: pagofav_type_payment (table: pagofav)
+ALTER TABLE pagofav ADD CONSTRAINT pagofav_type_payment
+    FOREIGN KEY (type_payment_id_typepay)
+    REFERENCES type_payment (id_typepay)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: pagofav_userapp (table: pagofav)
+ALTER TABLE pagofav ADD CONSTRAINT pagofav_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
