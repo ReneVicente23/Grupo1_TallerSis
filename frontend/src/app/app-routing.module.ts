@@ -28,14 +28,14 @@ const routes: Routes = [
   {path:'register',component:RegisterPageComponent},
   {path:'checkout',component:CheckoutPageComponent, canActivate:[AuthGuard]},
   {path:'payment',component:PaymentPageComponent, canActivate:[AuthGuard]},
-  {path:'sales-report',component:SalesReportComponent},
-  {path: 'orders-history', component:OrdersHistoryComponent},
-  {path: 'report-deliveries', component:ReportDeliveriesComponent},
-  {path: 'list-address', component:ListAddressComponent},
-  {path: 'edit-address', component:EditAddressComponent},
-  {path: 'message-confirm',component:MessageConfirmComponent},
-  {path: 'pending-payments', component:PendingPaymentsComponent},
-  {path: 'payment-confirmation', component:PaymentConfirmationComponent}
+  {path:'sales-report',component:SalesReportComponent, canActivate:[AuthGuard]},
+  {path: 'orders-history', component:OrdersHistoryComponent, canActivate:[AuthGuard]},
+  {path: 'report-deliveries', component:ReportDeliveriesComponent, canActivate:[AuthGuard]},
+  {path: 'list-address', component:ListAddressComponent, canActivate:[AuthGuard]},
+  {path: 'edit-address', component:EditAddressComponent, canActivate:[AuthGuard]},
+  {path: 'message-confirm',component:MessageConfirmComponent, canActivate:[AuthGuard]},
+  {path: 'pending-payments', component:PendingPaymentsComponent, canActivate:[AuthGuard]},
+  {path: 'payment-confirmation', component:PaymentConfirmationComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
