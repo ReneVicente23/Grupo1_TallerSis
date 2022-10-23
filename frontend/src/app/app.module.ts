@@ -36,6 +36,9 @@ import { PaypalButtonComponent } from './components/partials/paypal-button/paypa
 import { MessageConfirmComponent } from './components/pages/message-confirm/message-confirm.component';
 import { PendingPaymentsComponent } from './components/pages/pending-payments/pending-payments.component';
 import { PaymentConfirmationComponent } from './components/pages/payment-confirmation/payment-confirmation.component';
+import { SettingsComponent } from './components/pages/settings/settings.component';
+import { PaymentSettingsComponent } from './components/pages/payment-settings/payment-settings.component';
+import { PaymentConfirmComponent } from './components/pages/payment-confirm/payment-confirm.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { PaymentConfirmationComponent } from './components/pages/payment-confirm
     PaypalButtonComponent,
     MessageConfirmComponent,
     PendingPaymentsComponent,
-    PaymentConfirmationComponent
+    PaymentConfirmationComponent,
+    SettingsComponent,
+    PaymentSettingsComponent,
+    PaymentConfirmComponent
   ],
   imports: [
     BrowserModule,

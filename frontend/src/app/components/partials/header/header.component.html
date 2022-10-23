@@ -11,11 +11,18 @@
           <div class="menu">
             <a routerLink="/profile">Profile</a>
             <a routerLink="/list-address">My Address</a>
-            <a routerLink="/orders-history">Orders</a>
+            <a routerLink="/settings">Settings</a>
+            <a (click)="logout()">Logout</a>
+
+          </div>
+        </li>
+        <li *ngIf="isAuth" class="menu-container">
+          <a routerLink="/dashboard">Reports</a>
+          <div class="menu">
+            <a routerLink="/orders-history">History</a>
             <a routerLink="/sales-report">Sales</a>
             <a routerLink="/report-deliveries">Delivery</a>
             <a routerLink="/pending-payments">Pending Payments</a>
-            <a (click)="logout()">Logout</a>
 
           </div>
         </li>

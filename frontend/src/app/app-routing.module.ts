@@ -16,7 +16,9 @@ import { EditAddressComponent } from './components/pages/edit-address/edit-addre
 import { MessageConfirmComponent } from './components/pages/message-confirm/message-confirm.component'; 
 import { PendingPaymentsComponent } from './components/pages/pending-payments/pending-payments.component';
 import { PaymentConfirmationComponent } from './components/pages/payment-confirmation/payment-confirmation.component';
-
+import { SettingsComponent } from './components/pages/settings/settings.component';
+import { PaymentSettingsComponent } from './components/pages/payment-settings/payment-settings.component';
+import { PaymentConfirmComponent } from './components/pages/payment-confirm/payment-confirm.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -35,7 +37,10 @@ const routes: Routes = [
   {path: 'edit-address', component:EditAddressComponent, canActivate:[AuthGuard]},
   {path: 'message-confirm',component:MessageConfirmComponent, canActivate:[AuthGuard]},
   {path: 'pending-payments', component:PendingPaymentsComponent, canActivate:[AuthGuard]},
-  {path: 'payment-confirmation', component:PaymentConfirmationComponent, canActivate:[AuthGuard]}
+  {path: 'payment-confirmation', component:PaymentConfirmationComponent, canActivate:[AuthGuard]},
+  {path: 'settings', component:SettingsComponent, canActivate:[AuthGuard]},
+  {path: 'payment-settings', component:PaymentSettingsComponent, canActivate:[AuthGuard]},
+  {path: 'payment-confirm', component:PaymentConfirmComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

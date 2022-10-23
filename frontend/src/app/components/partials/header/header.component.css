@@ -1,18 +1,20 @@
 header{
   position: relative;
-  background: white;
+  background: rgb(24, 24, 24);
   padding: 0;
-  border-bottom: 1px solid #e72929;
+  border-bottom: 1px solid #ffe9e9;
+  border-radius: 4cm;
 }
 
 a{
-  color: #af1313;
+  color: #ffffff;
 }
 
 a:hover{
   background:#e72929;
   color: white;
   cursor: pointer;
+  border-radius: 4cm;
 }
 
 .container{
@@ -38,7 +40,7 @@ ul a{
 }
 
 a span{
-  background: #ff4d4d;
+  background: #111111;
   color: white;
   padding: 0.1rem 0.45rem;
   border-radius: 100rem;
@@ -52,8 +54,9 @@ a span{
 .menu{
   position:absolute;
   z-index:1;
-  background:whitesmoke;
+  background:rgb(24, 24, 24);
   display: none;
+  border-radius: 0.3cm;
 }
 
 .menu-container:hover .menu{

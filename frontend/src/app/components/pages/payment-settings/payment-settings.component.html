@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<body>
+    <h1 >
+        Payments
+    </h1>
+    <br>
+    <h3 >
+        Default payment
+    </h3>
+    <hr size="2px" color="black" style="width: 75%;"/>
+    <h3 >
+        Your default payment is: (jalar de la base de datos)
+    </h3>
+    <br>
+    <br>
+    <form method = "post" class="form1">
+        <div>
+            <label>Choose a default payment:</label>
+            <br>
+            <input type = "radio" name = "op1" value = "foo" class="op1"/> None
+            <br>
+            <input type = "radio" name = "op1" value = "bar" class="op2"/> Cash payment
+            <br>
+            <input type = "radio" name = "op1" value = "bar" class="op3"/> Credit Card
+            <br>
+            <input type = "radio" name = "op1" value = "bar" class="op4"/> Paypal
+            <br>
+            <input type = "radio" name = "op1" value = "bar" class="op5"/> App Balance
+        </div>
+        <br>
+        <input type = "submit" class="btn-confirm" routerLink="/payment-confirm"/>
+    </form> 
+    <br>
+    <br>
+    <h3 >
+        Other
+    </h3>
+    <hr size="2px" color="black" style="width: 75%;"/>
+    <br>
+    <a href="">
+        <button class="btn">
+            My credit card
+        </button>
+    </a>
+    <br>
+    <br>
+    <a href="">
+        <button class="btn">
+            My balance
+        </button>
+    </a>
+</body>
