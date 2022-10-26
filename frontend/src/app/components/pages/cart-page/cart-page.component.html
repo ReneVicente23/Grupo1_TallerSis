@@ -28,7 +28,7 @@
         {{cartItem.price | currency}}
       </div>
       <div>
-        <button class="remove-button" (click)="removeFromCart(cartItem)">
+        <button class="remove-button" style="color: #000000;  font-weight: bolder" (click)="removeFromCart(cartItem)">
           Remove
         </button>
       </div>
@@ -43,6 +43,8 @@
         {{cart.totalPrice | currency}}
       </div>
     </div>
+    <a routerLink="" style="background-color: #e79529; color: #000000; font-weight: bolder">Use app balance</a>
+    <br>
     <a routerLink="/checkout">Proceed to Checkout</a>
   </div>
 </div>

@@ -114,7 +114,21 @@ li .remove-button:hover{
   text-align: center;
   opacity: 0.7;
   justify-self: center;
+  font-weight: bolder;
 }
+
+.remove-button{
+  padding: 1rem;
+  background:#ff9292;
+  display: block;
+  width: 99%;
+  border-radius: 1rem;
+  text-align: center;
+  opacity: 0.7;
+  justify-self: center;
+  font-weight: bolder;
+}
+
 
 .checkout a:hover{
   opacity: 1;
