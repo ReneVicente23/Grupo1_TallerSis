@@ -42,6 +42,7 @@ import { PaymentConfirmComponent } from './components/pages/payment-confirm/paym
 import { ConfirmationPreferenceComponent } from './components/pages/confirmation-preference/confirmation-preference.component';
 import { RegisterCardComponent } from './components/pages/register-card/register-card.component';
 import { ListCardComponent } from './components/pages/list-card/list-card.component';
+import { ChooseCardComponent } from './components/pages/choose-card/choose-card.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { ListCardComponent } from './components/pages/list-card/list-card.compon
     PaymentConfirmComponent,
     ConfirmationPreferenceComponent,
     RegisterCardComponent,
-    ListCardComponent
+    ListCardComponent,
+    ChooseCardComponent
   ],
   imports: [
     BrowserModule,

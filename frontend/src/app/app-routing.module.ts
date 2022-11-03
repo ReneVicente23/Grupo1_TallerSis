@@ -22,6 +22,7 @@ import { PaymentConfirmComponent } from './components/pages/payment-confirm/paym
 import { ConfirmationPreferenceComponent } from './components/pages/confirmation-preference/confirmation-preference.component';
 import { RegisterCardComponent } from './components/pages/register-card/register-card.component';
 import { ListCardComponent } from './components/pages/list-card/list-card.component';
+import { ChooseCardComponent } from './components/pages/choose-card/choose-card.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
   {path: 'payment-confirm', component:PaymentConfirmComponent, canActivate:[AuthGuard]},
   {path: 'confirmation-preference', component:ConfirmationPreferenceComponent, canActivate:[AuthGuard]},
   {path: 'register-card', component:RegisterCardComponent, canActivate:[AuthGuard]},
-  {path: 'list-card', component:ListCardComponent, canActivate:[AuthGuard]}
+  {path: 'list-card', component:ListCardComponent, canActivate:[AuthGuard]},
+  {path: 'choose-card', component:ChooseCardComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
