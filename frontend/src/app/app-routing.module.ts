@@ -19,6 +19,7 @@ import { PaymentConfirmationComponent } from './components/pages/payment-confirm
 import { SettingsComponent } from './components/pages/settings/settings.component';
 import { PaymentSettingsComponent } from './components/pages/payment-settings/payment-settings.component';
 import { PaymentConfirmComponent } from './components/pages/payment-confirm/payment-confirm.component';
+import { ConfirmationPreferenceComponent } from './components/pages/confirmation-preference/confirmation-preference.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -40,7 +41,8 @@ const routes: Routes = [
   {path: 'payment-confirmation', component:PaymentConfirmationComponent, canActivate:[AuthGuard]},
   {path: 'settings', component:SettingsComponent, canActivate:[AuthGuard]},
   {path: 'payment-settings', component:PaymentSettingsComponent, canActivate:[AuthGuard]},
-  {path: 'payment-confirm', component:PaymentConfirmComponent, canActivate:[AuthGuard]}
+  {path: 'payment-confirm', component:PaymentConfirmComponent, canActivate:[AuthGuard]},
+  {path: 'confirmation-preference', component:ConfirmationPreferenceComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

@@ -39,6 +39,7 @@ import { PaymentConfirmationComponent } from './components/pages/payment-confirm
 import { SettingsComponent } from './components/pages/settings/settings.component';
 import { PaymentSettingsComponent } from './components/pages/payment-settings/payment-settings.component';
 import { PaymentConfirmComponent } from './components/pages/payment-confirm/payment-confirm.component';
+import { ConfirmationPreferenceComponent } from './components/pages/confirmation-preference/confirmation-preference.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { PaymentConfirmComponent } from './components/pages/payment-confirm/paym
     PaymentConfirmationComponent,
     SettingsComponent,
     PaymentSettingsComponent,
-    PaymentConfirmComponent
+    PaymentConfirmComponent,
+    ConfirmationPreferenceComponent
   ],
   imports: [
     BrowserModule,
