@@ -40,6 +40,8 @@ import { SettingsComponent } from './components/pages/settings/settings.componen
 import { PaymentSettingsComponent } from './components/pages/payment-settings/payment-settings.component';
 import { PaymentConfirmComponent } from './components/pages/payment-confirm/payment-confirm.component';
 import { ConfirmationPreferenceComponent } from './components/pages/confirmation-preference/confirmation-preference.component';
+import { RegisterCardComponent } from './components/pages/register-card/register-card.component';
+import { ListCardComponent } from './components/pages/list-card/list-card.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { ConfirmationPreferenceComponent } from './components/pages/confirmation
     SettingsComponent,
     PaymentSettingsComponent,
     PaymentConfirmComponent,
-    ConfirmationPreferenceComponent
+    ConfirmationPreferenceComponent,
+    RegisterCardComponent,
+    ListCardComponent
   ],
   imports: [
     BrowserModule,

@@ -17,18 +17,31 @@
         <div>
             <label>Choose a default payment:</label>
             <br>
-            <input type = "radio" name = "op1" value = "foo" class="op1"/> None
             <br>
-            <input type = "radio" name = "op1" value = "bar" class="op2"/> Cash payment
+            <button class="btn" routerLink="/payment-confirm">
+                None
+            </button> 
             <br>
-            <input type = "radio" name = "op1" value = "bar" class="op3"/> Credit Card
             <br>
-            <input type = "radio" name = "op1" value = "bar" class="op4"/> Paypal
+            <button class="btn" routerLink="/payment-confirm">
+                Cash payment
+            </button>
             <br>
-            <input type = "radio" name = "op1" value = "bar" class="op5"/> App Balance
+            <br>
+            <button class="btn" routerLink="/payment-confirm">
+                Credit Card
+            </button>
+            <br>
+            <br>
+            <button class="btn" routerLink="/payment-confirm">
+                Paypal
+            </button>
+            <br>
+            <br>
+            <button class="btn" routerLink="/payment-confirm">
+                App Balance
+            </button>
         </div>
-        <br>
-        <input type = "submit" class="btn-confirm" routerLink="/payment-confirm"/>
     </form> 
     <br>
     <br>
@@ -38,7 +51,7 @@
     <hr size="2px" color="black" style="width: 75%;"/>
     <br>
     <a href="">
-        <button class="btn">
+        <button class="btn" routerLink="/register-card">
             My credit card
         </button>
     </a>

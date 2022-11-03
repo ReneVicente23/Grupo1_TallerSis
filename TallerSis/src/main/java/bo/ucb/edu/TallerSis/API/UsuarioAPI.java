@@ -5,10 +5,8 @@ import bo.ucb.edu.TallerSis.BL.OrderBL;
 import bo.ucb.edu.TallerSis.BL.UserBL;
 import bo.ucb.edu.TallerSis.BL.User_addressBL;
 import bo.ucb.edu.TallerSis.DTO.*;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.Date;
@@ -77,7 +75,9 @@ public class UsuarioAPI {
         //System.out.println(orders.getAddress()+"  "+orders.getName()+" "+orders.getItems().length+" - "+orders.getPaymentId());
         //System.out.println(cart[0].toString());
         OrderBL.savedelivery(User_addressBL.findiddres(Integer.parseInt(token)),1,Integer.parseInt(token));
-        Delivery del=OrderBL.getdeliveryid(User_addressBL.findiddres(Integer.parseInt(token)),1,Integer.parseInt(token));
+        Delivery del=OrderBL.getdeliveryid(User_addressBL.findiddres(Integer.parseInt(token)),
+                1,
+                Integer.parseInt(token));
         Date dt= new Date(2022,12,10);//no importa
         Order or= new Order(0, orders.getTotalPrice(), 2,1,del.getId_delivery(),dt);
         OrderBL.saveOrder(or);
