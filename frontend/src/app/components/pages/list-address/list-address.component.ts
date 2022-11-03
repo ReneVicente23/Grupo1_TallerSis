@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class ListAddressComponent implements OnInit {
 
   addresss: Address[]=[];
-  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) { }
+  constructor(private foodService: FoodService, activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
    this.retrieveDish();
@@ -34,5 +34,21 @@ export class ListAddressComponent implements OnInit {
    modificar(valor: Address): void{
         localStorage.setItem ('direccion a modificar', JSON.stringify (valor));
    }
+
+    borrar(valor: Address): void{
+
+          this.foodService.deladdress(valor).subscribe({
+                                                                next:() => {
+
+                                                                  console.log('paso');
+                                                                },
+                                                                error:(errorResponse) => {
+                                                                  console.log('error');
+                                                                  //this.toastrService.error(errorResponse.error, 'Cart');
+                                                                }
+                                                              });
+               console.log('update exitoso');
+               this.router.navigateByUrl('/list-address');
+      }
 
 }

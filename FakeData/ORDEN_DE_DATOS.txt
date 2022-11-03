@@ -13,3 +13,5 @@ Orden de introduccion de datos:
 11 delivery
 12 order
 13 order_detail
+14 pagofav(datos manual)
+15 tarjeta(datos manual)

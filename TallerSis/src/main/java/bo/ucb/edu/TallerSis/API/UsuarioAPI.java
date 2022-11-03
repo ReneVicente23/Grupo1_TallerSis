@@ -127,7 +127,7 @@ public class UsuarioAPI {
         //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
         List<Order> result= OrderBL.userReport2(Integer.parseInt(token),sort,sort,size,page,filtro);
         return result;
-    }//OBTIENE EL REPORTE DEL USUARIO
+    }//OBTIENE EL REPORTE DEL USUARIO tiene paginacion filtrado y orden
 
     @GetMapping(path="/users/report/total", produces = APPLICATION_JSON_VALUE)
     public Count userReporttotal(@RequestHeader("access_token") String token) {

@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-10-19 21:43:40.469
+-- Last modification date: 2022-11-02 15:23:34.039
 
 -- tables
 -- Table: address
@@ -24,8 +24,8 @@ CREATE TABLE business (
 -- Table: coordinate
 CREATE TABLE coordinate (
     id_coordinate serial  NOT NULL,
-    latitude decimal(20,15)  NOT NULL,
-    length decimal(20,15)  NOT NULL,
+    latitude decimal(20,10)  NOT NULL,
+    length decimal(20,10)  NOT NULL,
     CONSTRAINT coordinate_pk PRIMARY KEY (id_coordinate)
 );
 
@@ -88,6 +88,17 @@ CREATE TABLE saldoapp (
     saldo decimal(10,2)  NOT NULL,
     userapp_id_userapp int  NOT NULL,
     CONSTRAINT saldoapp_pk PRIMARY KEY (id_saldo)
+);
+
+-- Table: tarjeta
+CREATE TABLE tarjeta (
+    t_id serial  NOT NULL,
+    n_tarjeta varchar(20)  NOT NULL,
+    caducidad varchar(20)  NOT NULL,
+    cvv int  NOT NULL,
+    titular varchar(50)  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    CONSTRAINT tarjeta_pk PRIMARY KEY (t_id)
 );
 
 -- Table: type_payment
@@ -226,6 +237,14 @@ ALTER TABLE pagofav ADD CONSTRAINT pagofav_userapp
 
 -- Reference: saldoapp_userapp (table: saldoapp)
 ALTER TABLE saldoapp ADD CONSTRAINT saldoapp_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: tarjeta_userapp (table: tarjeta)
+ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_userapp
     FOREIGN KEY (userapp_id_userapp)
     REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 

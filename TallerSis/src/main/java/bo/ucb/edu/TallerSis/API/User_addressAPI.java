@@ -1,6 +1,7 @@
 package bo.ucb.edu.TallerSis.API;
 
 import bo.ucb.edu.TallerSis.BL.User_addressBL;
+import bo.ucb.edu.TallerSis.DTO.Address;
 import bo.ucb.edu.TallerSis.DTO.Order;
 import bo.ucb.edu.TallerSis.DTO.User_address;
 import org.springframework.web.bind.annotation.*;
@@ -47,4 +48,11 @@ public class User_addressAPI {
     public Integer findbybussinesday(@PathVariable("userid") Integer id) {
         return user_addressBL.findidfav(id);
     }//RETORNA LA DIRECCION FAVORITA DE UN USUARIO
+
+    @PutMapping(path="/address/del", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Address deleteaddress(@RequestBody Address address, @RequestHeader("access_token") String token) {
+        user_addressBL.borrardir(Integer.parseInt(token),address.getId_address());
+        //user_addressBL.updatestatus(user_address.getId_user_address(),user_address.getStatus());
+        return address;
+    }//Eliminacion logica de 1 direccion del usuario
 }

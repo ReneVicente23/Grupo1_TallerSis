@@ -3,6 +3,7 @@ import { Food } from "../shared/models/Food";
 import { Order2 } from "../shared/models/Order2";
 import { Count } from "../shared/models/Count";
 import { Address } from "../shared/models/Address";
+import { Saldoapp } from "../shared/models/Saldoapp";
 import { Order } from '../shared/models/Order';
 import {sample_tags} from "../../data";
 import {Tag} from "../shared/models/Tag";
@@ -86,5 +87,12 @@ export class FoodService {
   updatepayorder(order2: Order2){
             return this.http.put<Order2>('http://localhost:8080/api/order/cash/pay', order2);
           }
+  deladdress(address: Address){
+         return this.http.put<Address>('http://localhost:8080/api/user/address/del', address);
+       }
+
+   getSaldoapp():Observable<Saldoapp>{
+                return this.http.get<Saldoapp>('http://localhost:8080/api/user/saldoapp');
+              }
 
 }

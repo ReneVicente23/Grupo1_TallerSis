@@ -32,4 +32,8 @@ public interface User_addressDAO {
     @Select("SELECT DISTINCT address_id_address " +
             "FROM user_address WHERE userapp_id_userapp= #{id} LIMIT 1")
     public Integer getidaddres(@Param("id") Integer id);
+
+    @Update("UPDATE user_address SET status = 3 " +
+            " WHERE userapp_id_userapp = #{id} AND address_id_address = #{idress} ")
+    void borradirecc(@Param("id") Integer id, @Param("idress") Integer idress );
 }

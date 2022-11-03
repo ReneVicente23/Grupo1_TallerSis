@@ -42,8 +42,11 @@
       <div class="total-price">
         {{cart.totalPrice | currency}}
       </div>
+      <div class="saldo">
+        {{saldo.saldo | currency}}
+      </div>
     </div>
-    <a routerLink="" style="background-color: #e79529; color: #000000; font-weight: bolder">Use app balance</a>
+    <a (click)="descuentaSaldo()" style="background-color: #e79529; color: #000000; font-weight: bolder">Use app balance</a>
     <br>
     <a routerLink="/checkout">Proceed to Checkout</a>
   </div>
