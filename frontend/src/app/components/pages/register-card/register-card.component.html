@@ -1,47 +1,40 @@
-<div class="container">
-    <div class="details">
-      <app-title title="Register Credit Card" style="font-weight: bolder"></app-title>
-      <form>
-        <h3>
-          Card number:
-        </h3>
-        <text-input
-          label="Number"
-          >
-        </text-input>
-  
-        <h3>
-          Expiration:
-        </h3>
-        <text-input
-          label="Expiration"
-          type="text">
-        </text-input>
-  
-  
-        <h3>
-          Security code/CVV2:
-        </h3>
-        <text-input
-          label="Security code"
-          type="text">
-        </text-input>
-  
-
-        <h3>
-          Cardholder:
-        </h3>
-        <text-input
-          label="Cardholder"
-          type="text">
-        </text-input>
-
-  
-        <div class="register">
-          <button class="btn-register">Register</button>
-          <button class="btn-cancel">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  
+<div class="listcard">
+    <form class="custom-form" method="post">
+      <h1>List Credit Card</h1>
+      <h4>Card number:</h4>
+      <input
+        #cardnumber
+        type="number"
+        name="number"
+        required="required"
+      />
+      <h4>Expiration:</h4>
+      <input
+        #expiration
+        type="text"
+        name="expiration"
+        required="required"
+      />
+      <h4>Security code/CVV2:</h4>
+      <input
+        #cvv2
+        type="text"
+        name="CVV2"
+        required="required"
+      />
+      <h4>Cardholder:</h4>
+      <input
+        #cardholder
+        type="text"
+        name="cardholder"
+        required="required"
+      />
+      <a routerLink="/list-card">
+        <button type="submit" >Save</button>
+      </a>
+      <br>
+      <a routerLink="/list-card">
+        Cancelar
+      </a>
+    </form>
+</div>
