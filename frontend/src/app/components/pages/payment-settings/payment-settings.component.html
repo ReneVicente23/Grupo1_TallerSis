@@ -9,7 +9,7 @@
     </h3>
     <hr size="2px" color="black" style="width: 75%;"/>
     <h3 >
-        Your default payment is: (jalar de la base de datos)
+        Your default payment is: {{pago.type_payment_id_typepay}}
     </h3>
     <br>
     <br>
@@ -18,31 +18,28 @@
             <label>Choose a default payment:</label>
             <br>
             <br>
-            <button class="btn-o" routerLink="/payment-confirm">
+            <button (click)="updatePagofav('1')" class="btn-o" routerLink="/payment-confirm">
                 None
-            </button> 
+            </button>
             <br>
             <br>
-            <button class="btn-o" routerLink="/payment-confirm">
+            <button (click)="updatePagofav('1')" class="btn-o" routerLink="/payment-confirm">
                 Cash payment
             </button>
             <br>
             <br>
-            <button class="btn-o" routerLink="/payment-confirm">
+            <button (click)="updatePagofav('2')" class="btn-o" routerLink="/payment-confirm">
                 Credit Card
             </button>
             <br>
             <br>
-            <button class="btn-o" routerLink="/payment-confirm">
+            <button (click)="updatePagofav('3')" class="btn-o" routerLink="/payment-confirm">
                 Paypal
             </button>
             <br>
-            <br>
-            <button class="btn-o" routerLink="/payment-confirm">
-                App Balance
-            </button>
+
         </div>
-    </form> 
+    </form>
     <br>
     <br>
     <h3 >

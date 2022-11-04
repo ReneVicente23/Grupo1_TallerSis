@@ -26,12 +26,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let or of tarje;let i= index" class="text-center">
+                        <td>{{or.t_id}}</td>
+                        <td>{{or.n_tarjeta}}</td>
+                        <td>{{or.caducidad}}</td>
+                        <td>{{or.cvv}}</td>
+                        <td>{{or.titular}}</td>
                         <td>
                             <a href="/edit-card">
                                 <button class="btn-warning">

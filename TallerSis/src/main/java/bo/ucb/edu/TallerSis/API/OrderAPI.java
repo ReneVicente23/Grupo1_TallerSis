@@ -42,6 +42,13 @@ public class OrderAPI {
     @PutMapping(path="/card", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public Orders updatestatuspaycard(@RequestHeader("access_token") String token, @RequestBody Orders orders) {
         orderBL.updateOrderStatus(orders.getId(),3);
+        orderBL.updateOrderPayStatus(orders.getId(),2);
+        return orders;
+    }//tested: MODIFICA UNA ORDER PARA QUE SU TIPO DE PAGO SEA EN TARJETA/PAYPAL y este pagado
+
+    @PutMapping(path="/paypal", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
+    public Orders updatestatuspayother(@RequestHeader("access_token") String token, @RequestBody Orders orders) {
+        orderBL.updateOrderStatus(orders.getId(),3);
         orderBL.updateOrderPayStatus(orders.getId(),3);
         return orders;
     }//tested: MODIFICA UNA ORDER PARA QUE SU TIPO DE PAGO SEA EN TARJETA/PAYPAL y este pagado

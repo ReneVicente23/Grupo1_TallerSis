@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Food } from "../shared/models/Food";
 import { Order2 } from "../shared/models/Order2";
+import { Pagofav } from "../shared/models/Pagofav";
+import { Tarjeta } from "../shared/models/Tarjeta";
 import { Count } from "../shared/models/Count";
 import { Address } from "../shared/models/Address";
 import { Saldoapp } from "../shared/models/Saldoapp";
@@ -80,6 +82,9 @@ export class FoodService {
     updateordertoCard(order: Order){
               return this.http.put<Order>('http://localhost:8080/api/order/card', order);
             }
+    updateordertoPaypal(order: Order){
+                  return this.http.put<Order>('http://localhost:8080/api/order/paypal', order);
+                }
 
     gettopay():Observable<Order2[]>{
               return this.http.get<Order2[]>('http://localhost:8080/api/order/delivery/cash/pending');
@@ -95,4 +100,15 @@ export class FoodService {
                 return this.http.get<Saldoapp>('http://localhost:8080/api/user/saldoapp');
               }
 
+  getPagofav():Observable<Pagofav>{
+                  return this.http.get<Pagofav>('http://localhost:8080/api/user/pagofav');
+  }
+
+  updatepagofav(dato: string, pago: Pagofav){
+         return this.http.post<Pagofav>('http://localhost:8080/api/user/pagofav/'+dato,pago);
+       }
+
+  getTarjeta():Observable<Tarjeta[]>{
+                    return this.http.get<Tarjeta[]>('http://localhost:8080/api/user/cards');
+    }
 }
