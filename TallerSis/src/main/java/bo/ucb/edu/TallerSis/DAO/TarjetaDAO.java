@@ -13,7 +13,7 @@ public interface TarjetaDAO {
 
     @Insert("INSERT INTO tarjeta (n_tarjeta, caducidad, cvv,titular,userapp_id_userapp) " +
             " VALUES ( #{ntar}, #{cad}, #{cvv}, #{titu}, #{id}) ")
-    void saveuseraddress(@Param("ntar") String numerotar, @Param("cad") String caducidad, @Param("cvv") Integer cvv, @Param("titu") String titular, @Param("id")Integer id);
+    void savetarjeta(@Param("ntar") String numerotar, @Param("cad") String caducidad, @Param("cvv") Integer cvv, @Param("titu") String titular, @Param("id")Integer id);
 
     @Select("SELECT t_id,n_tarjeta, caducidad, cvv,titular,userapp_id_userapp " +
             "FROM tarjeta WHERE userapp_id_userapp= #{id}")

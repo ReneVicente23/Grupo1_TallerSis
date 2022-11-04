@@ -6,6 +6,7 @@
         #cardnumber
         type="number"
         name="number"
+        placeholder= "0000 0000 0000 0000"
         required="required"
       />
       <h4>Expiration:</h4>
@@ -13,6 +14,7 @@
         #expiration
         type="text"
         name="expiration"
+        placeholder= "MM/AA"
         required="required"
       />
       <h4>Security code/CVV2:</h4>
@@ -20,6 +22,7 @@
         #cvv2
         type="text"
         name="CVV2"
+        placeholder= "000"
         required="required"
       />
       <h4>Cardholder:</h4>
@@ -27,10 +30,11 @@
         #cardholder
         type="text"
         name="cardholder"
+        placeholder= "Nombre del titular"
         required="required"
       />
       <a routerLink="/list-card">
-        <button type="submit" >Save</button>
+        <button type="submit" (click)="getInputValue(cardnumber.value,expiration.value,cvv2.value,cardholder.value)" >Save</button>
       </a>
       <br>
       <a routerLink="/list-card">

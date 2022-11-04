@@ -20,4 +20,8 @@ public class TarjetaBL {
         List<Tarjeta> result = tarjetaDAO.getTarjeta(id);
         return result;
     }
+
+    public void guaradartar(String ntar,String cad, Integer cvv, String tit, Integer id) {
+        tarjetaDAO.savetarjeta(ntar,cad,cvv,tit,id);
+    }
 }

@@ -111,4 +111,7 @@ export class FoodService {
   getTarjeta():Observable<Tarjeta[]>{
                     return this.http.get<Tarjeta[]>('http://localhost:8080/api/user/cards');
     }
+  postTarjeta(tarjeta: Tarjeta){
+         return this.http.post<Tarjeta>('http://localhost:8080/api/user/cards/new', tarjeta);
+       }
 }
