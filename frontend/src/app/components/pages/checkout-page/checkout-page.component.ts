@@ -54,7 +54,9 @@ export class CheckoutPageComponent implements OnInit {
 
     this.orderService.create(this.order).subscribe({
       next:() => {
-        this.router.navigateByUrl('/payment');
+        this.router.navigateByUrl('/confirmation-preference');
+        // /confirmation-preference
+        // /payment
       },
       error:(errorResponse) => {
         this.toastrService.error(errorResponse.error, 'Cart');

@@ -37,7 +37,7 @@ export class PaymentPageComponent implements OnInit {
           },
           error:(errorResponse) => {
            console.log('error');
-                                                                            //this.toastrService.error(errorResponse.error, 'Cart');
+             //this.toastrService.error(errorResponse.error, 'Cart');
           }
           });
 
