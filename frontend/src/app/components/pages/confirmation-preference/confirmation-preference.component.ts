@@ -15,7 +15,7 @@ export class ConfirmationPreferenceComponent implements OnInit {
 
   order:Order = new Order();
   pago!:Pagofav;
-  constructor(orderService: OrderService, router: Router, private foodService: FoodService) {
+  constructor(orderService: OrderService, private router: Router, private foodService: FoodService) {
    orderService.getNewOrderForCurrentUser().subscribe({
          next: (order) => {
            this.order = order;
@@ -90,7 +90,8 @@ export class ConfirmationPreferenceComponent implements OnInit {
          console.log('tipo 1');
     }else{
       if(this.pago.type_payment_id_typepay=='2'){
-              this.pagoetarjeta();
+              this.router.navigateByUrl('/choose-card');
+              //this.pagoetarjeta();
               console.log('tipo 2');
           }else{
             this.pagootro();
