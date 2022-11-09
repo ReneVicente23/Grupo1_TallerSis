@@ -4,10 +4,12 @@
       <h4>Card number:</h4>
       <input
         #cardnumber
-        type="number"
+        type="text"
         name="number"
         placeholder= "0000 0000 0000 0000"
+        required pattern="[0-9]{16}"
         required="required"
+
       />
       <h4>Expiration:</h4>
       <input

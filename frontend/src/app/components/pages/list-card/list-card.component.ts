@@ -47,6 +47,6 @@ export class ListCardComponent implements OnInit {
                    }
                 });
                  console.log('update exitoso');
-                 this.router.navigateByUrl('/list-address');
+                 this.router.navigateByUrl('/list-card');
         }
 }

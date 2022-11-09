@@ -5,6 +5,7 @@ import { Order } from 'src/app/shared/models/Order';
 import {FoodService} from "../../../services/food.service";
 import { Observable } from 'rxjs';
 import { Pagofav } from 'src/app/shared/models/Pagofav';
+import { TypePayment } from 'src/app/shared/models/TypePayment';
 
 @Component({
   selector: 'app-confirmation-preference',
@@ -15,6 +16,7 @@ export class ConfirmationPreferenceComponent implements OnInit {
 
   order:Order = new Order();
   pago!:Pagofav;
+  tipo: TypePayment=new TypePayment();
   constructor(orderService: OrderService, private router: Router, private foodService: FoodService) {
    orderService.getNewOrderForCurrentUser().subscribe({
          next: (order) => {
@@ -38,6 +40,7 @@ export class ConfirmationPreferenceComponent implements OnInit {
                     this.pago = data;
                     console.log(this.pago);
                     console.log('la logramo');
+                    this.gettype(this.pago.type_payment_id_typepay);
                   },
                   error => {
                     console.log(error);
@@ -99,4 +102,18 @@ export class ConfirmationPreferenceComponent implements OnInit {
           }
     }
   }
+
+  gettype(type:string): void {
+                 this.foodService.gettippago(type)
+                   .subscribe(
+                     data => {
+                       this.tipo = data;
+
+                       console.log(this.pago);
+                       console.log('la logramo');
+                     },
+                     error => {
+                       console.log(error);
+                     });
+               }
 }

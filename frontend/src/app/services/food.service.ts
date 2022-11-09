@@ -3,6 +3,7 @@ import { Food } from "../shared/models/Food";
 import { Order2 } from "../shared/models/Order2";
 import { Pagofav } from "../shared/models/Pagofav";
 import { Tarjeta } from "../shared/models/Tarjeta";
+import { TypePayment } from "../shared/models/TypePayment";
 import { Count } from "../shared/models/Count";
 import { Address } from "../shared/models/Address";
 import { Saldoapp } from "../shared/models/Saldoapp";
@@ -120,4 +121,7 @@ export class FoodService {
   updateTarjeta(tarjeta: Tarjeta){
            return this.http.post<Tarjeta>('http://localhost:8080/api/user/cards', tarjeta);
          }
+  gettippago(tipe: string):Observable<TypePayment>{
+           return this.http.get<TypePayment>('http://localhost:8080/api/user/pagofav/type/'+tipe);
+      }
 }

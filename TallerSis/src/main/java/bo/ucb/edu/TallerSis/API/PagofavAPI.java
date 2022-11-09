@@ -30,10 +30,10 @@ public class PagofavAPI {
 
     }// MODIFICA PAGO FAV
 
-    /*
+
     @GetMapping(path="/pagofav/type/{type}", produces = APPLICATION_JSON_VALUE)
     public Type_payment findtype(@PathVariable("type") Integer id) {
-        return pagofavBL.obtienetype(id);
+        return pagofavBL.obtienetipo(id);
     }//RETORNA typo de pago
-    */
+
 }

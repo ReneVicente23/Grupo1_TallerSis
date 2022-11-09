@@ -29,6 +29,11 @@ public class PagofavBL {
         return  pag;
     }
 
+    public Type_payment obtienetipo(Integer id){
+        Type_payment yp=pagofavDAO.getPagotype(id);
+        return yp;
+    }
+
     public void updatefav(Integer userid,Integer type){
         pagofavDAO.updatePagofav(userid, type);
     }

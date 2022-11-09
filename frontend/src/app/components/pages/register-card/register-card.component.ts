@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class RegisterCardComponent implements OnInit {
   tarjeta: Tarjeta = new Tarjeta();
+
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
