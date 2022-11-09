@@ -43,6 +43,8 @@ import { ConfirmationPreferenceComponent } from './components/pages/confirmation
 import { RegisterCardComponent } from './components/pages/register-card/register-card.component';
 import { ListCardComponent } from './components/pages/list-card/list-card.component';
 import { ChooseCardComponent } from './components/pages/choose-card/choose-card.component';
+import { EditCardComponent } from './components/pages/edit-card/edit-card.component';
+import { ConfirmCardComponent } from './components/pages/confirm-card/confirm-card.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { ChooseCardComponent } from './components/pages/choose-card/choose-card.
     ConfirmationPreferenceComponent,
     RegisterCardComponent,
     ListCardComponent,
-    ChooseCardComponent
+    ChooseCardComponent,
+    EditCardComponent,
+    ConfirmCardComponent
   ],
   imports: [
     BrowserModule,

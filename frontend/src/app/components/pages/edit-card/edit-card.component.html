@@ -1,0 +1,44 @@
+<div class="listcard">
+    <form class="custom-form" method="post">
+      <h1>Edit Credit Card</h1>
+      <h4>Card number:</h4>
+      <input
+        #cardnumber
+        type="number"
+        name="number"
+        placeholder= "0000 0000 0000 0000"
+        required="required"
+      />
+      <h4>Expiration:</h4>
+      <input
+        #expiration
+        type="text"
+        name="expiration"
+        placeholder= "MM/AA"
+        required="required"
+      />
+      <h4>Security code/CVV2:</h4>
+      <input
+        #cvv2
+        type="text"
+        name="CVV2"
+        placeholder= "000"
+        required="required"
+      />
+      <h4>Cardholder:</h4>
+      <input
+        #cardholder
+        type="text"
+        name="cardholder"
+        placeholder= "Nombre del titular"
+        required="required"
+      />
+      <a routerLink="/list-card">
+        <button type="submit"  >Save</button>
+      </a>
+      <br>
+      <a routerLink="/list-card">
+        Cancelar
+      </a>
+    </form>
+</div>
