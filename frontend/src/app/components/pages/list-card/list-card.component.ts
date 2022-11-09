@@ -31,4 +31,22 @@ export class ListCardComponent implements OnInit {
                 });
           }
 
+  modificar(valor: Tarjeta): void{
+          localStorage.setItem ('tarjeta a modificar', JSON.stringify (valor));
+     }
+
+  borrar(valor: Tarjeta): void{
+
+            this.foodService.borraTarjeta(valor).subscribe({
+                    next:() => {
+                     console.log('paso');
+                    },
+                    error:(errorResponse) => {
+                       console.log('error');
+                    //this.toastrService.error(errorResponse.error, 'Cart');
+                   }
+                });
+                 console.log('update exitoso');
+                 this.router.navigateByUrl('/list-address');
+        }
 }

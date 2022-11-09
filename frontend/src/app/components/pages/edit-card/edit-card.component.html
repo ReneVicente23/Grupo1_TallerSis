@@ -7,6 +7,7 @@
         type="number"
         name="number"
         placeholder= "0000 0000 0000 0000"
+        value={{tarje.n_tarjeta}}
         required="required"
       />
       <h4>Expiration:</h4>
@@ -15,6 +16,7 @@
         type="text"
         name="expiration"
         placeholder= "MM/AA"
+        value={{tarje.caducidad}}
         required="required"
       />
       <h4>Security code/CVV2:</h4>
@@ -23,6 +25,7 @@
         type="text"
         name="CVV2"
         placeholder= "000"
+        value={{tarje.cvv}}
         required="required"
       />
       <h4>Cardholder:</h4>
@@ -31,10 +34,11 @@
         type="text"
         name="cardholder"
         placeholder= "Nombre del titular"
+        value={{tarje.titular}}
         required="required"
       />
-      <a routerLink="/list-card">
-        <button type="submit"  >Save</button>
+      <a >   <!-- routerLink="/list-card" -->
+        <button type="submit" (click)="getInputValue(cardnumber.value, expiration.value, cvv2.value, cardholder.value)" >Save</button>
       </a>
       <br>
       <a routerLink="/list-card">

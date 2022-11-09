@@ -13,10 +13,10 @@ export class PaymentSettingsComponent implements OnInit {
 
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute, private router: Router) { }
 
-  pago!:Pagofav;
+  pago: Pagofav= new Pagofav();
 
   ngOnInit(): void {
-  this.getpagofav();
+    this.getpagofav();
   }
 
   getpagofav(): void {
@@ -24,6 +24,7 @@ export class PaymentSettingsComponent implements OnInit {
               .subscribe(
                 data => {
                   this.pago = data;
+
                   console.log(this.pago);
                   console.log('la logramo');
                 },

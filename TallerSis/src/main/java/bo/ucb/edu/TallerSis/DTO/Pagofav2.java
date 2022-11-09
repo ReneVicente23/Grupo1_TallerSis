@@ -2,12 +2,12 @@ package bo.ucb.edu.TallerSis.DTO;
 
 public class Pagofav2 {
     private Integer idpagofav;
-    private String type;
+    private String type_payment_id_typepay;
     private Integer userapp_id_userapp;
 
-    public Pagofav2(Integer idpagofav, String type, Integer userapp_id_userapp) {
+    public Pagofav2(Integer idpagofav, String type_payment_id_typepay, Integer userapp_id_userapp) {
         this.idpagofav = idpagofav;
-        this.type = type;
+        this.type_payment_id_typepay = type_payment_id_typepay;
         this.userapp_id_userapp = userapp_id_userapp;
     }
 
@@ -19,12 +19,12 @@ public class Pagofav2 {
         this.idpagofav = idpagofav;
     }
 
-    public String getType() {
-        return type;
+    public String getType_payment_id_typepay() {
+        return type_payment_id_typepay;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType_payment_id_typepay(String type_payment_id_typepay) {
+        this.type_payment_id_typepay = type_payment_id_typepay;
     }
 
     public Integer getUserapp_id_userapp() {

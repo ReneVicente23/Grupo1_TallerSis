@@ -25,7 +25,7 @@ INSERT INTO order_status (order_status) VALUES ('pagado');
 type_payment
 
 INSERT INTO type_payment (type) VALUES ('cash');
-INSERT INTO type_payment (type) VALUES ('wallet');
+INSERT INTO type_payment (type) VALUES ('card');
 INSERT INTO type_payment (type) VALUES ('paypal');
 
 Saldoapp

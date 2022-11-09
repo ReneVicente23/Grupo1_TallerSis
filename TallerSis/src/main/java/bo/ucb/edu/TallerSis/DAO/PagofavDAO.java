@@ -2,6 +2,7 @@ package bo.ucb.edu.TallerSis.DAO;
 
 import bo.ucb.edu.TallerSis.DTO.Pagofav;
 import bo.ucb.edu.TallerSis.DTO.Saldoapp;
+import bo.ucb.edu.TallerSis.DTO.Type_payment;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -21,5 +22,9 @@ public interface PagofavDAO {
     @Select("SELECT idpagofav, type_payment_id_typepay, userapp_id_userapp " +
             "FROM pagofav WHERE userapp_id_userapp= #{id}")
     public Pagofav getPagofav(@Param("id") Integer id);
+
+    @Select("SELECT id_typepay, type " +
+            "FROM type_payment WHERE id_typepay= #{id}")
+    public Type_payment getPagotype(@Param("id") Integer id);
 
 }

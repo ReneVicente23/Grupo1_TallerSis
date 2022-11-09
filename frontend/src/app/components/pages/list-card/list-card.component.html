@@ -34,20 +34,20 @@
                         <td>{{or.titular}}</td>
                         <td>
                             <a href="/edit-card">
-                                <button class="btn-warning">
+                                <button (click)="modificar(or)" class="btn-warning">
                                     <span class="material-symbols-outlined">
                                         edit
                                     </span>
                                 </button>
                             </a>
                             <a href="/confirm-card">
-                                <button class="btn-danger" style="margin-left:10px ;">
+                                <button (click)="borrar(or)" class="btn-danger" style="margin-left:10px ;">
                                     <span class="material-icons">
                                         delete
                                     </span>
                                 </button>
                             </a>
-                            
+
                         </td>
                     </tr>
                 </tbody>

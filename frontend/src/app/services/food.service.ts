@@ -114,4 +114,10 @@ export class FoodService {
   postTarjeta(tarjeta: Tarjeta){
          return this.http.post<Tarjeta>('http://localhost:8080/api/user/cards/new', tarjeta);
        }
+  borraTarjeta(tarjeta: Tarjeta){
+           return this.http.put<Tarjeta>('http://localhost:8080/api/user/cards', tarjeta);
+    }
+  updateTarjeta(tarjeta: Tarjeta){
+           return this.http.post<Tarjeta>('http://localhost:8080/api/user/cards', tarjeta);
+         }
 }

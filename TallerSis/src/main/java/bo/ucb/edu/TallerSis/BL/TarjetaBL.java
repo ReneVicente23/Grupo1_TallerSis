@@ -24,4 +24,12 @@ public class TarjetaBL {
     public void guaradartar(String ntar,String cad, Integer cvv, String tit, Integer id) {
         tarjetaDAO.savetarjeta(ntar,cad,cvv,tit,id);
     }
+
+    public void borratar(Integer id, Integer tid){
+        tarjetaDAO.borratar(id,tid);
+    }
+
+    public void editar(Integer id, Integer tid, String ntar, String cad, Integer cvv,String tit){
+        tarjetaDAO.editar(id,tid,ntar,cad,cvv,tit);
+    }
 }
