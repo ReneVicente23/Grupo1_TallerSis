@@ -45,7 +45,6 @@ import { ListCardComponent } from './components/pages/list-card/list-card.compon
 import { ChooseCardComponent } from './components/pages/choose-card/choose-card.component';
 import { EditCardComponent } from './components/pages/edit-card/edit-card.component';
 import { ConfirmCardComponent } from './components/pages/confirm-card/confirm-card.component';
-
 @NgModule({
   declarations: [
     AppComponent,
