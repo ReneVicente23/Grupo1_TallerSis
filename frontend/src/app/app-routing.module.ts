@@ -26,6 +26,7 @@ import { ChooseCardComponent } from './components/pages/choose-card/choose-card.
 import { EditCardComponent } from './components/pages/edit-card/edit-card.component';
 import { ConfirmCardComponent } from './components/pages/confirm-card/confirm-card.component';
 import { BusinessReportAdminComponent } from './components/pages/business-report-admin/business-report-admin.component';
+import { PaymentReportDeliveryAdminComponent } from './components/pages/payment-report-delivery-admin/payment-report-delivery-admin.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -54,7 +55,8 @@ const routes: Routes = [
   {path: 'choose-card', component:ChooseCardComponent, canActivate:[AuthGuard]},
   {path: 'edit-card', component:EditCardComponent, canActivate:[AuthGuard] },
   {path: 'confirm-card', component:ConfirmCardComponent, canActivate:[AuthGuard]},
-  {path: 'business-report-admin', component:BusinessReportAdminComponent, canActivate:[AuthGuard]}
+  {path: 'business-report-admin', component:BusinessReportAdminComponent, canActivate:[AuthGuard]},
+  {path: 'payment-report-delivery-admin', component:PaymentReportDeliveryAdminComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
