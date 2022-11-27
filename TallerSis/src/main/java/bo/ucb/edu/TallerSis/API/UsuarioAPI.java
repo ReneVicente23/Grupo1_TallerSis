@@ -1,9 +1,6 @@
 package bo.ucb.edu.TallerSis.API;
 
-import bo.ucb.edu.TallerSis.BL.DishBL;
-import bo.ucb.edu.TallerSis.BL.OrderBL;
-import bo.ucb.edu.TallerSis.BL.UserBL;
-import bo.ucb.edu.TallerSis.BL.User_addressBL;
+import bo.ucb.edu.TallerSis.BL.*;
 import bo.ucb.edu.TallerSis.DTO.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +20,14 @@ public class UsuarioAPI {
     private DishBL DishBL;
     private OrderBL OrderBL;
     private User_addressBL User_addressBL;
+    private DeliveryReportBL DeliveryReportBL;
 
-    public UsuarioAPI(UserBL userBL,DishBL dishBL,OrderBL orderBL,User_addressBL user_addressBL) {
+    public UsuarioAPI(UserBL userBL,DishBL dishBL,OrderBL orderBL,User_addressBL user_addressBL,DeliveryReportBL deliveryReportBL) {
         this.UserBL = userBL;
         this.DishBL = dishBL;
         this.OrderBL = orderBL;
         this.User_addressBL= user_addressBL;
+        this.DeliveryReportBL=deliveryReportBL;
     }
 
     @PostMapping(path="/user/new", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
@@ -74,10 +73,10 @@ public class UsuarioAPI {
         System.out.println(orders.getStatus()+" ** "+ orders.getPaymentId());
         //System.out.println(orders.getAddress()+"  "+orders.getName()+" "+orders.getItems().length+" - "+orders.getPaymentId());
         //System.out.println(cart[0].toString());
-        OrderBL.savedelivery(User_addressBL.findiddres(Integer.parseInt(token)),1,Integer.parseInt(token));
+        OrderBL.savedelivery(User_addressBL.findiddres(Integer.parseInt(token)),1,/*Integer.parseInt(token)*/6); //dato mod para delivery
         Delivery del=OrderBL.getdeliveryid(User_addressBL.findiddres(Integer.parseInt(token)),
                 1,
-                Integer.parseInt(token));
+                6); //este dato mod para mod delivery
         Date dt= new Date(2022,12,10);//no importa
         Order or= new Order(0, orders.getTotalPrice(), 2,1,del.getId_delivery(),dt);
         OrderBL.saveOrder(or);
@@ -137,10 +136,28 @@ public class UsuarioAPI {
     }//OBTIENE EL total de pedidos DEL USUARIO
 
     @GetMapping(path="/delivery/report", produces = APPLICATION_JSON_VALUE)
-    public List<Order> deliReport(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+    public List<DeliveryRep> deliReport(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
                                   @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "2", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord) {
         //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
         List<Order> result= OrderBL.delireport(Integer.parseInt(token),sort,ord,size,page);
-        return result;
+        List<DeliveryRep> res=DeliveryReportBL.delireport(Integer.parseInt(token),sort,ord,size,page);
+        return res;
     }//OBTIENE EL REPORTE DEL delivery
+
+    /*@GetMapping(path="/users/reporte", produces = APPLICATION_JSON_VALUE)
+    public List<Order> storeReport2(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                   @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "6", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord, @RequestParam(value = "filt", defaultValue = "300.00", required = false) double filtro) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        List<Order> result= OrderBL.userReport2(Integer.parseInt(token),sort,sort,size,page,filtro);
+        return result;
+    }//OBTIENE EL REPORTE DEL NEGOCIO tiene paginacion filtrado y orden
+
+    @GetMapping(path="/users/reporte", produces = APPLICATION_JSON_VALUE)
+    public List<Order> adminReport2(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                    @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "6", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord, @RequestParam(value = "filt", defaultValue = "300.00", required = false) double filtro) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        List<Order> result= OrderBL.userReport2(Integer.parseInt(token),sort,sort,size,page,filtro);
+        return result;
+    }//OBTIENE EL REPORTE DEL NEGOCIO tiene paginacion filtrado y orden
+    */
 }

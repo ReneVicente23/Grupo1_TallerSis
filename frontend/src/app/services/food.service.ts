@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Food } from "../shared/models/Food";
 import { Order2 } from "../shared/models/Order2";
+import { DeliveryRep } from "../shared/models/DeliveryRep";
 import { Pagofav } from "../shared/models/Pagofav";
 import { Tarjeta } from "../shared/models/Tarjeta";
 import { TypePayment } from "../shared/models/TypePayment";
@@ -63,8 +64,8 @@ export class FoodService {
         return this.http.get<Count>('http://localhost:8080/api/users/report/total');
       }
 
-   getrepdeli(page:string, size:string):Observable<Order2[]>{
-        return this.http.get<Order2[]>('http://localhost:8080/api/delivery/report?page='+page+'&size='+size);
+   getrepdeli(page:string, size:string):Observable<DeliveryRep[]>{
+        return this.http.get<DeliveryRep[]>('http://localhost:8080/api/delivery/report?page='+page+'&size='+size);
       }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FoodService} from "../../../services/food.service";
-import { Order2 } from 'src/app/shared/models/Order2';
+import { DeliveryRep } from 'src/app/shared/models/DeliveryRep';
 import { Observable } from 'rxjs';
 
 
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class ReportDeliveriesComponent implements OnInit {
 
-   order2s: Order2[] = [];
+   order2s: DeliveryRep[] = [];
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class ReportDeliveriesComponent implements OnInit {
   }
 
   retrieveDish(): void {
-          this.foodService.getrepdeli('0','15')
+          this.foodService.getrepdeli('0','100')
             .subscribe(
               data => {
                 this.order2s = data;

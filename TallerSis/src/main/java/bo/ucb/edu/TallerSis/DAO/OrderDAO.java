@@ -65,6 +65,11 @@ public interface OrderDAO {
             "FROM delivery  WHERE user_address_id_user_address= #{address} AND business_id_business = #{idbuss} AND userapp_id_userapp = #{userid} ORDER BY id_delivery DESC FETCH FIRST 1 ROWS ONLY")
     public Delivery getdeliveryid(@Param("address") Integer idaddress,@Param("idbuss") Integer idbuss,@Param("userid") Integer userid);
 
+    @Select("SELECT id_delivery, user_address_id_user_address, business_id_business, userapp_id_userapp " +
+            "FROM delivery  WHERE id_delivery= #{id} ORDER BY id_delivery DESC FETCH FIRST 1 ROWS ONLY")
+    public Delivery getdeliverybyid(@Param("id") Integer id);
+
+
     @Insert("INSERT INTO order_details (order_id_order, dish_id_dish) " +
             " VALUES ( #{order}, #{dish}) ")
     void saveDetail(@Param("order") Integer idorder,@Param("dish") Integer iddish);
@@ -87,7 +92,7 @@ public interface OrderDAO {
 
     @Select("SELECT p.id_order, p.total_payment, p.order_status_id_order_status, p.type_payment_id_typepay, p.delivery_id_delivery, p.orderdate  " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} "+
-            "ORDER BY 6 DESC LIMIT #{limit} OFFSET #{pag}")
+            "ORDER BY 1 DESC LIMIT #{limit} OFFSET #{pag}")
     public List<Order> getdeliveryrep(@Param("iduser") Integer id,@Param("row") Integer row , @Param("ord") String ord, @Param("limit") Integer limit, @Param("pag") Integer pag);
 
 }
