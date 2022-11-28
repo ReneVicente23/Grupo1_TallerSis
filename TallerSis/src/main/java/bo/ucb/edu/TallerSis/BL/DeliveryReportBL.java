@@ -1,9 +1,7 @@
 package bo.ucb.edu.TallerSis.BL;
 
 import bo.ucb.edu.TallerSis.DAO.OrderDAO;
-import bo.ucb.edu.TallerSis.DTO.Delivery;
-import bo.ucb.edu.TallerSis.DTO.DeliveryRep;
-import bo.ucb.edu.TallerSis.DTO.Order;
+import bo.ucb.edu.TallerSis.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +28,20 @@ public class DeliveryReportBL {
             rep.add(dt);
         }
         return rep;
+    }
+
+    public List<DeliveryAdminRep> deadminrep(){
+        List<User> result = orderDAO.listdelivery();
+        List<DeliveryAdminRep> lt=new ArrayList<DeliveryAdminRep>();
+        for(User us: result){
+            int id=us.getId_user();
+            Count ct1=orderDAO.countpedidos(id);
+            Count ct2=orderDAO.countpedidoscompletados(id);
+            Count ct3=orderDAO.countpedidoscancelados(id);
+            Cost ct4=orderDAO.sumpagos(id);
+            DeliveryAdminRep dl=new DeliveryAdminRep(id, us.getName(), ct1.getCount()+"",ct2.getCount()+"",ct3.getCount()+"",  Math.round(ct4.getCost()*0.2)+0.0);
+            lt.add(dl);
+        }
+        return lt;
     }
 }

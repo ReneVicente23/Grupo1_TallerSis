@@ -2,7 +2,7 @@
 <body>
     <BR>
         <h1 >
-            PAYMENT REPORT 
+            PAYMENT REPORT
         </h1>
         <br>
         <br>
@@ -19,13 +19,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="text-center">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <tr *ngFor="let or of order2s;let i= index" class="text-center">
+                        <td>{{or.id}}</td>
+                        <td>{{or.delivery}}</td>
+                        <td>{{or.orders}}</td>
+                        <td>{{or.completed}}</td>
+                        <td>{{or.canceled}}</td>
+                        <td>{{or.totalpay}}</td>
                     </tr>
 
                 </tbody>

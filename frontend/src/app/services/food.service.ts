@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Food } from "../shared/models/Food";
 import { Order2 } from "../shared/models/Order2";
 import { DeliveryRep } from "../shared/models/DeliveryRep";
+import { DeliAdminRep } from "../shared/models/DeliAdminRep";
 import { Pagofav } from "../shared/models/Pagofav";
 import { Tarjeta } from "../shared/models/Tarjeta";
 import { TypePayment } from "../shared/models/TypePayment";
@@ -67,7 +68,9 @@ export class FoodService {
    getrepdeli(page:string, size:string):Observable<DeliveryRep[]>{
         return this.http.get<DeliveryRep[]>('http://localhost:8080/api/delivery/report?page='+page+'&size='+size);
       }
-
+  getrepadmindeli(page:string, size:string):Observable<DeliAdminRep[]>{
+          return this.http.get<DeliAdminRep[]>('http://localhost:8080/api/admin/report/deli?page='+page+'&size='+size);
+        }
 
    getaddress():Observable<Address[]>{
           return this.http.get<Address[]>('http://localhost:8080/api/user/address');

@@ -144,6 +144,16 @@ public class UsuarioAPI {
         return res;
     }//OBTIENE EL REPORTE DEL delivery
 
+    @GetMapping(path="/admin/report/deli", produces = APPLICATION_JSON_VALUE)
+    public List<DeliveryAdminRep> deliAdminReport(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
+                                        @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "2", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord) {
+        //List<Dish> result= DishBL.userReport(Integer.parseInt(token),sort,ord,size,page);
+        List<Order> result= OrderBL.delireport(Integer.parseInt(token),sort,ord,size,page);
+        //List<DeliveryRep> res=DeliveryReportBL.delireport(Integer.parseInt(token),sort,ord,size,page);
+        List<DeliveryAdminRep> res=DeliveryReportBL.deadminrep();
+        return res;
+    }//OBTIENE EL REPORTE DEL admin-deliverys
+
     /*@GetMapping(path="/users/reporte", produces = APPLICATION_JSON_VALUE)
     public List<Order> storeReport2(@RequestHeader("access_token") String token, @RequestParam(value = "page", defaultValue = "0", required = false) int page,
                                    @RequestParam(value = "size", defaultValue = "20", required = false) int size, @RequestParam(value = "sort", defaultValue = "6", required = false) String sort, @RequestParam(value = "order", defaultValue = "ASC", required = false) String ord, @RequestParam(value = "filt", defaultValue = "300.00", required = false) double filtro) {

@@ -1,8 +1,6 @@
 package bo.ucb.edu.TallerSis.DAO;
 
-import bo.ucb.edu.TallerSis.DTO.Count;
-import bo.ucb.edu.TallerSis.DTO.Delivery;
-import bo.ucb.edu.TallerSis.DTO.Order;
+import bo.ucb.edu.TallerSis.DTO.*;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -95,4 +93,24 @@ public interface OrderDAO {
             "ORDER BY 1 DESC LIMIT #{limit} OFFSET #{pag}")
     public List<Order> getdeliveryrep(@Param("iduser") Integer id,@Param("row") Integer row , @Param("ord") String ord, @Param("limit") Integer limit, @Param("pag") Integer pag);
 
+    //reporte de admin delivery
+    @Select("SELECT id_userapp, name, last_name, phone, mail, type_user_typeid " +
+            "FROM userapp  WHERE type_user_typeid= 2")
+    public List<User> listdelivery();
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} ")
+    public Count countpedidos(@Param("iduser") Integer id);
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} AND p.order_status_id_order_status = 3 ")
+    public Count countpedidoscompletados(@Param("iduser") Integer id);
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} AND p.order_status_id_order_status = 1 ")
+    public Count countpedidoscancelados(@Param("iduser") Integer id);
+
+    @Select("SELECT SUM(total_payment) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} AND p.order_status_id_order_status = 3")
+    public Cost sumpagos(@Param("iduser") Integer id);
 }
