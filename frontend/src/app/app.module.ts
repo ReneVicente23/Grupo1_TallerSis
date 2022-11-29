@@ -48,6 +48,8 @@ import { ConfirmCardComponent } from './components/pages/confirm-card/confirm-ca
 import { BusinessReportAdminComponent } from './components/pages/business-report-admin/business-report-admin.component';
 import { PaymentReportDeliveryAdminComponent } from './components/pages/payment-report-delivery-admin/payment-report-delivery-admin.component';
 import { DashboardAdminComponent } from './components/pages/dashboard-admin/dashboard-admin.component';
+import { AddAddressComponent } from './components/pages/add-address/add-address.component';
+import { AddNickComponent } from './components/pages/add-nick/add-nick.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +91,9 @@ import { DashboardAdminComponent } from './components/pages/dashboard-admin/dash
     ConfirmCardComponent,
     BusinessReportAdminComponent,
     PaymentReportDeliveryAdminComponent,
-    DashboardAdminComponent
+    DashboardAdminComponent,
+    AddAddressComponent,
+    AddNickComponent
   ],
   imports: [
     BrowserModule,
