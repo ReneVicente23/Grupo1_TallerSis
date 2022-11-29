@@ -44,4 +44,25 @@ public class DeliveryReportBL {
         }
         return lt;
     }
+
+    public List<AdminBussinesRep> deadminbuss(Integer limit, Integer pag){
+        List<Bussines> result = orderDAO.listbussiness(limit,pag);
+        List<AdminBussinesRep> lt=new ArrayList<AdminBussinesRep>();
+        for(Bussines us: result){
+            int id=us.getId_business();
+            Count ct1=orderDAO.countpedidosb(id);
+            Count ct2=orderDAO.countpedidoscompletadosb(id);
+            Count ct3=orderDAO.countpedidoscanceladosb(id);
+            Cost  ct4=orderDAO.sumpagosb(id);
+            AdminBussinesRep dl;
+            try {
+                dl =new AdminBussinesRep(id, us.getName_business(), ct1.getCount()+"",ct2.getCount()+"",ct3.getCount()+"", ct4.getCost(), Math.rint(ct4.getCost()*0.1));
+            }catch (NullPointerException e){
+                dl =new AdminBussinesRep(id, us.getName_business(), ct1.getCount()+"",ct2.getCount()+"",ct3.getCount()+"", 0.0, 0.0);
+            }
+            //AdminBussinesRep dl=new AdminBussinesRep(id, us.getName_business(), ct1.getCount()+"",ct2.getCount()+"",ct3.getCount()+"", ct4.getCost(), Math.rint(ct4.getCost()*0.1));
+            lt.add(dl);
+        }
+        return lt;
+    }
 }

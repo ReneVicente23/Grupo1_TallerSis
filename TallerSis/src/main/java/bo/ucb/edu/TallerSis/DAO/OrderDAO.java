@@ -113,4 +113,25 @@ public interface OrderDAO {
     @Select("SELECT SUM(total_payment) " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} AND p.order_status_id_order_status = 3")
     public Cost sumpagos(@Param("iduser") Integer id);
+
+    //Report Bussines Admin
+    @Select("SELECT id_business, name_business, address_id_address " +
+            "FROM business ORDER BY 1 ASC LIMIT #{limit} OFFSET #{pag} ")
+    public List<Bussines> listbussiness(@Param("limit") Integer limit, @Param("pag") Integer pag);
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.business_id_business= #{iduser} ")
+    public Count countpedidosb(@Param("iduser") Integer id);
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.business_id_business= #{iduser} AND p.order_status_id_order_status = 3 ")
+    public Count countpedidoscompletadosb(@Param("iduser") Integer id);
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.business_id_business= #{iduser} AND p.order_status_id_order_status = 1 ")
+    public Count countpedidoscanceladosb(@Param("iduser") Integer id);
+
+    @Select("SELECT SUM(total_payment) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.business_id_business= #{iduser} AND p.order_status_id_order_status = 3")
+    public Cost sumpagosb(@Param("iduser") Integer id);
 }
