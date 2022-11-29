@@ -47,6 +47,7 @@ import { EditCardComponent } from './components/pages/edit-card/edit-card.compon
 import { ConfirmCardComponent } from './components/pages/confirm-card/confirm-card.component';
 import { BusinessReportAdminComponent } from './components/pages/business-report-admin/business-report-admin.component';
 import { PaymentReportDeliveryAdminComponent } from './components/pages/payment-report-delivery-admin/payment-report-delivery-admin.component';
+import { DashboardAdminComponent } from './components/pages/dashboard-admin/dashboard-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,8 @@ import { PaymentReportDeliveryAdminComponent } from './components/pages/payment-
     EditCardComponent,
     ConfirmCardComponent,
     BusinessReportAdminComponent,
-    PaymentReportDeliveryAdminComponent
+    PaymentReportDeliveryAdminComponent,
+    DashboardAdminComponent
   ],
   imports: [
     BrowserModule,
