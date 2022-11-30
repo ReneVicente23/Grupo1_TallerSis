@@ -2,6 +2,7 @@ package bo.ucb.edu.TallerSis.BL;
 
 import bo.ucb.edu.TallerSis.DAO.AddressDAO;
 import bo.ucb.edu.TallerSis.DTO.Address;
+import bo.ucb.edu.TallerSis.DTO.Nick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,10 @@ public class AddressBL {
     public List<Address> findAddress(Integer Id) {
         Integer id= Math.toIntExact(Id);
         List<Address> result =addressDAO.findAddress(id);
+        for(Address as:result){
+            Nick nc= addressDAO.getnick(as.getId_address());
+            as.setRef(nc.getNick());
+        }
         return result;
     }
 

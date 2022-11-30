@@ -1,5 +1,6 @@
 package bo.ucb.edu.TallerSis.DAO;
 
+import bo.ucb.edu.TallerSis.DTO.Nick;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -14,11 +15,11 @@ public interface User_addressDAO {
     void saveuseraddress(@Param("id_address") Integer id_address, @Param("coordinate") Integer coordinate, @Param("userapp") Integer userid, @Param("nick") String nick,@Param("status")Integer status);
 
     @Update("UPDATE user_address SET nickname= #{nick} " +
-            " WHERE id_user_address = #{id}")
+            " WHERE address_id_address = #{id}")
     void updatenick(@Param("id") Integer id ,@Param("nick") String nick);
 
     @Update("UPDATE user_address SET status= #{status} " +
-            " WHERE id_user_address = #{id}")
+            " WHERE address_id_address = #{id}")
     void borraraddress(@Param("id") Integer id ,@Param("status") Integer status);
 
     @Update("UPDATE user_address SET status= 1 " +
@@ -36,4 +37,8 @@ public interface User_addressDAO {
     @Update("UPDATE user_address SET status = 3 " +
             " WHERE userapp_id_userapp = #{id} AND address_id_address = #{idress} ")
     void borradirecc(@Param("id") Integer id, @Param("idress") Integer idress );
+
+    @Select("SELECT nickname " +
+            "FROM user_address WHERE address_id_address= #{id} LIMIT 1")
+    public Nick getnick(@Param("id") Integer id);
 }

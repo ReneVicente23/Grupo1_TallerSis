@@ -3,6 +3,7 @@
       <h1>Add Nick Address</h1>
       <h4>Nick</h4>
       <input
+        #nick
         type="nick"
         name="nick"
         placeholder="Nick"
@@ -10,7 +11,7 @@
       />
       <br>
       <a routerLink="/list-address">
-        <button type="submit" >Save</button>
+        <button type="submit" (click)="getInputValue(nick.value)" >Save</button>
       </a>
       <br>
     </form>

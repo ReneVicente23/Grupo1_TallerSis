@@ -1,6 +1,7 @@
 package bo.ucb.edu.TallerSis.BL;
 
 import bo.ucb.edu.TallerSis.DAO.User_addressDAO;
+import bo.ucb.edu.TallerSis.DTO.Nick;
 import bo.ucb.edu.TallerSis.DTO.Order;
 import bo.ucb.edu.TallerSis.DTO.User_address;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +50,10 @@ public class User_addressBL {
 
     public void borrardir(Integer id, Integer idreess) {
         user_addressDAO.borradirecc(id,idreess);
+    }
+
+    public Nick obtieneNick(Integer id){
+        Nick nt=user_addressDAO.getnick(id);
+        return nt;
     }
 }

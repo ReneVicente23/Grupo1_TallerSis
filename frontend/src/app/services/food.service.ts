@@ -11,6 +11,7 @@ import { Count } from "../shared/models/Count";
 import { Address } from "../shared/models/Address";
 import { Saldoapp } from "../shared/models/Saldoapp";
 import { Order } from '../shared/models/Order';
+import { Nick } from '../shared/models/Nick';
 import {sample_tags} from "../../data";
 import {Tag} from "../shared/models/Tag";
 import {HttpClient} from "@angular/common/http";
@@ -86,6 +87,16 @@ export class FoodService {
    updateaddress(address: Address){
        return this.http.post<Address>('http://localhost:8080/api/user/address/up', address);
      }
+   newaddress(address: Address){
+          return this.http.post<Address>('http://localhost:8080/api/user/address', address);
+        }
+
+   updatenick(address: Address, nick: string){
+             return this.http.put<Address>('http://localhost:8080/api/user/address/nick/'+nick, address);
+           }
+   getNick(id:string):Observable<Nick>{
+                   return this.http.get<Nick>('http://localhost:8080/api/user/address/nick/'+id);
+                 }
 
    updateorderpayment(order: Order){
           return this.http.put<Order>('http://localhost:8080/api/order/cash', order);

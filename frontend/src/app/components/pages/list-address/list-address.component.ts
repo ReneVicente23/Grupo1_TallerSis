@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FoodService} from "../../../services/food.service";
 import { Address } from 'src/app/shared/models/Address';
+import { Nick } from 'src/app/shared/models/Nick';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs';
 export class ListAddressComponent implements OnInit {
 
   addresss: Address[]=[];
+  nick:Nick=new Nick();
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -29,7 +31,21 @@ export class ListAddressComponent implements OnInit {
               error => {
                 console.log(error);
               });
+
         }
+  retrieveNick(id:string): string {
+            this.foodService.getNick(id)
+              .subscribe(
+                data => {
+                  this.nick = data;
+                  console.log(this.nick);
+                  console.log('la logramo');
+                },
+                error => {
+                  console.log(error);
+                });
+            return this.nick.nick;
+          }
 
    modificar(valor: Address): void{
         localStorage.setItem ('direccion a modificar', JSON.stringify (valor));

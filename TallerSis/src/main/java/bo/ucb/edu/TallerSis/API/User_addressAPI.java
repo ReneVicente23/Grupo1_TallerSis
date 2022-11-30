@@ -25,13 +25,13 @@ public class User_addressAPI {
        user_addressBL.saveuseraddress(user_address);
         return user_address;
     }//tested: GENERA UN NUEVO USER_ADDRESS REQUIER ID DE COORDENAS Y ADDRESS
-
+/*
     @PutMapping(path="/address/nick", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
-    public User_address updatenick(@RequestBody User_address user_address) {
-        user_addressBL.updatenick(user_address.getId_user_address(),user_address.getNickname());
-        return user_address;
+    public Text updatenick(@RequestBody Text tx) {
+        user_addressBL.updatenick(tx.getId(), tx.getTex());
+        return tx;
     }//tested MODIFICA EL NICK DE UNA DIRECCION
-
+*/
     @PutMapping(path="/address/status", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE )
     public User_address updatestatus(@RequestBody User_address user_address) {
         user_addressBL.updatestatus(user_address.getId_user_address(),user_address.getStatus());
