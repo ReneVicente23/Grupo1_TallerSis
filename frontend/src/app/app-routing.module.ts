@@ -30,6 +30,8 @@ import { PaymentReportDeliveryAdminComponent } from './components/pages/payment-
 import { DashboardAdminComponent } from './components/pages/dashboard-admin/dashboard-admin.component';
 import { AddAddressComponent } from './components/pages/add-address/add-address.component';
 import { AddNickComponent } from './components/pages/add-nick/add-nick.component';
+import { DashboardBusinessComponent } from './components/pages/dashboard-business/dashboard-business.component';
+import { DashboardDeliveryComponent } from './components/pages/dashboard-delivery/dashboard-delivery.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
@@ -62,7 +64,9 @@ const routes: Routes = [
   {path: 'payment-report-delivery-admin', component:PaymentReportDeliveryAdminComponent, canActivate:[AuthGuard]},
   {path: 'dashboard-admin', component:DashboardAdminComponent, canActivate:[AuthGuard]},
   {path: 'add-address', component:AddAddressComponent, canActivate:[AuthGuard]},
-  {path: 'add-nick', component:AddNickComponent,canActivate:[AuthGuard]}
+  {path: 'add-nick', component:AddNickComponent,canActivate:[AuthGuard]},
+  {path: 'dashboard-business', component:DashboardBusinessComponent,canActivate:[AuthGuard]},
+  {path: 'dashboard-delivery', component:DashboardDeliveryComponent,canActivate:[AuthGuard] }
 ];
 
 @NgModule({
