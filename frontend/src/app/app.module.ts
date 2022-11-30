@@ -50,6 +50,7 @@ import { PaymentReportDeliveryAdminComponent } from './components/pages/payment-
 import { DashboardAdminComponent } from './components/pages/dashboard-admin/dashboard-admin.component';
 import { AddAddressComponent } from './components/pages/add-address/add-address.component';
 import { AddNickComponent } from './components/pages/add-nick/add-nick.component';
+import { SalesReportComponent } from './components/pages/sales-report/sales-report.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,7 +94,8 @@ import { AddNickComponent } from './components/pages/add-nick/add-nick.component
     PaymentReportDeliveryAdminComponent,
     DashboardAdminComponent,
     AddAddressComponent,
-    AddNickComponent
+    AddNickComponent,
+    SalesReportComponent
   ],
   imports: [
     BrowserModule,

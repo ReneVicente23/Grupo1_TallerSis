@@ -75,6 +75,9 @@ export class FoodService {
   getrepadminbuss(page:string, size:string):Observable<AdminBussRep[]>{
             return this.http.get<AdminBussRep[]>('http://localhost:8080/api/admin/report/buss?page='+page+'&size='+size);
           }
+  getbussinesrep(id:string):Observable<Order2[]>{
+              return this.http.get<Order2[]>('http://localhost:8080/api/order/bussines/'+id+'/');
+            }
 
    getaddress():Observable<Address[]>{
           return this.http.get<Address[]>('http://localhost:8080/api/user/address');
