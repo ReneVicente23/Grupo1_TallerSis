@@ -164,4 +164,27 @@ export class FoodService {
    bussSales():Observable<DataBuble[]>{
            return this.http.get<DataBuble[]>('http://localhost:8080/api/dash/sales/buss');
       }
+
+  dishsales():Observable<DataSet[]>{
+             return this.http.get<DataSet[]>('http://localhost:8080/api/dash/buss/dish');
+        }
+  bussSalesMonth():Observable<DataSet[]>{
+               return this.http.get<DataSet[]>('http://localhost:8080/api/dash/buss/month');
+          }
+  bussSalesDay():Observable<DataSet[]>{
+                 return this.http.get<DataSet[]>('http://localhost:8080/api/dash/buss/day');
+            }
+  bussSalesPay():Observable<DataSet[]>{
+                   return this.http.get<DataSet[]>('http://localhost:8080/api/dash/buss/proft');
+              }
+
+    delimonth():Observable<DataSet[]>{
+               return this.http.get<DataSet[]>('http://localhost:8080/api/dash/deli/month');
+          }
+  delitype():Observable<DataSet[]>{
+                 return this.http.get<DataSet[]>('http://localhost:8080/api/dash/deli/type');
+            }
+  deliday():Observable<DataSet[]>{
+                 return this.http.get<DataSet[]>('http://localhost:8080/api/dash/deli/day');
+            }
 }

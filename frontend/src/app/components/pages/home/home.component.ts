@@ -23,8 +23,11 @@ export class HomeComponent implements OnInit {
       else
         foodsObservalbe = foodService.getAll();
 
+
+
       foodsObservalbe.subscribe((serverFoods) => {
         this.foods = serverFoods;
+         console.log(this.foods);
       })
     })
   }
