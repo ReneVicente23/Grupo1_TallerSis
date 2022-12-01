@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< Updated upstream
     <data-source source="LOCAL" name="Dinamita@localhost" uuid="f8b568bd-984f-4e5f-afba-4b033f73f5ff">
+=======
+    <data-source source="LOCAL" name="bd_soft@localhost" uuid="95814f6e-8d9e-4020-baec-6c96260e0f1c">
+>>>>>>> Stashed changes
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
