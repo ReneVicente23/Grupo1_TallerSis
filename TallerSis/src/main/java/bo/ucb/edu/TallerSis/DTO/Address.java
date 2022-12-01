@@ -6,13 +6,15 @@ public class Address {
     private String zone;
     private String h_number;
     private String city;
+    private String ref;
 
-    public Address(Integer id_address, String street, String zone, String h_number, String city) {
+    public Address(Integer id_address, String street, String zone, String h_number, String city, String ref) {
         this.id_address = id_address;
         this.street = street;
         this.zone = zone;
         this.h_number = h_number;
         this.city = city;
+        this.ref = ref;
     }
 
     public Integer getId_address() {
@@ -53,5 +55,25 @@ public class Address {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id_address=" + id_address +
+                ", street='" + street + '\'' +
+                ", zone='" + zone + '\'' +
+                ", h_number='" + h_number + '\'' +
+                ", city='" + city + '\'' +
+                ", ref='" + ref + '\'' +
+                '}';
     }
 }

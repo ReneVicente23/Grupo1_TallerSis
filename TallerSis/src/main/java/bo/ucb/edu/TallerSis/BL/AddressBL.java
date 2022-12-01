@@ -2,6 +2,7 @@ package bo.ucb.edu.TallerSis.BL;
 
 import bo.ucb.edu.TallerSis.DAO.AddressDAO;
 import bo.ucb.edu.TallerSis.DTO.Address;
+import bo.ucb.edu.TallerSis.DTO.Nick;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +20,43 @@ public class AddressBL {
     public List<Address> findAddress(Integer Id) {
         Integer id= Math.toIntExact(Id);
         List<Address> result =addressDAO.findAddress(id);
+        for(Address as:result){
+            Nick nc= addressDAO.getnick(as.getId_address());
+            as.setRef(nc.getNick());
+        }
         return result;
     }
 
-
-    public void saveAddress(Address address, Long Id){
-        Integer id= Math.toIntExact(Id);
+    public Integer findidaddress(Address address){
         String street=address.getStreet();
         String zone=address.getZone();
         String h_number=address.getH_number();
         String city=address.getCity();
+        return addressDAO.findIDAddress(street,zone,h_number,city);
+    }
 
-        addressDAO.saveAddress(street,zone,h_number,city);
+    public Address findAddressid(Integer Id) {
+        Integer id= Math.toIntExact(Id);
+        Address result =addressDAO.findAddressid(id);
+        return result;
+    }
+
+    public void saveAddress(Address address){
+        String street=address.getStreet();
+        String zone=address.getZone();
+        String h_number=address.getH_number();
+        String city=address.getCity();
+        String ref=address.getRef();
+        addressDAO.saveAddress(street,zone,h_number,city,ref);
+    }
+
+    public void updateAddress(Address address){
+        Integer id=address.getId_address();
+        String street=address.getStreet();
+        String zone=address.getZone();
+        String h_number=address.getH_number();
+        String city=address.getCity();
+        String ref=address.getRef();
+        addressDAO.updateAddress(id, street,zone,h_number,city,ref);
     }
 }

@@ -1,0 +1,75 @@
+.container{
+  display: flex;
+  margin: 0 2rem 6rem 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content{
+  width: 35rem;
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary > div{
+  display: flex;
+  margin-top: 0.7rem;
+}
+
+.summary span {
+  font-size: 1.2rem;
+}
+
+.summary h3{
+  margin: 0 1rem 0 0;
+  flex-basis: 5rem;
+}
+
+
+.buttons-container{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.buttons{
+  margin: 2rem;
+  width: 35rem;
+}
+
+.btn-cash{
+  text-decoration: none;
+  padding: 10px;
+  width:559px;
+  height:60px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #1883ba;
+  border: 1px;
+}
+
+.btn-cash:hover{
+  cursor: pointer;
+  color: #1883ba;
+  background-color: #ffffff;
+}
+
+.btn-card{
+  text-decoration: none;
+  padding: 10px;
+  width:559px;
+  height:60px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #2b2b2b;
+  border: 1px;
+}
+
+.btn-card:hover{
+  cursor: pointer;
+  color: #151834;
+  background-color: #ffffff;
+}

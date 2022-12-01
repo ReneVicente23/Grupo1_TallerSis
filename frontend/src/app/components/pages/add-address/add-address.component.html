@@ -1,0 +1,41 @@
+<div class="addaddress">
+    <form class="custom-form" method="post">
+      <h1>Add New Address</h1>
+      <h4>Street</h4>
+      <input
+        #street
+        type="street"
+        name="street"
+        required="required"
+      />
+      <h4>Zone</h4>
+      <input
+        #zone
+        type="zone"
+        name="zone"
+        required="required"
+      />
+      <h4>House number</h4>
+      <input
+        #h_number
+        type="h_number"
+        name="h_number"
+        required="required"
+      />
+      <h4>City</h4>
+      <input
+        #city
+        type="city"
+        name="city"
+        required="required"
+      />
+      <a routerLink="/add-nick">
+        <button type="submit" (click)="getInputValue(street.value, zone.value, h_number.value, city.value)">Save</button>
+      </a>
+      <br>
+      <a routerLink="/list-address">
+        Cancelar
+      </a>
+    </form>
+  </div>
+

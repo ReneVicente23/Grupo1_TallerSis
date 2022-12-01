@@ -1,0 +1,12 @@
+POST http://localhost:8080/api/user/address
+Content-Type: application/json
+Accept: application/json
+
+{
+
+        "id_address": 0,
+        "street": "prueba",
+        "zone": "pruab1",
+        "h_number": "prueba2",
+        "city": "prueba3"
+ }

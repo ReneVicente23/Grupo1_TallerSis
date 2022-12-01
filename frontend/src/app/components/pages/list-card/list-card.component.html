@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<body>
+    <BR>
+        <h1 >
+            CREDIT CARD LIST
+        </h1>
+        <br>
+        <div class="container">
+            <a href="/register-card">
+                <button class="addbtn">New Credit Card</button>
+            </a>
+
+        </div>
+        <br>
+        <br>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>No Card</th>
+                        <th>Expiration</th>
+                        <th>Security code/CVV2</th>
+                        <th>Cardholder</th>
+                        <th>OPTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let or of tarje;let i= index" class="text-center">
+                        <td>{{or.t_id}}</td>
+                        <td>{{or.n_tarjeta}}</td>
+                        <td>{{or.caducidad}}</td>
+                        <td>{{or.cvv}}</td>
+                        <td>{{or.titular}}</td>
+                        <td>
+                            <a href="/edit-card">
+                                <button (click)="modificar(or)" class="btn-warning">
+                                    <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+                                </button>
+                            </a>
+                            <a href="/confirm-card">
+                                <button (click)="borrar(or)" class="btn-danger" style="margin-left:10px ;">
+                                    <span class="material-icons">
+                                        delete
+                                    </span>
+                                </button>
+                            </a>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn-back" routerLink="/payment-settings">BACK</button>
+</body>

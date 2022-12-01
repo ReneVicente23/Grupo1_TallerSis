@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-09-07 15:52:59.599
+-- Last modification date: 2022-11-02 15:23:34.039
 
 -- tables
 -- Table: address
@@ -9,6 +9,7 @@ CREATE TABLE address (
     zone varchar(50)  NOT NULL,
     h_number varchar(50)  NOT NULL,
     city varchar(50)  NOT NULL,
+    ref varchar(200)  NOT NULL,
     CONSTRAINT address_pk PRIMARY KEY (id_address)
 );
 
@@ -32,8 +33,8 @@ CREATE TABLE coordinate (
 CREATE TABLE delivery (
     id_delivery serial  NOT NULL,
     user_address_id_user_address int  NOT NULL,
-    user_id_user int  NOT NULL,
     business_id_business int  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
     CONSTRAINT delivery_pk PRIMARY KEY (id_delivery)
 );
 
@@ -42,7 +43,7 @@ CREATE TABLE dish (
     id_dish serial  NOT NULL,
     name varchar(50)  NOT NULL,
     description varchar(200)  NOT NULL,
-    cost money  NOT NULL,
+    cost decimal(10,2)  NOT NULL,
     business_id_business int  NOT NULL,
     CONSTRAINT dish_pk PRIMARY KEY (id_dish)
 );
@@ -50,10 +51,11 @@ CREATE TABLE dish (
 -- Table: order
 CREATE TABLE "order" (
     id_order serial  NOT NULL,
-    total_payment money  NOT NULL,
+    total_payment decimal(10,2)  NOT NULL,
     order_status_id_order_status int  NOT NULL,
     type_payment_id_typepay int  NOT NULL,
     delivery_id_delivery int  NOT NULL,
+    orderdate date  NOT NULL,
     CONSTRAINT order_pk PRIMARY KEY (id_order)
 );
 
@@ -72,6 +74,33 @@ CREATE TABLE order_status (
     CONSTRAINT order_status_pk PRIMARY KEY (id_order_status)
 );
 
+-- Table: pagofav
+CREATE TABLE pagofav (
+    idpagofav serial  NOT NULL,
+    type_payment_id_typepay int  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    CONSTRAINT pagofav_pk PRIMARY KEY (idpagofav)
+);
+
+-- Table: saldoapp
+CREATE TABLE saldoapp (
+    id_saldo serial  NOT NULL,
+    saldo decimal(10,2)  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    CONSTRAINT saldoapp_pk PRIMARY KEY (id_saldo)
+);
+
+-- Table: tarjeta
+CREATE TABLE tarjeta (
+    t_id serial  NOT NULL,
+    n_tarjeta varchar(20)  NOT NULL,
+    caducidad varchar(20)  NOT NULL,
+    cvv int  NOT NULL,
+    titular varchar(50)  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    CONSTRAINT tarjeta_pk PRIMARY KEY (t_id)
+);
+
 -- Table: type_payment
 CREATE TABLE type_payment (
     id_typepay serial  NOT NULL,
@@ -87,26 +116,26 @@ CREATE TABLE type_user (
     CONSTRAINT type_user_pk PRIMARY KEY (typeid)
 );
 
--- Table: user
-CREATE TABLE "user" (
-    id_user serial  NOT NULL,
+-- Table: user_address
+CREATE TABLE user_address (
+    id_user_address serial  NOT NULL,
+    address_id_address int  NOT NULL,
+    coordinate_id_coordinate int  NOT NULL,
+    userapp_id_userapp int  NOT NULL,
+    nickname varchar(50)  NOT NULL,
+    status int  NOT NULL,
+    CONSTRAINT user_address_pk PRIMARY KEY (id_user_address)
+);
+
+-- Table: userapp
+CREATE TABLE userapp (
+    id_userapp serial  NOT NULL,
     name varchar(50)  NOT NULL,
     last_name varchar(50)  NOT NULL,
     phone varchar(50)  NOT NULL,
     mail varchar(50)  NOT NULL,
     type_user_typeid int  NOT NULL,
-    CONSTRAINT user_pk PRIMARY KEY (id_user)
-);
-
--- Table: user_address
-CREATE TABLE user_address (
-    id_user_address serial  NOT NULL,
-    user_id_user int  NOT NULL,
-    address_id_address int  NOT NULL,
-    coordinate_id_coordinate int  NOT NULL,
-    nickname varchar(50)  NOT NULL,
-    status int  NOT NULL,
-    CONSTRAINT user_address_pk PRIMARY KEY (id_user_address)
+    CONSTRAINT userapp_pk PRIMARY KEY (id_userapp)
 );
 
 -- foreign keys
@@ -126,18 +155,18 @@ ALTER TABLE delivery ADD CONSTRAINT delivery_business
     INITIALLY IMMEDIATE
 ;
 
--- Reference: delivery_user (table: delivery)
-ALTER TABLE delivery ADD CONSTRAINT delivery_user
-    FOREIGN KEY (user_id_user)
-    REFERENCES "user" (id_user)  
-    NOT DEFERRABLE 
-    INITIALLY IMMEDIATE
-;
-
 -- Reference: delivery_user_address (table: delivery)
 ALTER TABLE delivery ADD CONSTRAINT delivery_user_address
     FOREIGN KEY (user_address_id_user_address)
     REFERENCES user_address (id_user_address)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: delivery_userapp (table: delivery)
+ALTER TABLE delivery ADD CONSTRAINT delivery_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
@@ -190,6 +219,38 @@ ALTER TABLE "order" ADD CONSTRAINT order_type_payment
     INITIALLY IMMEDIATE
 ;
 
+-- Reference: pagofav_type_payment (table: pagofav)
+ALTER TABLE pagofav ADD CONSTRAINT pagofav_type_payment
+    FOREIGN KEY (type_payment_id_typepay)
+    REFERENCES type_payment (id_typepay)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: pagofav_userapp (table: pagofav)
+ALTER TABLE pagofav ADD CONSTRAINT pagofav_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: saldoapp_userapp (table: saldoapp)
+ALTER TABLE saldoapp ADD CONSTRAINT saldoapp_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
+-- Reference: tarjeta_userapp (table: tarjeta)
+ALTER TABLE tarjeta ADD CONSTRAINT tarjeta_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
+    NOT DEFERRABLE 
+    INITIALLY IMMEDIATE
+;
+
 -- Reference: user_address_address (table: user_address)
 ALTER TABLE user_address ADD CONSTRAINT user_address_address
     FOREIGN KEY (address_id_address)
@@ -206,16 +267,16 @@ ALTER TABLE user_address ADD CONSTRAINT user_address_coordinate
     INITIALLY IMMEDIATE
 ;
 
--- Reference: user_address_user (table: user_address)
-ALTER TABLE user_address ADD CONSTRAINT user_address_user
-    FOREIGN KEY (user_id_user)
-    REFERENCES "user" (id_user)  
+-- Reference: user_address_userapp (table: user_address)
+ALTER TABLE user_address ADD CONSTRAINT user_address_userapp
+    FOREIGN KEY (userapp_id_userapp)
+    REFERENCES userapp (id_userapp)  
     NOT DEFERRABLE 
     INITIALLY IMMEDIATE
 ;
 
--- Reference: user_type_user (table: user)
-ALTER TABLE "user" ADD CONSTRAINT user_type_user
+-- Reference: user_type_user (table: userapp)
+ALTER TABLE userapp ADD CONSTRAINT user_type_user
     FOREIGN KEY (type_user_typeid)
     REFERENCES type_user (typeid)  
     NOT DEFERRABLE 

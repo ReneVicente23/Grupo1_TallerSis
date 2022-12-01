@@ -1,0 +1,18 @@
+<div class="addnick">
+    <form class="custom-form" method="post">
+      <h1>Add Nick Address</h1>
+      <h4>Nick</h4>
+      <input
+        #nick
+        type="nick"
+        name="nick"
+        placeholder="Nick"
+        required="required"
+      />
+      <br>
+      <a routerLink="/list-address">
+        <button type="submit" (click)="getInputValue(nick.value)" >Save</button>
+      </a>
+      <br>
+    </form>
+  </div>

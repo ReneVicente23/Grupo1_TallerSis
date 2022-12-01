@@ -1,0 +1,17 @@
+Orden de introduccion de datos:
+
+1 type_user (datos manual)
+2 type_payment (datos manual)
+3 order-status (datos manual)
+4 userapp (datos manual)
+5 saldoapp (datos manual)
+6 address
+7 coordinate (datos manual)
+8 user_address (datos manual)
+9 business
+10 dish
+11 delivery
+12 order
+13 order_detail
+14 pagofav(datos manual)
+15 tarjeta(datos manual)

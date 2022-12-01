@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<body>
+    <h1 >
+        Payments
+    </h1>
+    <br>
+    <h3 >
+        Default payment
+    </h3>
+    <hr size="2px" color="black" style="width: 75%;"/>
+    <h3 >
+        Your default payment is: {{tipo.type}}
+    </h3>
+    <br>
+    <br>
+    <form method = "post" class="form1">
+        <div>
+            <label>Choose a default payment:</label>
+            <br>
+            <br>
+            <!--<button (click)="updatePagofav('1')" class="btn-o" routerLink="/payment-confirm">
+                None
+            </button> -->
+            <br>
+            <br>
+            <button (click)="updatePagofav('1')" class="btn-o" routerLink="/payment-confirm">
+                Cash payment
+            </button>
+            <br>
+            <br>
+            <button (click)="updatePagofav('2')" class="btn-o" routerLink="/payment-confirm">
+                Credit Card
+            </button>
+            <br>
+            <br>
+            <button (click)="updatePagofav('3')" class="btn-o" routerLink="/payment-confirm">
+                Paypal
+            </button>
+            <br>
+
+        </div>
+    </form>
+    <br>
+    <br>
+    <h3 >
+        Other
+    </h3>
+    <hr size="2px" color="black" style="width: 75%;"/>
+    <br>
+    <a href="/list-card">
+        <button class="btn">
+            My credit card
+        </button>
+    </a>
+    <br>
+    <br>
+    <a href="">
+        <button class="btn">
+            My balance
+        </button>
+    </a>
+</body>

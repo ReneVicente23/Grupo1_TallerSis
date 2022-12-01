@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<body>
+    <BR>
+        <h1 >
+            PAYMENT REPORT
+        </h1>
+        <br>
+        <br>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="text-center">
+                        <th>ID</th>
+                        <th>DELIVERY</th>
+                        <th>NUMBER OF ORDERS</th>
+                        <th>COMPLETED ORDERS</th>
+                        <th>CANCELED ORDERS</th>
+                        <th>TOTAL PAYMENT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let or of order2s;let i= index" class="text-center">
+                        <td>{{or.id}}</td>
+                        <td>{{or.delivery}}</td>
+                        <td>{{or.orders}}</td>
+                        <td>{{or.completed}}</td>
+                        <td>{{or.canceled}}</td>
+                        <td>{{or.totalpay}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+</body>

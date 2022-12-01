@@ -64,4 +64,16 @@ public class User {
     public void setType_user_typeid(Integer type_user_typeid) {
         this.type_user_typeid = type_user_typeid;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id_user=" + id_user +
+                ", name='" + name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", mail='" + mail + '\'' +
+                ", type_user_typeid=" + type_user_typeid +
+                '}';
+    }
 }

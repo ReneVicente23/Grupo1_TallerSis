@@ -1,0 +1,69 @@
+User_type
+
+INSERT INTO type_user (name_rol, description) VALUES ('user','cliente de la aplicacion');
+INSERT INTO type_user (name_rol, description) VALUES ('delivery','repartidor de la aplicacion');
+
+Users (last_name no lo usamos asi que ahi guardo los passwords XD)
+
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('test','lasttest','22212121','test@test.com',1);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('juan paco','lasttest','22212121','juan@test.com',1);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('carlos mario','lasttest','22212121','carlos@test.com',1);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('maria de arco','lasttest','22212121','maria@test.com',1);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('bodoque carlos','lasttest','22212121','bodoque@test.com',1);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('delivery','lasttest','22212121','deli@test.com',2);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('delivery2','lasttest','22212121','deli2@test.com',2);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('deli3','lasttest','22212121','deli3@test.com',2);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('El motos','lasttest','22212121','moto@test.com',2);
+INSERT INTO userapp (name, last_name, phone, mail, type_user_typeid) VALUES ('esteban quito','lasttest','22212121','esteban@test.com',2);
+
+order_status
+
+INSERT INTO order_status (order_status) VALUES ('cancelado');
+INSERT INTO order_status (order_status) VALUES ('en curso');
+INSERT INTO order_status (order_status) VALUES ('pagado');
+
+type_payment
+
+INSERT INTO type_payment (type) VALUES ('cash');
+INSERT INTO type_payment (type) VALUES ('card');
+INSERT INTO type_payment (type) VALUES ('paypal');
+
+Saldoapp
+
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (10000.00, 1);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (0.00, 2);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (100.00, 3);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (1000.00, 4);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (1.00, 5);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (10.00, 6);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (100.00, 7);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (1000.00, 8);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (10000.00, 9);
+INSERT INTO saldoapp (saldo, userapp_id_userapp) VALUES (1.00, 10);
+
+Coordinate
+
+INSERT INTO coordinate (latitude, length) VALUES ('-16.514053','-68.130614');
+INSERT INTO coordinate (latitude, length) VALUES ('-16.513650','-68.134230');
+INSERT INTO coordinate (latitude, length) VALUES ('-16.502685','-68.119727');
+INSERT INTO coordinate (latitude, length) VALUES ('-16.495437','-68.122512');
+INSERT INTO coordinate (latitude, length) VALUES ('-16.500340','-68.122038');
+INSERT INTO coordinate (latitude, length) VALUES ('-16.523315','-68.111984');
+
+User_address
+
+INSERT INTO user_address (address_id_address, coordinate_id_coordinate, userapp_id_userapp,nickname,status) VALUES (1,1,1,'testnick',1);
+INSERT INTO user_address (address_id_address, coordinate_id_coordinate, userapp_id_userapp,nickname,status) VALUES (2,2,2,'casa',1);
+INSERT INTO user_address (address_id_address, coordinate_id_coordinate, userapp_id_userapp,nickname,status) VALUES (3,3,3,'oficina',1);
+INSERT INTO user_address (address_id_address, coordinate_id_coordinate, userapp_id_userapp,nickname,status) VALUES (4,4,4,'megacasa',1);
+INSERT INTO user_address (address_id_address, coordinate_id_coordinate, userapp_id_userapp,nickname,status) VALUES (5,5,5,'testcase',1);
+INSERT INTO user_address (address_id_address, coordinate_id_coordinate, userapp_id_userapp,nickname,status) VALUES (6,6,1,'uni',1);
+
+Pagofav
+INSERT INTO pagofav (type_payment_id_typepay, userapp_id_userapp) VALUES (1,1);
+INSERT INTO pagofav (type_payment_id_typepay, userapp_id_userapp) VALUES (2,2);
+INSERT INTO pagofav (type_payment_id_typepay, userapp_id_userapp) VALUES (1,3);
+
+tarjeta
+INSERT INTO tarjeta (n_tarjeta, caducidad,cvv,titular,userapp_id_userapp) VALUES ('111222333444','03/22',456,'juan paco',1);
+
