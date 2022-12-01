@@ -1,11 +1,14 @@
 package bo.ucb.edu.TallerSis.DAO;
 
 import bo.ucb.edu.TallerSis.DTO.Nick;
+import bo.ucb.edu.TallerSis.DTO.Type_payment;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface User_addressDAO {
@@ -41,4 +44,5 @@ public interface User_addressDAO {
     @Select("SELECT nickname " +
             "FROM user_address WHERE address_id_address= #{id} LIMIT 1")
     public Nick getnick(@Param("id") Integer id);
+
 }

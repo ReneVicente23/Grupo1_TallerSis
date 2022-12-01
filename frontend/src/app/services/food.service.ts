@@ -12,6 +12,8 @@ import { Address } from "../shared/models/Address";
 import { Saldoapp } from "../shared/models/Saldoapp";
 import { Order } from '../shared/models/Order';
 import { Nick } from '../shared/models/Nick';
+import { DataSet } from "../shared/models/DataSet";
+import { DataBuble } from "../shared/models/DataBuble";
 import {sample_tags} from "../../data";
 import {Tag} from "../shared/models/Tag";
 import {HttpClient} from "@angular/common/http";
@@ -145,5 +147,18 @@ export class FoodService {
          }
   gettippago(tipe: string):Observable<TypePayment>{
            return this.http.get<TypePayment>('http://localhost:8080/api/user/pagofav/type/'+tipe);
+      }
+
+
+
+
+  dashpaymentcount():Observable<DataSet[]>{
+       return this.http.get<DataSet[]>('http://localhost:8080/api/dash/metod/pay');
+  }
+  dashsalesmonth():Observable<DataSet[]>{
+         return this.http.get<DataSet[]>('http://localhost:8080/api/dash/sales/month');
+    }
+   bussSales():Observable<DataBuble[]>{
+           return this.http.get<DataBuble[]>('http://localhost:8080/api/dash/sales/buss');
       }
 }
