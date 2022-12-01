@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,8 +23,8 @@ public interface DashboardDAO {
     public Count countmetods(@Param("id") Integer id);
 
     @Select("SELECT COUNT(id_order) " +
-            "FROM \"order\" WHERE order_status_id_order_status=3 AND orderdate between (now() - #{inta}::interval) and (now() - #{intb}::interval); ")
-    public Count countventasmes(@Param("inta") String a,@Param("intb") String b);
+            "FROM \"order\" WHERE order_status_id_order_status=3 AND orderdate < #{inta} AND orderdate > #{intb}; ")
+    public Count countventasmes(@Param("inta") LocalDate a, @Param("intb") LocalDate b);
 
     @Select("SELECT COUNT(p.id_order) " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery JOIN business b ON b.id_business=j.business_id_business WHERE b.id_business = #{id} ")

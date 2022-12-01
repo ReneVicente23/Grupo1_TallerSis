@@ -29,6 +29,11 @@ public class DashboardAPI {
         return dashboardBL.salesmonth();
     }//tested: obtiene los metodso de pago mas usados
 
+    @GetMapping(path="/sales/day", produces = APPLICATION_JSON_VALUE)
+    public List<DataSet> findsaleday() {
+        return dashboardBL.salesday();
+    }//tested: obtiene los metodso de pago mas usados
+
     @GetMapping(path="/sales/buss", produces = APPLICATION_JSON_VALUE)
     public List<DataSet> bussSales() {
         return dashboardBL.bussSales();

@@ -8,6 +8,7 @@ import bo.ucb.edu.TallerSis.DTO.Type_payment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,10 @@ public class DashboardBL {
 
     public List<DataSet> salesmonth(){
         List<DataSet> dt = new ArrayList<DataSet>();
-        for(int i=1;i<=6;i++){
 
-            DataSet ds=new DataSet(i+" month ago",dashboardDAO.countventasmes(i+" year",(i+1)+" year").getCount());
+        for(int i=0;i<6;i++){
+
+            DataSet ds=new DataSet(LocalDate.now().minusMonths(i).getMonth()+"",dashboardDAO.countventasmes(LocalDate.now().minusMonths(i),LocalDate.now().minusMonths(i+1)).getCount());
             dt.add(ds);
         }
         return dt;
@@ -45,6 +47,17 @@ public class DashboardBL {
         List<DataSet> dt = new ArrayList<DataSet>();
         for (Bussines ts: tp){
             DataSet ds=new DataSet(ts.getId_business()+"",dashboardDAO.countbuss(ts.getId_business()).getCount());
+            dt.add(ds);
+        }
+        return dt;
+    }
+
+    public List<DataSet> salesday(){
+        List<DataSet> dt = new ArrayList<DataSet>();
+
+        for(int i=0;i<7;i++){
+
+            DataSet ds=new DataSet(LocalDate.now().minusDays(i).getDayOfWeek()+"",dashboardDAO.countventasmes(LocalDate.now().minusDays(i-1),LocalDate.now().minusDays(i+1)).getCount());
             dt.add(ds);
         }
         return dt;

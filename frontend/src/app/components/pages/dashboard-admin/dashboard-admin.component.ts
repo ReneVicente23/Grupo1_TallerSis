@@ -27,35 +27,7 @@ export class DashboardAdminComponent implements OnInit {
     this.retrieveData1();
      this.retrieveData2();
      this.retrieveData3();
-
-
-
-    var myChart4 = new Chart("myChar4", {
-
-      type: 'line',
-      data:
-        {
-          datasets:
-            [
-              {
-                label: 'Current Vallue',
-                data: [0, 20, 40, 50],
-                backgroundColor: "rgb(115 185 243 / 65%)",
-                borderColor: "#007ee7",
-                fill: true,
-                borderWidth: 10,
-              },
-              {
-                label: 'Invested Amount',
-                data: [0, 20, 40, 60, 80],
-                backgroundColor: "#47a0e8",
-                borderColor: "#007ee7",
-                fill: true,
-              }
-            ],
-            labels: ['January 2019', 'February 2019', 'March 2019', 'April 2019']
-        }
-    });
+     this.retrieveData4();
   }
 
 
@@ -126,8 +98,8 @@ export class DashboardAdminComponent implements OnInit {
                                    'rgba(255, 205, 86, 0.2)',
                                    'rgba(75, 192, 192, 0.2)',
                                    'rgba(54, 162, 235, 0.2)',
-                                   'rgba(153, 102, 255, 0.2)',
-                                   'rgba(201, 203, 207, 0.2)'
+                                   'rgba(153, 102, 255, 0.2)'
+
                                  ],
                                  borderColor: [
                                    'rgb(255, 99, 132)',
@@ -135,15 +107,15 @@ export class DashboardAdminComponent implements OnInit {
                                    'rgb(255, 205, 86)',
                                    'rgb(75, 192, 192)',
                                    'rgb(54, 162, 235)',
-                                   'rgb(153, 102, 255)',
-                                   'rgb(201, 203, 207)'
+                                   'rgb(153, 102, 255)'
+
                                  ],
                                  borderWidth: 1
                                }]
                              },
                            options:
                              {
-                               indexAxis: 'y',
+                               //indexAxis: 'y',
                                scales: {
                                  y: {
                                    beginAtZero: true
@@ -167,7 +139,7 @@ export class DashboardAdminComponent implements OnInit {
                      this.data3.forEach(function(element) {
                         // element['x']=parseInt(element['x']);
                          element['r']=10;
-                         console.log(element);
+                         //console.log(element);
                      });
                      var myChar3 = new Chart("myChar3", {
                            type: 'bubble',
@@ -190,6 +162,40 @@ export class DashboardAdminComponent implements OnInit {
                      console.log(error);
                    });
              }
+
+  retrieveData4(): void {
+                 this.foodService.dashsalesday()
+                   .subscribe(
+                     data => {
+                       this.data4 = data;
+                       console.log(this.data4);
+                       console.log('tabla 4');
+                       //let aux
+                        var myChart4 = new Chart("myChar4", {
+
+                              type: 'line',
+                              data:
+                                {
+                                  datasets:
+                                    [
+                                      {
+                                        label: 'Current Vallue',
+                                        //data: [0, 20, 40, 50],
+                                        data:this.data4,
+                                        backgroundColor: "rgb(115 185 243 / 65%)",
+                                        borderColor: "#007ee7",
+                                        fill: true,
+                                        borderWidth: 10,
+                                      }
+                                    ],
+                                    //labels: ['January 2019', 'February 2019', 'March 2019', 'April 2019']
+                                }
+                            });
+                     },
+                     error => {
+                       console.log(error);
+                     });
+               }
 }
 
 

@@ -158,6 +158,9 @@ export class FoodService {
   dashsalesmonth():Observable<DataSet[]>{
          return this.http.get<DataSet[]>('http://localhost:8080/api/dash/sales/month');
     }
+  dashsalesday():Observable<DataSet[]>{
+           return this.http.get<DataSet[]>('http://localhost:8080/api/dash/sales/day');
+      }
    bussSales():Observable<DataBuble[]>{
            return this.http.get<DataBuble[]>('http://localhost:8080/api/dash/sales/buss');
       }
