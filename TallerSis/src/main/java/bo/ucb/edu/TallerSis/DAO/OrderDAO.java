@@ -107,8 +107,16 @@ public interface OrderDAO {
     public Count countpedidoscompletados(@Param("iduser") Integer id);
 
     @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE p.order_status_id_order_status = 3 ")
+    public Count countpedidoscompletados2();
+
+    @Select("SELECT COUNT(p.id_order) " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} AND p.order_status_id_order_status = 1 ")
     public Count countpedidoscancelados(@Param("iduser") Integer id);
+
+    @Select("SELECT COUNT(p.id_order) " +
+            "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE  p.order_status_id_order_status = 1 ")
+    public Count countpedidoscancelados2();
 
     @Select("SELECT SUM(total_payment) " +
             "FROM \"order\" p JOIN delivery j ON p.delivery_id_delivery = j.id_delivery WHERE j.userapp_id_userapp= #{iduser} AND p.order_status_id_order_status = 3")
