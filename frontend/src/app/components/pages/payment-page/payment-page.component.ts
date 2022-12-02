@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 export class PaymentPageComponent implements OnInit {
 
   order:Order = new Order();
-  constructor(orderService: OrderService, private router: Router, private foodService: FoodService) {
+  constructor(orderService: OrderService, router: Router, private foodService: FoodService) {
     orderService.getNewOrderForCurrentUser().subscribe({
       next: (order) => {
         this.order = order;
@@ -40,19 +40,7 @@ export class PaymentPageComponent implements OnInit {
              //this.toastrService.error(errorResponse.error, 'Cart');
           }
           });
-  }
 
-  pagoepaypal():void{
-      this.foodService.updateordertoPaypal(this.order).subscribe({
-          next:() => {
-            this.router.navigateByUrl('/payment-method');
-            console.log('paso');
-            },
-            error:(errorResponse) => {
-             console.log('error');
-               //this.toastrService.error(errorResponse.error, 'Cart');
-            }
-            });
-    }
+  }
 
 }

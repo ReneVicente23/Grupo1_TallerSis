@@ -65,14 +65,4 @@ public class DeliveryReportBL {
         }
         return lt;
     }
-
-    public Count pedcompletados(){
-        Count ct= orderDAO.countpedidoscompletados2();
-        return ct;
-    }
-
-    public Count pedcancelados(){
-        Count ct= orderDAO.countpedidoscancelados2();
-        return ct;
-    }
 }

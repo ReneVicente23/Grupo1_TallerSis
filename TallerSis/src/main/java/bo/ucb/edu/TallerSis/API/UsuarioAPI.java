@@ -161,16 +161,4 @@ public class UsuarioAPI {
         return res;
     }//OBTIENE EL REPORTE DEL admin-deliverys
 
-    @GetMapping(path="/admin/report/buss/comp", produces = APPLICATION_JSON_VALUE)
-    public Count countped() {
-        Count ct= DeliveryReportBL.pedcompletados();
-        return ct;
-    }//OBTIENE EL REPORTE DEL admin-deliverys
-
-    @GetMapping(path="/admin/report/buss/canc", produces = APPLICATION_JSON_VALUE)
-    public Count countpedc() {
-        Count ct= DeliveryReportBL.pedcancelados();
-        return ct;
-    }//OBTIENE EL REPORTE DEL admin-deliverys
-
 }

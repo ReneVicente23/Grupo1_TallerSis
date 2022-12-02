@@ -148,12 +148,6 @@ export class FoodService {
   gettippago(tipe: string):Observable<TypePayment>{
            return this.http.get<TypePayment>('http://localhost:8080/api/user/pagofav/type/'+tipe);
       }
-   getTotalbusscomp():Observable<Count>{
-          return this.http.get<Count>('http://localhost:8080/api/admin/report/buss/comp');
-        }
-   getTotalbusscanc():Observable<Count>{
-             return this.http.get<Count>('http://localhost:8080/api/admin/report/buss/canc');
-           }
 
 
 
