@@ -21,17 +21,31 @@ export class PaypalButtonComponent implements OnInit {
   @ViewChild('paypal', {static: true})
   paypalElement!:ElementRef;
 
+  order2:Order = new Order();
   constructor(private orderService: OrderService,
               private cartService: CartService,
               private router:Router,
               private toastrService: ToastrService,
-              private foodService: FoodService) { }
+              private foodService: FoodService) {
+                  orderService.getNewOrderForCurrentUser().subscribe({
+                        next: (order) => {
+                          this.order = order;
+                          console.log(order);
+                          console.log('tas aqui');
+                        },
+                        error:() => {
+                          router.navigateByUrl('/chekcout');
+                        }
+                      })
+              }
 
   ngOnInit(): void {
     const self = this;
     paypal
       .Buttons({
         createOrder: (data: any, actions: any) => {
+          console.log('dentro buttons');
+          //this.pagoepaypal();
           return actions.order.create({
             purchase_units: [
               {
@@ -41,9 +55,11 @@ export class PaypalButtonComponent implements OnInit {
               },
             ],
           });
+          this.pagoepaypal();
         },
 
         onApprove: async (data: any, actions: any) => {
+          console.log('dentro de aprove');
           const payment = await actions.order.capture();
           this.order.paymentId = payment.id;
           self.orderService.pay(this.order).subscribe(
@@ -84,4 +100,20 @@ export class PaypalButtonComponent implements OnInit {
 
   }
 
+  pagoepaypal():void{
+        this.foodService.updateordertoPaypal(this.order).subscribe({
+            next:() => {
+            this.toastrService.success(
+                              'Payment Saved Successfully',
+                              'Success'
+                            );
+              this.router.navigateByUrl('');
+              console.log('paso');
+              },
+              error:(errorResponse) => {
+               console.log('error');
+                 //this.toastrService.error(errorResponse.error, 'Cart');
+              }
+              });
+      }
 }
