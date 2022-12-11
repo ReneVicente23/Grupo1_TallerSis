@@ -50,20 +50,20 @@ public class DashboardAPI {
 
     @GetMapping(path="/buss/month", produces = APPLICATION_JSON_VALUE)
     public List<DataSet> monthbusssales(@RequestHeader("access_token") String token) {
-        return dashboardBL.bussSalesmonth(Integer.parseInt(token));
-        //return dashboardBL.bussSalesmonth(135);
+        //return dashboardBL.bussSalesmonth(Integer.parseInt(token));
+        return dashboardBL.bussSalesmonth(135);
     }//tested: OBTIENE metodos de pago mas usados
 
     @GetMapping(path="/buss/day", produces = APPLICATION_JSON_VALUE)
     public List<DataSet> daybusssales(@RequestHeader("access_token") String token) {
-        return dashboardBL.bussSalesday(Integer.parseInt(token));
-        //return dashboardBL.bussSalesday(135);
+        //return dashboardBL.bussSalesday(Integer.parseInt(token));
+        return dashboardBL.bussSalesday(135);
     }//tested: OBTIENE metodos de pago mas usados
 
     @GetMapping(path="/buss/proft", produces = APPLICATION_JSON_VALUE)
     public List<DataSetD> daybusssalescost(@RequestHeader("access_token") String token) {
-        return dashboardBL.profitmonth(Integer.parseInt(token));
-        //return dashboardBL.profitmonth(135);
+        //return dashboardBL.profitmonth(Integer.parseInt(token));
+        return dashboardBL.profitmonth(135);
     }//tested: OBTIENE metodos de pago mas usados
 
     //delivery

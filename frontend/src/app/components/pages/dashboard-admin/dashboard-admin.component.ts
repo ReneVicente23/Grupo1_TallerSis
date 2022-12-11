@@ -135,29 +135,48 @@ export class DashboardAdminComponent implements OnInit {
                      this.data3 = data;
                      console.log(this.data3);
                      console.log('tabla 3');
-                     //let aux
+                     var aux=[0];
+                     var aux2=[''];
                      this.data3.forEach(function(element) {
-                        // element['x']=parseInt(element['x']);
-                         element['r']=10;
-                         //console.log(element);
+                                                   aux.push(element.y);
+                                                   aux2.push(element.x+'');
+                                                   console.log(element);
                      });
+                     //let aux
+                     //this.data3.forEach(function(element) {
+                        // element['x']=parseInt(element['x']);
+                         //element['r']=10;
+                         //console.log(element);
+                     //});
                      var myChar3 = new Chart("myChar3", {
-                           type: 'bubble',
-                           data:
-                             {
-                              //labels: ['Red', 'Blue', 'Yellow'],
-                               datasets:
-                                 [
-                                   {
-                                     label: 'Bussines ID',
-                                    // data: [300, 50, 100],
-                                     data: this.data3,
-                                      backgroundColor: 'rgb(255, 99, 132)'
-                                   }
-                                 ]
-                             }
-                         });
-                   },
+                    type: 'pie',
+
+                    data:
+                      {
+                      labels: aux2,
+                      datasets:
+                      [
+                      {
+                      //label: 'My First Dataset',
+                      data: aux,
+                      //data:this.data3,
+                      backgroundColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 205, 86)',
+                    'rgb(80, 205, 86)',
+                    'rgb(100, 205, 86)',
+                    'rgb(255, 50, 86)',
+                    'rgb(255, 205, 90)'
+                       ],
+                    hoverOffset: 4
+                     }
+                        ]
+                      }
+
+                     });
+
+                    },
                    error => {
                      console.log(error);
                    });

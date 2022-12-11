@@ -32,7 +32,7 @@ public class DashboardBL {
     public List<DataSet> salesmonth(){
         List<DataSet> dt = new ArrayList<DataSet>();
 
-        for(int i=0;i<6;i++){
+        for(int i=6;i>=0;i--){
 
             DataSet ds=new DataSet(LocalDate.now().minusMonths(i).getMonth()+"",dashboardDAO.countventasmes(LocalDate.now().minusMonths(i),LocalDate.now().minusMonths(i+1)).getCount());
             dt.add(ds);
@@ -44,7 +44,7 @@ public class DashboardBL {
         List<Bussines> tp= dashboardDAO.getbussines();
         List<DataSet> dt = new ArrayList<DataSet>();
         for (Bussines ts: tp){
-            DataSet ds=new DataSet(ts.getId_business()+"",dashboardDAO.countbuss(ts.getId_business()).getCount());
+            DataSet ds=new DataSet(ts.getName_business(),dashboardDAO.countbuss(ts.getId_business()).getCount());
             dt.add(ds);
         }
         return dt;
@@ -53,7 +53,7 @@ public class DashboardBL {
     public List<DataSet> salesday(){
         List<DataSet> dt = new ArrayList<DataSet>();
 
-        for(int i=0;i<7;i++){
+        for(int i=6;i>=0;i--){
 
             DataSet ds=new DataSet(LocalDate.now().minusDays(i).getDayOfWeek()+"",dashboardDAO.countventasmes(LocalDate.now().minusDays(i-1),LocalDate.now().minusDays(i+1)).getCount());
             dt.add(ds);
@@ -75,7 +75,7 @@ public class DashboardBL {
     public List<DataSet> bussSalesmonth(Integer id){
         //List<Bussines> tp= dashboardDAO.getbussines();
         List<DataSet> dt = new ArrayList<DataSet>();
-        for (int i=0;i<=7;i++){
+        for (int i=6;i>=0;i--){
             DataSet ds=new DataSet(LocalDate.now().plusDays(1).minusMonths(i).getMonth()+"",dashboardDAO.countventasmesbss(id,LocalDate.now().minusMonths(i),LocalDate.now().minusMonths(i+1)).getCount());
             dt.add(ds);
         }
@@ -85,7 +85,7 @@ public class DashboardBL {
     public List<DataSet> bussSalesday(Integer id){
         //List<Bussines> tp= dashboardDAO.getbussines();
         List<DataSet> dt = new ArrayList<DataSet>();
-        for (int i=0;i<=7;i++){
+        for (int i=6;i>=0;i--){
             DataSet ds=new DataSet(LocalDate.now().minusDays(i).getDayOfWeek()+"",dashboardDAO.countventasmesbss(id,LocalDate.now().minusDays(i-1),LocalDate.now().minusDays(i+1)).getCount());
             dt.add(ds);
         }
@@ -95,7 +95,7 @@ public class DashboardBL {
     public List<DataSetD> profitmonth(Integer id){
         //List<Bussines> tp= dashboardDAO.getbussines();
         List<DataSetD> dt = new ArrayList<DataSetD>();
-        for (int i=0;i<=7;i++){
+        for (int i=6;i>=0;i--){
             DataSetD ds;
             try{
                 ds=new DataSetD(LocalDate.now().minusDays(i).getDayOfWeek()+"",dashboardDAO.sumpricesales(id,LocalDate.now().minusDays(i-1),LocalDate.now().minusDays(i+1)).getCost());
@@ -112,7 +112,7 @@ public class DashboardBL {
     public List<DataSet> delimonth(Integer id){
         //List<Bussines> tp= dashboardDAO.getbussines();
         List<DataSet> dt = new ArrayList<DataSet>();
-        for (int i=0;i<=7;i++){
+        for (int i=6;i>=0;i--){
             DataSet ds=new DataSet(LocalDate.now().plusDays(1).minusMonths(i).getMonth()+"",dashboardDAO.countdeli(id,LocalDate.now().minusMonths(i),LocalDate.now().minusMonths(i+1)).getCount());
             dt.add(ds);
         }
@@ -133,8 +133,8 @@ public class DashboardBL {
     public List<DataSet> deliday(Integer id){
         //List<Bussines> tp= dashboardDAO.getbussines();
         List<DataSet> dt = new ArrayList<DataSet>();
-        for (int i=0;i<=7;i++){
-            DataSet ds=new DataSet(LocalDate.now().minusDays(i).getDayOfWeek()+"",dashboardDAO.countdeli(id,LocalDate.now().minusDays(i-1),LocalDate.now().minusDays(i+1)).getCount());
+        for (int i=6;i>=0;i--){
+            DataSet ds=new DataSet(LocalDate.now().minusDays(i)+"",dashboardDAO.countdeli(id,LocalDate.now().minusDays(i-1),LocalDate.now().minusDays(i+1)).getCount());
             dt.add(ds);
         }
         return dt;

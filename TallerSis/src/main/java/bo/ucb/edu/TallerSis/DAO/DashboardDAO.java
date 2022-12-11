@@ -43,7 +43,7 @@ public interface DashboardDAO {
     public Count productscount(@Param("id") Integer id);
 
     @Select("SELECT COUNT(o.id_order) " +
-            "FROM \"order\" o JOIN delivery d ON o.delivery_id_delivery= d.id_delivery WHERE d.business_id_business=#{id} AND o.order_status_id_order_status=3 AND o.orderdate < #{inta} AND orderdate > #{intb}; ")
+            "FROM \"order\" o JOIN order_details d ON o.id_order= d.order_id_order JOIN dish j ON j.id_dish = d.dish_id_dish WHERE j.business_id_business=#{id} AND o.order_status_id_order_status=3 AND o.orderdate <= #{inta} AND orderdate >= #{intb}; ")
     public Count countventasmesbss(@Param("id") Integer id,@Param("inta") LocalDate a, @Param("intb") LocalDate b);
 
     @Select("SELECT SUM(o.total_payment) " +
