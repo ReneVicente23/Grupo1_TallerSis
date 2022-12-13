@@ -89,7 +89,7 @@ export class DashboardAdminComponent implements OnInit {
                              {
                                //labels: ["January", "Februrary", "March", "April", "June", "July", "August"],
                                datasets: [{
-                                 label: 'My First Dataset',
+                                 label: 'Sales',
                                  //data: [65, 59, 80, 81, 56, 55, 40],
                                  data: this.data2,
                                  backgroundColor: [
