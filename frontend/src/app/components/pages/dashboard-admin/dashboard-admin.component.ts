@@ -115,6 +115,11 @@ export class DashboardAdminComponent implements OnInit {
                              },
                            options:
                              {
+                              plugins:{
+                                legend: {
+                                 display: false
+                                }
+                               },
                                //indexAxis: 'y',
                                scales: {
                                  y: {
@@ -198,7 +203,7 @@ export class DashboardAdminComponent implements OnInit {
                                   datasets:
                                     [
                                       {
-                                        label: 'Current Vallue',
+                                        label: 'Total order',
                                         //data: [0, 20, 40, 50],
                                         data:this.data4,
                                         backgroundColor: "rgb(115 185 243 / 65%)",
