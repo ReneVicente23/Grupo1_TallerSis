@@ -58,6 +58,11 @@ export class DashboardBusinessComponent implements OnInit {
                             },
                           options:
                             {
+                              plugins:{
+                                legend: {
+                                 display: false
+                                }
+                               },
                               scales: {
                                 y: {
                                   beginAtZero: true
@@ -113,6 +118,11 @@ export class DashboardBusinessComponent implements OnInit {
                               },
                             options:
                               {
+                                plugins:{
+                                  legend: {
+                                   display: false
+                                  }
+                                 },
                                 //indexAxis: 'y',
                                 scales: {
                                   y: {
