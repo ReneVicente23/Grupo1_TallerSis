@@ -70,6 +70,11 @@ export class DashboardDeliveryComponent implements OnInit {
                               },
                             options:
                               {
+                                plugins:{
+                                  legend: {
+                                   display: false
+                                  }
+                                 },
                                 //indexAxis: 'y',
                                 scales: {
                                   y: {
@@ -142,7 +147,7 @@ export class DashboardDeliveryComponent implements OnInit {
                                   datasets:
                                     [
                                       {
-                                        label: 'Current Vallue',
+                                        label: 'Total orders',
                                         //data: [0, 20, 40, 50],
                                         data:this.data3,
                                         backgroundColor: "rgb(115 185 243 / 65%)",
