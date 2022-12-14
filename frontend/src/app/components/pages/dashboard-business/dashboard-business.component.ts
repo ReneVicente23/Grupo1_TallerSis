@@ -207,6 +207,7 @@ export class DashboardBusinessComponent implements OnInit {
                                       fill: true,
                                       borderWidth: 5,
                                     },
+                                    /*
                                     {
                                       label: 'Cost',
                                       //data: [0, 20, 40, 60, 80],
@@ -215,6 +216,7 @@ export class DashboardBusinessComponent implements OnInit {
                                       borderColor: "#007ee7",
                                       fill: true,
                                     }
+                                    */
                                   ],
                                   //labels: ['January 2019', 'February 2019', 'March 2019', 'April 2019']
                               }

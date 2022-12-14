@@ -111,7 +111,7 @@ export class DashboardDeliveryComponent implements OnInit {
                                   datasets:
                                     [
                                       {
-                                        label: 'My First Dataset',
+                                        label: 'Orders: ',
                                         data: aux,
                                         backgroundColor: [
                                           'rgb(255, 99, 132)',
